@@ -102,6 +102,22 @@ router.get('/:user_id', (req, res) => {
         }, err => console.log(err))
 })
 
+router.delete('/:user_id', (req, res) => {
+    User.findOneAndRemove(req.params.user_id)
+        .then(user => {
+            res.json(user)
+        }, err => console.log(err))
+})
+
+router.patch('/:user_id', (req, res) => {
+    const filter ={ _id: req.params.user_id };
+    const update = req.body
+    User.findOneAndUpdate(filter, update)
+        .then(user => {
+            res.json(user)
+        }, err => console.log(err))
+})
+
 //PRIVATE AUTH ROUTE
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
     res.json({
