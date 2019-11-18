@@ -95,12 +95,12 @@ router.post("/login", (req, res) => {
         })
 })
 
-// router.get('/userId', (req, res) => {
-//     User.findOne(req.params.id)
-//         .then(user => {
-//             return user
-//         }, err => console.log(err))
-// })
+router.get('/:user_id', (req, res) => {
+    User.findById(req.params.user_id)
+        .then(user => {
+            res.json(user)
+        }, err => console.log(err))
+})
 
 //PRIVATE AUTH ROUTE
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
