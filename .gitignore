@@ -1,7 +1,3 @@
 node_modules
 frontend/node_modules
-<<<<<<< HEAD
-/config/keys.js
-=======
 config/
->>>>>>> master
