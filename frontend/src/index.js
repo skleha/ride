@@ -5,8 +5,6 @@ import Root from './root';
 import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
-import { logout, login, signup, logoutUser } from './actions/session_actions';
-import { fetchUser, updateUser, deleteUser } from './actions/user_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
     let store; 
@@ -25,14 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
         store = configureStore({});
     }
     
-    window.dispatch = store.dispatch;
-    window.getState = store.getState;
-    window.signup = signup;
-    window.login = login;
-    window.logoutUser = logoutUser;
-    window.fetchUser = fetchUser;
-    window.updateUser = updateUser;
-    window.deleteUser = deleteUser;
+    // WINDOW TESTING GOES HERE
+
+    // END OF WINDOW TESTING
 
     ReactDOM.render(<Root store={store} />, document.getElementById('root'));
 })

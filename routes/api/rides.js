@@ -26,8 +26,9 @@ router.get('/:ride_id', (req, res) => {
 
 
 router.post('/', (req, res) => {
-  
+
   const { errors, isValid } = validateRideInput(req.body);
+  
     if (!isValid) {
       return res.status(400).json(errors);
   }
@@ -35,10 +36,10 @@ router.post('/', (req, res) => {
   const newRide = new Ride({
     title: req.body.title,
     author_id: req.body.author_id,
-    author_rating: parseInt(req.body.author_rating),
-    waypoints: JSON.parse(req.body.waypoints),
+    author_rating: req.body.author_rating,
+    waypoints: req.body.waypoints,
     description: req.body.description,
-    duration: req.body.duration,
+    duration: req.body.duration
   })
 
   newRide.save()
@@ -50,17 +51,7 @@ router.post('/', (req, res) => {
 
 router.patch('/:ride_id', (req, res) => {
   const filter = { _id: req.params.ride_id };
-  const update = {}
-  
-  for (key in req.body) {
-    if (key === "waypoints") {
-      update[key] = JSON.parse(req.body[key]);
-    } else if (key === "author_rating") {
-      update[key] = parseInt(req.body[key]);
-    } else {
-      update[key] = req.body[key];
-    }
-  }
+  const update = req.body
   
   Ride.findOneAndUpdate(filter, update, { new: true })
     .then(
@@ -74,8 +65,7 @@ router.patch('/:ride_id', (req, res) => {
 
 router.patch("/:ride_id/addwaypoint", (req, res) => {  
   const filter = { _id: req.params.ride_id };
-  const waypoint = JSON.parse(req.body.new_waypoint);
-  const update = { $addToSet: { waypoints: waypoint } };
+  const update = { $addToSet: { waypoints: req.body.new_waypoint } };
   
   Ride.findOneAndUpdate(filter, update, { new: true }).then(
     ride => {
