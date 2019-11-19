@@ -11,7 +11,7 @@ const RideSchema = new Schema({
     required: true,
   },
   author_id: {
-    type: Number
+    type: String
   },
   description: {
     type: String,

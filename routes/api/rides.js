@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Ride = require("../../models/Ride");
-const validateRideInput = require('../../validation/ride');
+const validateRideInput = require('../../validation/ride_validations');
 
 
 router.get('/', (req, res) => {
@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
   
   const newRide = new Ride({
     title: req.body.title,
-    author_id: parseInt(req.body.author_id),
+    author_id: req.body.author_id,
     author_rating: parseInt(req.body.author_rating),
     waypoints: JSON.parse(req.body.waypoints),
     description: req.body.description,
@@ -55,7 +55,7 @@ router.patch('/:ride_id', (req, res) => {
   for (key in req.body) {
     if (key === "waypoints") {
       update[key] = JSON.parse(req.body[key]);
-    } else if (key === "author_id" || key === "author_rating") {
+    } else if (key === "author_rating") {
       update[key] = parseInt(req.body[key]);
     } else {
       update[key] = req.body[key];
