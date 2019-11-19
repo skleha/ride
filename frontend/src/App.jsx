@@ -7,6 +7,8 @@ import './css/footer.css'
 import './css/navbar.css'
 import './css/splash.scss'
 import './css/modal.css'
+import './css/sigupform.css'
+import './css/login.css'
 
 import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
 

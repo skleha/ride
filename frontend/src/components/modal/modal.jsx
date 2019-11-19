@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 // import CommentPostContainer from "../comment/comment_post_container";
 // import LoginFormContainer from '../session_form/login_form_container';
 import SignUpContainer from "../signupForm/signupForm_container";
+import LogInContainer from "../loginForm/loginForm_container"
 
 function Modal({ modal, content, closeModal }) {
   if (!modal) {
@@ -17,14 +18,14 @@ function Modal({ modal, content, closeModal }) {
     case "signupUser":
       component = <SignUpContainer />;
       break;
-    case "postingModal":
-    //   component = <PostingModalContainer />;
+    case "loginUser":
+        component = <LogInContainer />;
       break;
     case "showContent":
-    //   component = <ShowContent content={content} />;
+      //   component = <ShowContent content={content} />;
       break;
     case "postComment":
-    //   component = <CommentPostContainer content={content} />;
+      //   component = <CommentPostContainer content={content} />;
       break;
     // case 'signup':
     //   component = <SignupFormContainer />;

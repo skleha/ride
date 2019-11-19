@@ -16,7 +16,7 @@
     transform: translate(-50%, -50%);
     width: 50%;
     height:50%;
-    background-color: linen;
+    /* background-color: linen; */
     display:flexbox;
     flex-direction: column;
     border-radius:15px;

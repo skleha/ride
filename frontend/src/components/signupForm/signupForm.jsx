@@ -60,7 +60,7 @@ class SignupForm extends React.Component {
               value={this.state.username}
               onChange={this.update("username")}
               className="signup-login"
-              placeholder="Usernname"
+              placeholder="Username"
             />
           </label>
           <label className="passwordFieldContainer signupFC">
