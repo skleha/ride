@@ -5,8 +5,8 @@ const User = require('../../models/User');
 const jwt = require("jsonwebtoken");
 const keys = require('../../config/keys');
 const passport = require('passport');
-const validateRegisterInput = require('../../validation/register');
-const validateLoginInput = require('../../validation/login');
+const validateRegisterInput = require('../../validation/register_validations');
+const validateLoginInput = require('../../validation/login_validations');
 
 
 router.post("/register", (req, res) => {
@@ -119,6 +119,7 @@ router.patch('/:user_id', (req, res) => {
         .then(user => (res.json(user)))       
         .catch(err => res.status(400).json({ user: "Failed to update" }))
 })
+
 
 //PRIVATE AUTH ROUTE
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
