@@ -103,7 +103,6 @@ router.get('/:user_id', (req, res) => {
 })
 
 router.delete('/:user_id', (req, res) => {
-    debugger
     User.findOneAndDelete(req.params.user_id)
         .then(user => {
             res.json(user)
