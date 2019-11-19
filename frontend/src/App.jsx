@@ -1,5 +1,12 @@
 import React from "react";
 import './App.css'
+
+//import css
+
+import './css/footer.css'
+import './css/navbar.css'
+import './css/splash.scss'
+
 import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
 
 // import SignUpFormContainer from "./session_form/signup_form_container";
@@ -24,7 +31,10 @@ class App extends React.Component {
 
    
     
-      backgroundImage = { backgroundImage: "url(/giphy.gif)" };
+      backgroundImage = {
+        backgroundImage:
+          "url(https://66.media.tumblr.com/9e4176a7e3ba14fe8f5d314e1460fb17/tumblr_mhu37w9yUf1r3d8abo1_r1_500.gifv)"
+      };
       setting = "withBackgroundImage";
     
 
