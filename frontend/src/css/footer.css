@@ -1,0 +1,13 @@
+.main-footer{
+
+  position: fixed;
+  height: 20px;
+  bottom: 0px;
+  width: 100%;
+  border-top-color: 3px solid blue;
+ background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,12,1) 14%, rgba(113,6,7,1) 32%, rgba(255,0,0,1) 46%, rgba(27,2,2,1) 69%, rgba(122,0,0,1) 97%);
+  z-index:2;
+  text-emphasis-color: white;
+
+}
