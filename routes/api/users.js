@@ -5,8 +5,8 @@ const User = require('../../models/User');
 const jwt = require("jsonwebtoken");
 const keys = require('../../config/keys');
 const passport = require('passport');
-const validateRegisterInput = require('../../validation/register');
-const validateLoginInput = require('../../validation/login');
+const validateRegisterInput = require('../../validation/register_validations');
+const validateLoginInput = require('../../validation/login_validations');
 
 
 router.post("/register", (req, res) => {
@@ -111,12 +111,14 @@ router.delete('/:user_id', (req, res) => {
 
 router.patch('/:user_id', (req, res) => {
     const filter ={ _id: req.params.user_id };
-    const update = req.body
+    const update = req.body;
+
     User.findOneAndUpdate(filter, update)
         .then(user => {
             res.json(user)
         }, err => console.log(err))
 })
+
 
 //PRIVATE AUTH ROUTE
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
