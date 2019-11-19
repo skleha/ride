@@ -4,7 +4,7 @@ class loginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      email: "",
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,10 +36,10 @@ class loginForm extends React.Component {
   }
 
   handleDemo(e) {
-    let user = "DemoUser";
+    let user = "DemoUser1@demo.com";
     let pass = "password";
 
-    this.setState({ username: "", password: "" }, () =>
+    this.setState({ email: "", password: "" }, () =>
       this.demoLogin(user, pass)
     );
   }
@@ -50,7 +50,7 @@ class loginForm extends React.Component {
     const _demoUser = user => {
       if (user.length > 0) {
         let char = user.shift();
-        this.setState({ username: this.state.username + char }, () =>
+        this.setState({ email: this.state.email + char }, () =>
           setTimeout(() => {
             _demoUser(user);
           }, 50)
@@ -84,22 +84,21 @@ class loginForm extends React.Component {
   render() {
     return (
       <div className="login-form-container signup-form-container">
-        <div
-          className="DemoUserLogin"
-          onClick={this.handleDemo}
-        >
+        <div className="DemoUserLogin" onClick={this.handleDemo}>
           <button>Demo User Login</button>
         </div>
+        
         <form onSubmit={this.handleSubmit} className="login-form-box">
           {this.renderErrors()}
+
           <div className="login-form">
             <label className="loginInputContainer ">
               <input
                 type="text"
-                value={this.state.username}
-                onChange={this.update("username")}
+                value={this.state.email}
+                onChange={this.update("email")}
                 className="login-input"
-                placeholder="Username"
+                placeholder="Email"
               />
             </label>
 

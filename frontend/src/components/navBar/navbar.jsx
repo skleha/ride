@@ -13,7 +13,7 @@ class Navbar extends React.Component {
     let pathWay = "";
     let buttonDisplay = "";
     let bottomBorder = "";
-    let logoutBotton = null;
+    let animation= "bouncy"
 
     let button1 = (
       <h4 onClick={() => this.props.activateModal("signupUser", null)}>
@@ -28,33 +28,41 @@ class Navbar extends React.Component {
     let button3 = "";
     let button4 = "";
 
-    // switch (this.props.currentUser) {
-    //   case null:
-    //     button1 = <h4>SIGN UP</h4>;
-    //     button2 = <h4>LOG IN</h4>;
-    //     break;
-
-    //   default:
-    //     button1 = <h4>Log Out</h4>;
-    //     button2 = <h4>Setting</h4>;
-    //     break;
-    // }
+    switch (this.props.signedIn) {
+      case true:
+         button1 = (
+           <h4 onClick={() => this.props.logout()}>
+             Log Out
+           </h4>
+         );
+         button2 = <h4>Setting</h4>;
+         animation = ''
+        break;
+    }
     
     return (
       <div className={`NavBarMain ${bottomBorder ? "MainNavDashboard" : ""}`}>
         <div className="LeftNav">
           <div className="MainIcon">
-            <Link className="logo bouncy" to="/">
+            <Link
+              className={`logo ${animation ? "bouncy" : ""}`}
+              to="/"
+            >
               RIDE
             </Link>
           </div>
+
           {/* <div className="SearchBar">
                         <input className="SearchBarText" type= "text" placeholder="Not Functioning Search"></input>
                     </div> */}
         </div>
         <div className="RightNav">
-          <div className="PostButtonContainer bouncy">{button1}</div>
-          <div className="MenuButtonContainer bouncy">{button2}</div>
+          <div className={`PostButtonContainer ${animation ? "bouncy" : ""}`}>
+            {button1}
+          </div>
+          <div className={`MenuButtonContainer ${animation ? "bouncy" : ""}`}>
+            {button2}
+          </div>
           <div className="LightingButtonContainer">{button3}</div>
           <div className="HomeButtonCotainer">{button4}</div>
         </div>
