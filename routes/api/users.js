@@ -21,7 +21,7 @@ router.post("/register", (req, res) => {
                 .then( User.findOne({ username: req.body.username }) 
                 .then(user => { 
                     if (user) {
-                        return res.status(400).json({ email: "A user has already registered with this username." })
+                        return res.status(400).json({ username: "A user has already registered with this username." })
                     }
                 }))
             } else {
@@ -96,27 +96,28 @@ router.post("/login", (req, res) => {
 
 router.get('/:user_id', (req, res) => {
     User.findById(req.params.user_id)
-        .then(user => {
-    
-            res.json({ id: user._doc._id, username: user._doc.username, email: user._doc.email });
-        }, err => console.log(err))
+        .then(user => (res.json({ id: user._doc._id, username: user._doc.username, email: user._doc.email })))
+        .catch(err => (res.status(404).json({ user: "User doesn't exist."})))
 })
 
-router.delete('/:user_id', (req, res) => {
-    User.findByIdAndDelete(req.params.user_id)
-        .then(user => {
-            res.json(user)
-        }, err => console.log(err))
+router.delete('/:user_id', (req, res) => {    
+    User.findById(req.params.user_id)
+      .then(user => {   
+          User.deleteOne({ email: user._doc.email})
+            .then( user => {
+                res.json({msg: 'deleted'})
+            })
+        })
+      .catch(err => res.status(404).json({ user: "User doesn't exist" }));
+    
 })
 
 router.patch('/:user_id', (req, res) => {
     const filter ={ _id: req.params.user_id };
-    const update = req.body;
-
-    User.findOneAndUpdate(filter, update)
-        .then(user => {
-            res.json(user)
-        }, err => console.log(err))
+    const update = req.body
+    User.findOneAndUpdate(filter, update, {new: true})
+        .then(user => (res.json(user)))       
+        .catch(err => res.status(400).json({ user: "Failed to update" }))
 })
 
 
