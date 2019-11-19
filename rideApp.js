@@ -7,6 +7,7 @@ const passport = require('passport');
 
 const users = require("./routes/api/users");
 const rides = require("./routes/api/rides");
+const reviews = require('./routes/api/reviews')
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -20,6 +21,7 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 app.use("/api/users", users);
 app.use("/api/rides", rides);
+app.use("/api/reviews", reviews);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
