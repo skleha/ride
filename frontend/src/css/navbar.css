@@ -1,0 +1,177 @@
+.NavBarMain {
+    position: fixed;
+    height:60px;
+    width: 100%;
+
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,12,1) 12%, rgba(113,6,7,1) 25%, rgba(101,50,50,1) 46%, rgba(27,2,2,1) 77%, rgba(122,0,0,1) 97%);
+    display: flex;
+    align-items: stretch;
+    align-items: baseline;
+    flex-direction: row;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    z-index: 10;
+
+
+   
+}
+
+.NavBarMain>*{
+    top:1%;
+}
+
+
+.MainNavDashboard{
+    border-bottom: rgba(241, 240, 236, .7);;
+    border-style: solid;
+    border-bottom-width: 1px;
+  
+}
+  
+.LeftNav{
+    position: absolute;;
+    top:7px;
+    flex-basis:auto;
+    display: flex;
+    align-items: stretch;
+    align-items: baseline;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+}
+
+.MainIcon {
+    width:70px;
+    display: flex;
+    align-items: baseline;
+
+}
+
+.MainIcon .logo{
+    margin-left: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 50px;
+    height:auto;
+    font-family: 'Roboto', sans-serif;
+}
+/* 
+// .SearchBar{
+//     left:300px;
+//     width:20%
+    
+// }
+
+// .SearchBarText{
+//     left:20px;
+//     width:650%;
+//     height:25px;
+//     opacity:.5;
+//     border-radius: 3px;
+//     background:whitesmoke;
+// } */
+
+
+
+.RightNav{
+    position: fixed;
+    margin-left:55%;
+    flex-basis:auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    flex-direction: row-reverse;
+    align-content: center;
+    align-items: center;
+    text-decoration: none;
+    z-index: 11;
+}
+
+
+.LeftNav>*>*:hover{
+    box-shadow: none;
+}
+
+.logo{
+    color: white;
+}
+
+.logo:hover{
+    
+        background: linear-gradient(to right, #ce3232, #c7b5b8 , #e64f4f, #a89aa1, #c88558);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: rainbow_animation 2s ease-in-out infinite;
+        background-size: 400% 100%;
+    }
+    
+@keyframes rainbow_animation {
+    0%,100% {
+        background-position: 0 0;
+    }
+    
+    50% {
+        background-position: 100% 0;
+        }
+}
+
+
+
+
+.RightNav>*{
+    position: relative;
+    margin-top:4px;
+    margin-left: 2%;
+    display:flex;
+    width:120px;
+    height:45px;
+    align-content: center;
+    align-items: center;
+    border:1px;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    opacity: .8;
+}
+
+.RightNav>*>*{
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    border-radius: .12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight:300;
+    color:#FFFFFF;
+    text-align:center;
+    transition: all 0.2s;
+ 
+}
+
+.RightNav>*>*:hover{
+    color: #000000;
+    background-color:#FFFFFF
+}
+
+
+.bouncy{
+    animation:bouncy 5s infinite linear;
+    position: relative;
+}
+
+@keyframes bouncy {
+    0%{top:0em}
+    40%{top:0em}
+    43%{top:-0.3em}
+    46%{top:0em}
+    48%{top:-0.5em}
+    50%{top:0em}
+    54%{top:-0.2em}
+    100%{top:0em;}
+}
+
+

@@ -1,0 +1,94 @@
+
+.signup-form-box{
+    position: fixed;
+    top: 2vh;
+    left: 5vw;
+    text-align:center;
+    height:50vh;
+    width: 50vw;
+    z-index: 2;
+    background-color: gray;
+    text-emphasis-color: dark-gray;
+    background: rgba(45, 3, 3, 0.9);
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    border-radius: 5px;
+};
+
+.signup-form-box>*{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+}
+/* .signup-form-box>*>*{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+} */
+
+.signup-login{
+
+    
+    height:37px;
+    width: 180%;
+    opacity: .8;
+    background-color:whitesmoke;
+    border-radius: 5px;
+};
+
+.signupFC{
+   
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+
+
+
+   
+};
+.signupFC>*{
+    text-align: center;
+    align-items: center;
+}
+
+
+.session-submit{
+    position: relative;
+    box-shadow: 1px 1px 2px #888888;
+    width: 300px;
+    height:45px;
+    background-color:rgba(184, 7, 69, 0.865);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    opacity: 1;
+    border-radius: 5px;
+    color:white;
+    font-size: 18px;
+    text-decoration: none;
+    border:none;
+}
+
+.session-submit:hover{
+
+    box-shadow: 10px 10px 10px #888888;
+    bottom:4px;
+}
+
+.signup-form-box label{
+    display:flex;
+    justify-content: center;
+    width: 53%;
+}
