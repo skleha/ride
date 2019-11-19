@@ -10,7 +10,7 @@
     align-items: baseline;
     flex-direction: row;
     box-sizing: border-box;
-    font-family: "Bookman Old Style";
+    font-family: 'Roboto', sans-serif;
     z-index: 10;
 
 
@@ -54,7 +54,7 @@
     text-decoration: none;
     font-size: 50px;
     height:auto;
-    font-family: "Bookman Old Style";
+    font-family: 'Roboto', sans-serif;
 }
 /* 
 // .SearchBar{
@@ -93,9 +93,13 @@
     box-shadow: none;
 }
 
+.logo{
+    color: white;
+}
+
 .logo:hover{
     
-        background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
+        background: linear-gradient(to right, #ce3232, #c7b5b8 , #e64f4f, #a89aa1, #c88558);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;

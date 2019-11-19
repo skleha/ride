@@ -6,6 +6,9 @@ import './App.css'
 import './css/footer.css'
 import './css/navbar.css'
 import './css/splash.scss'
+import './css/modal.css'
+import './css/sigupform.css'
+import './css/login.css'
 
 import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
 
@@ -15,7 +18,7 @@ import { AuthRoute, ProtectedRoute } from "./util/route_util";
 import SplashContainer from "./components/splash/splash_container";
 // import DashboardContainer from "./dashboard/dashboard_container";
 import NavbarContainer from "./components/navBar/navbar_container";
-// import Modal from "./modal/modal";
+import Modal from "./components/modal/modal";
 
 
 class App extends React.Component {
@@ -40,7 +43,7 @@ class App extends React.Component {
 
     return (
       <div className="MAIN">
-        {/* <Modal /> */}
+        <Modal />
         <header className="main-header">
           <NavbarContainer />
         </header>
