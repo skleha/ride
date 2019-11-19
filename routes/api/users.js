@@ -97,12 +97,14 @@ router.post("/login", (req, res) => {
 router.get('/:user_id', (req, res) => {
     User.findById(req.params.user_id)
         .then(user => {
-            res.json(user)
+    
+            res.json({ id: user._doc._id, username: user._doc.username, email: user._doc.email });
         }, err => console.log(err))
 })
 
 router.delete('/:user_id', (req, res) => {
-    User.findOneAndRemove(req.params.user_id)
+    debugger
+    User.findOneAndDelete(req.params.user_id)
         .then(user => {
             res.json(user)
         }, err => console.log(err))
