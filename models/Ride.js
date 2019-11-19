@@ -21,9 +21,6 @@ const RideSchema = new Schema({
   },
   author_rating: {
     type: Number
-  },
-  user_ratings: {
-    type: Array
   }
 });
 
