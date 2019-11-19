@@ -1,22 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
-import Root from "./root";
-import configureStore from "./store/store";
-import * as serviceWorker from './serviceWorker';
+import Root from './root';
+import configureStore from './store/store';
+import jwt_decode from 'jwt-decode';
+import { setAuthToken } from './util/session_api_util';
+import { logout, signup } from './actions/session_actions';
+import { fetchUser, updateUser, deleteUser } from './actions/user_actions';
 
+document.addEventListener('DOMContentLoaded', () => {
+    let store; 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const rootEl = document.getElementById("root");
-  let store = configureStore();
+    if (localStorage.jwtToken) {
+        setAuthToken(localStorage.jwtToken);
+        const decodedUser = jwt_decode(localStorage.jwtToken);
+        const preloadedState = { session: { isAuthenticated: true, user: decodedUser } };
+        store = configureStore(preloadedState);
+        const currentTime = Date.now() / 1000;
+        if (decodedUser.exp < currentTime) {
+            store.dispatch(logout());
+            window.location.href = '/login';
+        }
+    } else {
+        store = configureStore({});
+    }
+    
+    window.dispatch = store.dispatch;
+    window.getState = store.getState;
+    window.signup = signup;
+    window.fetchUser = fetchUser;
+    window.updateUser = updateUser;
+    window.deleteUser = deleteUser;
 
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
+    ReactDOM.render(<Root store={store} />, document.getElementById('root'));
+})
 
-  ReactDOM.render(<Root store={store} />, rootEl);
-}); 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
