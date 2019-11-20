@@ -20,12 +20,17 @@ class Navbar extends React.Component {
         SIGN UP
       </h4>
     );
+    
     let button2 = (
       <h4 onClick={() => this.props.activateModal("loginUser", null)}>
         LOG IN 
         </h4>
       );
-    let button3 = "";
+    let button3 = (
+      <h4 onClick={() => this.props.activateModal("postReview", null)}>
+        Review
+        </h4>
+    );
     let button4 = "";
 
     switch (this.props.signedIn) {

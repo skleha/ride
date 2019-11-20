@@ -6,7 +6,7 @@ const UserErrorsReducer = (state = _nullErrors, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_USER_ERRORS:
-      return action.errors.response.data;
+      return Object.values(action.errors)
     default:
       return state;
   }

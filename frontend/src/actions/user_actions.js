@@ -22,12 +22,12 @@ const receiveUserErrors = errors => ({
 
 export const fetchUser = userId => dispatch => APIUtil.fetchUser(userId)
     .then( user => dispatch(receiveUser(user.data)),
-        errors =>  dispatch(receiveUserErrors(errors)))
+        errors => dispatch(receiveUserErrors(errors.response.data)))
 
 export const updateUser = req => dispatch => APIUtil.updateUser(req)
     .then( user => dispatch(receiveUser(user.data)),
-    errors => dispatch(receiveUserErrors(errors)))
+        errors => dispatch(receiveUserErrors(errors.response.data)))
 
 export const deleteUser = userId => dispatch => APIUtil.deleteUser(userId)
     .then( () => dispatch(removeUser(userId)), 
-        errors =>  dispatch(receiveUserErrors(errors)))
+        errors => dispatch(receiveUserErrors(errors.response.data)))
