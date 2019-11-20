@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // WINDOW TESTING GOES HERE
     window.getState = store.getState;
     window.dispatch = store.dispatch;
+
     window.fetchRides = fetchRides;
     window.fetchRide = fetchRide;
     window.createRide = createRide;
