@@ -6,7 +6,7 @@ import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from "./actions/session_actions";
-
+import { fetchRides, fetchRide, createRide, updateRide, deleteRide } from './actions/ride_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
     let store; 
@@ -26,8 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // WINDOW TESTING GOES HERE
-
-
+    window.getState = store.getState;
+    window.dispatch = store.dispatch;
+    window.fetchRides = fetchRides;
+    window.fetchRide = fetchRide;
+    window.createRide = createRide;
+    window.updateRide = updateRide;
+    window.deleteRide = deleteRide;
     // END OF WINDOW TESTING
 
     ReactDOM.render(<Root store={store} />, document.getElementById('root'));

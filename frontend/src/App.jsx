@@ -19,6 +19,7 @@ import SplashContainer from "./components/splash/splash_container";
 // import DashboardContainer from "./dashboard/dashboard_container";
 import NavbarContainer from "./components/navBar/navbar_container";
 import Modal from "./components/modal/modal";
+import RideIndexContainer from "./components/rideIndex/RideIndexContainer";
 
 
 class App extends React.Component {
