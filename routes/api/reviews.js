@@ -50,8 +50,8 @@ router.post("/",(req, res) => {
 
 router.delete('/:review_id', (req, res)=> {
     Review.findByIdAndDelete(req.params.review_id)
-      .then(review => {
-        res.json(review);
+      .then( () => {
+        res.json(review_id);
       })
       .catch(err => res.status(400).json(err))
 })
