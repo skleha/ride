@@ -46,15 +46,12 @@ router.post("/",(req, res) => {
   }
 );
 
-// ,passport.authenticate("jwt", { session: false })
 
-router.delete('/:review_id', (req, res)=> {
-    Review.findByIdAndDelete(req.params.review_id)
-      .then( () => {
-        res.json(review_id);
-      })
-      .catch(err => res.status(400).json(err))
-})
 
+router.delete("/:review_id", (req, res) => {
+  Review.deleteOne({_id: req.params.review_id})
+    .then(review=> res.json({msg: "deleted"}))
+    .catch(err=> res.status(404).json({msg:"Doesn't exist"}))
+});
 
 module.exports = router;
