@@ -46,8 +46,6 @@ router.post("/",(req, res) => {
   }
 );
 
-
-
 router.delete("/:review_id", (req, res) => {
   Review.deleteOne({_id: req.params.review_id})
     .then(review=> res.json({msg: "deleted"}))
