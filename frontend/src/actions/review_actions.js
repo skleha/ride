@@ -39,8 +39,9 @@ export const fetchReviews = (rideId) => dispatch => APIUtil.fetchReviewsForRide(
     .then(reviews => dispatch(receiveRideReviews(reviews.data)))
     .catch(err => dispatch(receiveReviewErrors(err.response.data)))
 
-export const deleteReview = (reviewId) => dispatch => APIUtil.deleteReview(reviewId)
-    .then( reviewId => dispatch(removeReview(reviewId)))
-    .catch(err => dispatch(removeReview(err.response.data)))
+export const deleteReview = (reviewId) => dispatch =>
+         APIUtil.deleteReview(reviewId)
+           .then(()=> dispatch(removeReview(reviewId)))
+           .catch(err => dispatch(receiveReviewErrors(err.response.data)));
 
 export const removeErrors = () => dispatch => ()=> dispatch(clearErrors())

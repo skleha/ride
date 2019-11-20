@@ -7,6 +7,7 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from "./actions/session_actions";
 import { fetchRides, fetchRide, createRide, updateRide, deleteRide } from './actions/ride_actions';
+import {fetchReviews, deleteReview} from "./actions/review_actions";
 
 document.addEventListener('DOMContentLoaded', () => {
     let store; 
@@ -34,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.createRide = createRide;
     window.updateRide = updateRide;
     window.deleteRide = deleteRide;
+    window.fetchReviews=fetchReviews;
+    window.deleteReview=deleteReview;
     // END OF WINDOW TESTING
 
     ReactDOM.render(<Root store={store} />, document.getElementById('root'));
