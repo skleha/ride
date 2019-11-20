@@ -5,8 +5,8 @@ const validateRideInput = require('../../validation/ride_validations');
 
 
 router.get('/', (req, res) => {
-  Ride.find({}).then(
-    rides => {
+  Ride.find({})
+  .then(rides => {
       res.json(rides);
     },
     err => console.log(err));
@@ -26,7 +26,7 @@ router.get('/:ride_id', (req, res) => {
 
 
 router.post('/', (req, res) => {
-
+  
   const { errors, isValid } = validateRideInput(req.body);
   
     if (!isValid) {
