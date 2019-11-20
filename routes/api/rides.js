@@ -17,7 +17,7 @@ router.get('/:ride_id', (req, res) => {
   Ride.findById(req.params.ride_id)
     .then(ride => {
       if (ride === null) {
-        res.json({ride: 'Ride was not found'});
+        res.status(404).json({ride: 'Ride was not found'});
       } else {
         res.json(ride);
       }
@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
   const { errors, isValid } = validateRideInput(req.body);
   
     if (!isValid) {
-      return res.status(400).json(errors);
+      return res.status(404).json(errors);
   }
   
   const newRide = new Ride({
@@ -54,12 +54,13 @@ router.patch('/:ride_id', (req, res) => {
   const update = req.body
   
   Ride.findOneAndUpdate(filter, update, { new: true })
-    .then(
-      ride => {
+    .then(ride => {
+       if (ride === null) {
+        res.status(404).json({ride: 'Ride was not found'});
+      } else {
         res.json(ride);
-      },
-      err => console.log(err)
-  );
+      }
+    });
 })
 
 
@@ -67,25 +68,26 @@ router.patch("/:ride_id/addwaypoint", (req, res) => {
   const filter = { _id: req.params.ride_id };
   const update = { $addToSet: { waypoints: req.body.new_waypoint } };
   
-  Ride.findOneAndUpdate(filter, update, { new: true }).then(
-    ride => {
-      res.json(ride);
-    },
-    err => console.log(err)
-  );
+  Ride.findOneAndUpdate(filter, update, { new: true })
+    .then(ride => {
+      if (ride === null) {
+        res.status(404).json({ ride: "Ride was not found" });
+      } else {
+        res.json(ride);
+      }
+    });
 });
 
 
 router.delete("/:ride_id", (req, res) => {
-  Ride.findOneAndRemove(req.params.ride_id).then(
-    ride => {
+  Ride.findByIdAndDelete(req.params.ride_id)
+    .then(ride => {
       if (ride === null) {
-        res.json({ride: 'Ride was not found'});
+        res.status(400).json({ ride: "Ride was not found" });
       } else {
         res.json(ride);
-      };
+      }
   });
 });
-
 
 module.exports = router;
