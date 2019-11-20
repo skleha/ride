@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+// import {closeModal} from "../../actions/modal_actions"
 
 import {
   login,
@@ -16,7 +17,8 @@ const mapStateToProps = ({ errors }) => {
 const mapDispatchToProps = dispatch => {
   return {
     processForm: user => dispatch(login(user)),
-    clearErrors: () => dispatch(errorsGone())
+    clearErrors: () => dispatch(errorsGone()),
+    // closeModal: ()=>dispatch(closeModal())
   };
 };
 

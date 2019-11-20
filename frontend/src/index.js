@@ -34,9 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.fetchRide = fetchRide;
     window.createRide = createRide;
     window.updateRide = updateRide;
-    window.deleteRide = deleteRide;
-    window.fetchReviews=fetchReviews;
-    window.deleteReview=deleteReview;
+   
     // END OF WINDOW TESTING
 
     ReactDOM.render(<Root store={store} />, document.getElementById('root'));
