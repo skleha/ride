@@ -1,58 +1,54 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
-   
+    this.onRedirect=this.onRedirect.bind(this)
   }
+  onRedirect = () => {
+    this.props.logout();
+    this.props.history.push('/');
+  };
 
   render() {
     // const location = this.props.location.pathname;
-
     let pathWay = "";
     let buttonDisplay = "";
     let bottomBorder = "";
-    let animation= "bouncy"
+    let animation = "bouncy";
 
     let button1 = (
       <h4 onClick={() => this.props.activateModal("signupUser", null)}>
         SIGN UP
       </h4>
     );
-    
+
     let button2 = (
       <h4 onClick={() => this.props.activateModal("loginUser", null)}>
-        LOG IN 
-        </h4>
-      );
+        LOG IN
+      </h4>
+    );
     let button3 = (
       <h4 onClick={() => this.props.activateModal("postReview", null)}>
         Review
-        </h4>
+      </h4>
     );
     let button4 = "";
 
     switch (this.props.signedIn) {
       case true:
-         button1 = (
-           <h4 onClick={() => this.props.logout()}>
-             Log Out
-           </h4>
-         );
-         button2 = <h4>Setting</h4>;
-         animation = ''
+        button1 = <h4 onClick={this.onRedirect}>Log Out</h4>;
+        button2 = <h4>Setting</h4>;
+        animation = "";
         break;
     }
-    
+
     return (
       <div className={`NavBarMain ${bottomBorder ? "MainNavDashboard" : ""}`}>
         <div className="LeftNav">
           <div className="MainIcon">
-            <Link
-              className={`logo ${animation ? "bouncy" : ""}`}
-              to="/"
-            >
+            <Link className={`logo ${animation ? "bouncy" : ""}`} to="/">
               RIDE
             </Link>
           </div>

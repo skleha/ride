@@ -1,5 +1,6 @@
 import * as APIUtil from "../util/session_api_util";
 import jwt_decode from "jwt-decode";
+import {closeModal} from "../actions/modal_actions"
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
@@ -36,6 +37,7 @@ export const signup = user => dispatch => APIUtil.signup(user)
       APIUtil.setAuthToken(token);
       const decoded = jwt_decode(token);
       dispatch(receiveCurrentUser(decoded));
+      dispatch(closeModal());
     }, err => dispatch(receiveErrors(err.response.data)));
 
 export const login = user => dispatch => APIUtil.login(user)
@@ -45,6 +47,7 @@ export const login = user => dispatch => APIUtil.login(user)
       APIUtil.setAuthToken(token);
       const decoded = jwt_decode(token);
       dispatch(receiveCurrentUser(decoded));
+      dispatch(closeModal())
     })
     .catch(err => {
       dispatch(receiveErrors(err.response.data));
@@ -53,7 +56,7 @@ export const login = user => dispatch => APIUtil.login(user)
 export const logout = () => dispatch => {
   localStorage.removeItem("jwtToken");
   APIUtil.setAuthToken(false);
-  dispatch(logoutUser());
+  dispatch(logoutUser())
 };
 
 export const errorsGone = () => dispatch => dispatch(clearErrors());
