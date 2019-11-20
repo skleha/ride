@@ -1,23 +1,26 @@
 import axios from "axios";
 
+export const fetchRides = () => {
+  return axios.get(`/api/rides`);
+}
+
 export const fetchRide = rideId => {
   return axios.get(`/api/rides/${rideId}`);
 };
 
-export const fetchRides = () => {
-  return axios.get(`/api/rides`);
+export const createRide = ride => {
+  return axios.post(`/api/rides/`, ride);
 };
 
-export const createRide = req => {
-  return axios.post(`/api/rides/`, req);
+export const updateRide = ride => {
+  return axios.patch(`/api/rides/${ride._id}`, ride);
 };
 
-export const updateRide = req => {
-  return axios.patch(`/api/rides/${req._id}`, req);
-};
-
-export const addWaypointToRide = req => {
-  return axios.patch(`/api/rides/${req._id}/addwaypoint`, req);
+export const addWaypointToRide = rideIdAndWaypoint => {
+  return axios.patch(
+    `/api/rides/${rideIdAndWaypoint._id}/addwaypoint`,
+    rideIdAndWaypoint
+  );
 };
 
 export const deleteRide = rideId => {
