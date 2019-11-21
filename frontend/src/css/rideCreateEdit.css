@@ -1,0 +1,56 @@
+
+.ride-create-edit-temp-container {
+  height: 1000px;
+  width: 1000px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  padding: 80px;
+  box-sizing: border-box;
+}
+
+.ride-create-edit {
+  background-color: rgb(243, 242, 242);
+  font-family: sans-serif;
+  border: 1px solid lightgray;
+  -webkit-box-shadow: 2px 3px 5px 1px #5E5E5E; 
+  box-shadow: 2px 3px 5px 1px #5E5E5E;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 1000px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ride-create-edit-map {
+  height: 375px;
+  width: 525px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+}
+
+.ride-create-edit-data {
+  /* make same height as map */
+  height: 375px; 
+  width: 30%;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ride-create-edit-title {
+  margin: 15px 0px 22px;
+  font-size: 18px;
+}
+
+.ride-create-edit-textarea {
+  font-size: 14px;
+  margin-top: 10px;
+  padding: 9px;
+  border-radius: 3px;
+  background-color: lightgray;
+  line-height: 1.3;
+}
