@@ -10,6 +10,8 @@ import { fetchRides, fetchRide, createRide, updateRide, deleteRide } from './act
 import {fetchReviews, deleteReview} from "./actions/review_actions";
 
 document.addEventListener('DOMContentLoaded', () => {
+    
+    
     let store; 
 
     if (localStorage.jwtToken) {
@@ -29,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // WINDOW TESTING GOES HERE
     window.getState = store.getState;
     window.dispatch = store.dispatch;
-
     window.fetchRides = fetchRides;
     window.fetchRide = fetchRide;
     window.createRide = createRide;

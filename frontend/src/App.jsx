@@ -2,13 +2,14 @@ import React from "react";
 import './App.css'
 
 //import css
-
 import './css/footer.css'
 import './css/navbar.css'
 import './css/splash.scss'
 import './css/modal.css'
 import './css/sigupform.css'
 import './css/login.css'
+import "./css/rideIndex.css";
+import './css/rideIndexItem.css'
 
 import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
 
@@ -49,12 +50,12 @@ class App extends React.Component {
           <NavbarContainer />
         </header>
         <div className={`${setting}`} style={backgroundImage}>
-        
           <Switch>
             {/* <ProtectedRoute path="/dashboard" component={DashboardContainer} /> */}
             {/* <AuthRoute exact path="/login" component={LogInFormContainer} /> */}
             {/* <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
-            <Route path="/" component={SplashContainer} />
+            <Route exact path="/" component={SplashContainer} />
+            <Route path="/rides" component={RideIndexContainer} />
           </Switch>
         </div>
 

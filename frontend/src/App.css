@@ -363,8 +363,6 @@ textarea {
     padding: 0.2em 0;
 } 
 
-
-
 .withBackgroundImage{
 
     background:
@@ -384,13 +382,3 @@ textarea {
     -moz-transition: all 0.5s;
 }
 
-.ride-index-ul {
-    padding: 100px 30px;
-    height: 500px;
-    width: 500px;
-    background-color: white;
-}
-
-.ride-index-item {
-    margin: 20px;
-}
