@@ -35,11 +35,11 @@
     justify-content: space-around;
     height: 0px;
     transition: height .5s;
-    z-index: 0;
+    z-index: 1;
 }
 
 .button-tray.is-tray-open {
-    height: 30px;
+    top: 600px;
     transition: height 1s;
 }
 

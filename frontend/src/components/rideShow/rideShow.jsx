@@ -4,10 +4,14 @@ import sampleMap from '../../sample-map.jpg';
 
 class RideShow extends React.Component {
 
+  constructor(props){
+    super(props);
+  }
+
   render() {
 
     return (
-      <div className="ride-show-temp-container">
+      // <div className="ride-show-temp-container">
         <div className="ride-show">
           <img src={sampleMap} className="ride-show-map" alt="map-of-ride" />
           <div className="ride-show-title">{this.props.ride.title}</div>
@@ -23,7 +27,7 @@ class RideShow extends React.Component {
             <div className="ride-show-description">{this.props.ride.description}</div>
           </div>
         </div>
-      </div>
+      // </div>
     )
   }
 }

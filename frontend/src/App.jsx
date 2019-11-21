@@ -8,11 +8,12 @@ import './css/splash.scss'
 import './css/modal.css'
 import './css/sigupform.css'
 import './css/login.css'
-import "./css/rideIndex.css";
+import "./css/rideIndex.css"
 import './css/rideIndexItem.css'
 import './css/contentPage.css'
+import './css/rideShow.css'
 
-import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
+import { Route, Switch} from "react-router-dom";
 
 import { AuthRoute, ProtectedRoute } from "./util/route_util";
 import SplashContainer from "./components/splash/splash_container";

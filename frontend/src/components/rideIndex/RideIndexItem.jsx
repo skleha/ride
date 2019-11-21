@@ -1,5 +1,6 @@
 import React from 'react';
 import sampleMap from '../../sample-map.jpg';
+import RideShow from "../rideShow/rideShow"
 
 class RideIndexItem extends React.Component {
 
@@ -125,7 +126,7 @@ class RideIndexItem extends React.Component {
   if(this.state.fullDetail===false){
       rideInfoBar= basicBar
   } else{
-    
+      rideInfoBar = <RideShow ride={this.props.ride} />;
   }
 
     return (
@@ -136,15 +137,16 @@ class RideIndexItem extends React.Component {
         onMouseLeave={this.toggleClass}
         onMouseLeave={this.detailsReset}
       >
+        <div>
           {rideInfoBar}
           {showReviews}
           {createReview}
-
-          <div className={`button-tray ${this.props.ride._id}`}>
-            {button1}
-            {button2}
-          </div>
-       </li>
+        </div>
+        <div className={`button-tray ${this.props.ride._id}`}>
+          {button1}
+          {button2}
+        </div>
+      </li>
     );
   }
 }
