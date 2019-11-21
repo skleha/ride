@@ -78,7 +78,6 @@ class loginForm extends React.Component {
   componentDidMount() {
   }
   componentWillUnmount() {
-    this.props.clearErrors();
   }
 
   render() {
