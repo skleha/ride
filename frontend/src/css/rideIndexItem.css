@@ -1,0 +1,64 @@
+
+.ride-index-item {
+    font-family: sans-serif;
+    padding: 5px 0 0 0;
+    margin: 15px 0;
+}
+
+.ride-index-item-container {
+    background-color: lightblue;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 99;
+}
+
+.ride-index-item-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.ride-index-item-datum {
+    font-size: 16px;
+    margin: 9px 10px;
+    color: rgb(66, 65, 65);
+}
+
+.ride-index-item-map {
+    height: 110px;
+    width: 110px;
+}
+
+.button-tray {
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    height: 0px;
+    transition: height .5s;
+    z-index: 0;
+}
+
+.button-tray.is-tray-open {
+    height: 30px;
+    transition: height 1s;
+}
+
+.ride-index-item-button {
+    font-size: 0px;
+    height: 0px;
+    width: 110px;
+    padding: 0px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: lightblue;
+    border-radius: 0 0 5px 5px;
+    transition: height .7s, padding .7s, font-size 1s;
+    cursor: pointer;
+}
+
+.ride-index-item-button.is-tray-open {
+    font-size: 14px;
+    height: 30px;
+    padding: 7px;
+    transition: height 1s, padding .7s, font-size 1s;
+}
