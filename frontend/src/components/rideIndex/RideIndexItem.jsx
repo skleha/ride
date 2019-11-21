@@ -1,6 +1,7 @@
 import React from 'react';
 import sampleMap from '../../sample-map.jpg';
 import RideShow from "../rideShow/rideShow"
+import ReviewShow from "../reviewShow/reviewShow"
 
 class RideIndexItem extends React.Component {
 
@@ -97,14 +98,8 @@ class RideIndexItem extends React.Component {
       </div>
     );
   }
-  let showReviews="";
-  let createReview="";
-  
-  if(this.state.reviewPost=== true){
 
-    createReview = <h1>WORKING</h1>; 
-  } else { createReview= ""}
-  
+
 
 
   let basicBar = (
@@ -129,6 +124,34 @@ class RideIndexItem extends React.Component {
       rideInfoBar = <RideShow ride={this.props.ride} />;
   }
 
+
+
+  // show reviews
+  let showReviews = "";
+
+  if (this.state.reviewsShow === true){
+      showReviews = (<ReviewShow 
+        rideId={this.props.ride._id}  
+        fetchReviews={this.props.fetchReviews}
+        deleteReviews={this.props.deleteReviews}
+        reviews={this.props.reviews}
+        />)
+  } else{
+     showReviews = "";
+  }
+
+
+  // create review
+  let createReview = "";
+
+  if (this.state.reviewPost === true) {
+      createReview = <h1>WORKING</h1>;
+  } else {
+      createReview = "";
+  }
+  
+
+
     return (
       <li
         className="ride-index-item"
@@ -137,11 +160,12 @@ class RideIndexItem extends React.Component {
         onMouseLeave={this.toggleClass}
         onMouseLeave={this.detailsReset}
       >
-        <div>
+        
           {rideInfoBar}
           {showReviews}
           {createReview}
-        </div>
+        
+      
         <div className={`button-tray ${this.props.ride._id}`}>
           {button1}
           {button2}
