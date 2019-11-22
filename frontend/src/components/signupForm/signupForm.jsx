@@ -7,7 +7,8 @@ class SignupForm extends React.Component {
       username: "",
       password: "",
       password2: "",
-      email: ""
+      email: "",
+      location: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -61,6 +62,15 @@ class SignupForm extends React.Component {
               onChange={this.update("username")}
               className="signup-login"
               placeholder="Username"
+            />
+          </label>
+          <label className="locationFieldContainer signupFC">
+            <input
+              type="text"
+              value={this.state.location}
+              onChange={this.update("location")}
+              className="signup-login"
+              placeholder="Hometown"
             />
           </label>
           <label className="passwordFieldContainer signupFC">
