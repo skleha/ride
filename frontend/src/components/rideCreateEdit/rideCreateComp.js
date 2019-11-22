@@ -277,7 +277,7 @@ class NewMap extends React.Component {
             title: this.props.content.title,
             description: this.props.content.description,
             author_id: this.props.content.author_id,
-            author_rating: this.props.content,
+            author_rating: this.props.content.author_rating,
             duration: this.props.content.duration,
             map: this.state.map
         }

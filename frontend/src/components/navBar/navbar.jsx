@@ -25,7 +25,7 @@ class Navbar extends React.Component {
     );
 
     let button2 = (
-      <h4 xd>
+      <h4 onClick={() => this.props.activateModal("loginUser", null)}>
         LOG IN
       </h4>
     );
