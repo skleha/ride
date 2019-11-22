@@ -16,8 +16,10 @@ class RideIndexItem extends React.Component {
 
     this.toggleClass = this.toggleClass.bind(this);   
     this.hanldeClick = this.handleClick.bind(this); 
-    this.detailsReset= this.detailsReset.bind(this)
-    this.giveFullDetail = this.giveFullDetail.bind(this)
+    this.detailsReset= this.detailsReset.bind(this);
+    this.giveFullDetail = this.giveFullDetail.bind(this);
+    this.openRideShow = this.openRideShow.bind(this);
+    this.closeRideShow = this.closeRideShow.bind(this);
   }
 
   toggleClass(e) {
@@ -54,6 +56,17 @@ class RideIndexItem extends React.Component {
     }
   }
   
+  openRideShow(e) {
+    this.giveFullDetail();
+    this.toggleClass();
+  }
+
+  closeRideShow(e) {
+    this.detailsReset();
+    this.toggleClass();
+  }
+
+
   giveFullDetail(){
     this.setState({fullDetail: true})
   }
@@ -132,10 +145,8 @@ class RideIndexItem extends React.Component {
     return (
       <li
         className="ride-index-item"
-        onMouseEnter={this.toggleClass}
-        onMouseEnter={this.giveFullDetail}
-        onMouseLeave={this.toggleClass}
-        onMouseLeave={this.detailsReset}
+        onMouseEnter={this.openRideShow}
+        onMouseLeave={this.closeRideShow}
       >
         <div>
           {rideInfoBar}
