@@ -1,15 +1,25 @@
 import React from 'react';
 import sampleMap from '../../sample-map.jpg';
+import RideShow from "../rideShow/rideShow"
 
 class RideIndexItem extends React.Component {
 
   constructor(props)  {
     super(props);
     this.state = {
-      buttonShow: false
+      buttonShow: false,
+      reviewPost: false,
+      reviewsShow: false,
+      fullDetail: false
+
     }
 
-    this.toggleClass = this.toggleClass.bind(this);    
+    this.toggleClass = this.toggleClass.bind(this);   
+    this.hanldeClick = this.handleClick.bind(this); 
+    this.detailsReset= this.detailsReset.bind(this);
+    this.giveFullDetail = this.giveFullDetail.bind(this);
+    this.openRideShow = this.openRideShow.bind(this);
+    this.closeRideShow = this.closeRideShow.bind(this);
   }
 
   toggleClass(e) {
@@ -23,13 +33,57 @@ class RideIndexItem extends React.Component {
     buttons.forEach(button => button.classList.toggle("is-tray-open"));
   }
 
+  detailsReset(){
+    this.setState({
+      buttonShow: false,
+      reviewPost: false,
+      reviewsShow: false,
+      fullDetail: false
+    });
+  }
+
+  handleClick(target){
+    
+    switch (target) {
+      case "postReview":
+        this.setState({reviewPost:true})
+        break;
+      case "showReviews":
+        this.setState({reviewsShow:true})
+        break;
+      default:
+        break;
+    }
+  }
+  
+  openRideShow(e) {
+    this.giveFullDetail();
+    this.toggleClass();
+  }
+
+  closeRideShow(e) {
+    this.detailsReset();
+    this.toggleClass();
+  }
+
+
+  giveFullDetail(){
+    this.setState({fullDetail: true})
+  }
+
   render() {
   //button options 
-  let button1Name = 'Show Reviews'
+  let button1 = (
+    <div className={`ride-index-item-button ${this.props.ride._id}`}
+      onClick={() => this.handleClick("showReviews")}
+    >
+      Show Reviews
+    </div>
+  );
 
   let button2 = (
     <div className={`ride-index-item-button ${this.props.ride._id}`}
-      onClick = {()=>{}}
+      onClick = {()=>this.handleClick("postReview")}
     >  
       Post Review
     </div>
@@ -56,34 +110,52 @@ class RideIndexItem extends React.Component {
       </div>
     );
   }
-    
+  let showReviews="";
+  let createReview="";
+  
+  if(this.state.reviewPost=== true){
+
+    createReview = <h1>WORKING</h1>; 
+  } else { createReview= ""}
+  
+
+
   let basicBar = (
-    <div className="ride-index-item-container">
-      <div className="ride-index-data">
-        <div className="ride-index-item-title">{this.props.ride.title}</div>
-        <div className="ride-index-item-datum">San Francisco, CA</div>
-        <div className="ride-index-item-datum">Distance: 22.7 mi</div>
-        <div className="ride-index-item-datum">
-          Duration: {this.props.ride.duration}
-        </div>
-      </div>
-      <img src={sampleMap} className="ride-index-item-map" alt="map-of-ride" />
-    </div>
+          <div className="ride-index-item-container">
+            <div className="ride-index-data">
+              <div className="ride-index-item-title">{this.props.ride.title}</div>
+              <div className="ride-index-item-datum">San Francisco, CA</div>
+              <div className="ride-index-item-datum">Distance: 22.7 mi</div>
+              <div className="ride-index-item-datum">
+                Duration: {this.props.ride.duration}
+              </div>
+            </div>
+            <img src={sampleMap} className="ride-index-item-map" alt="map-of-ride" />
+          </div>
   );
+
+  let rideInfoBar =""
+  
+  if(this.state.fullDetail===false){
+      rideInfoBar= basicBar
+  } else{
+      rideInfoBar = <RideShow ride={this.props.ride} />;
+  }
 
     return (
       <li
         className="ride-index-item"
-        onMouseEnter={this.toggleClass}
-        onMouseLeave={this.toggleClass}
+        onMouseEnter={this.openRideShow}
+        onMouseLeave={this.closeRideShow}
       >
-       {basicBar}
-
+        <div>
+          {rideInfoBar}
+          {showReviews}
+          {createReview}
+        </div>
         <div className={`button-tray ${this.props.ride._id}`}>
-          <div className={`ride-index-item-button ${this.props.ride._id}`}>
-            {button1Name}
-          </div>
-            {button2}
+          {button1}
+          {button2}
         </div>
       </li>
     );

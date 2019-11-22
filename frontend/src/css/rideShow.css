@@ -1,8 +1,7 @@
 
 .ride-show-temp-container {
-  height: 1000px;
-  width: 1000px;
-  background-color: white;
+  /* height: 1000px; */
+  width: 100%;
   display: flex;
   justify-content: center;
   padding: 80px;
@@ -10,7 +9,7 @@
 }
 
 .ride-show {
-  background-color: rgb(243, 242, 242);
+  background-color:#ADD8E6;
   font-family: sans-serif;
   border: 1px solid lightgray;
   -webkit-box-shadow: 2px 3px 5px 1px #5E5E5E; 
@@ -18,8 +17,8 @@
   border-radius: 5px;
   box-sizing: border-box;
   height: 600px;
-  width: 640px;
-  padding: 15px;
+  width: 100%;
+  /* padding: 15px; */
   display: flex;
   flex-direction: column;
   align-items: center;
