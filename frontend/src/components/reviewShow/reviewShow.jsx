@@ -11,7 +11,6 @@ class ReviewShow extends React.Component {
   }
 
   render() {
-    // debugger;
     return (
       <ul className="ReviewIndexBox">
         {this.props.reviews.map((review, idx) => (

@@ -2,7 +2,6 @@ import axios from "axios";
 
 
 export const sendReview = req =>{
-    debugger
     return axios.post(`/api/reviews/`, req);
 }
 

@@ -24,7 +24,6 @@ router.post("/",(req, res) => {
 
     Review.findOne({userId : req.body.userId, rideId: req.body.rideId})
         .then(review => {
-            debugger;
             //to check and see if the same Ride/User review exists, if so replace the old review
             if (review) { 
                 Review.findByIdAndUpdate(review._id, reviewContent)

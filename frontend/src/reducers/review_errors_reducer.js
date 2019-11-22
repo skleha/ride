@@ -4,7 +4,6 @@ const ReviewErrorsReducer = (state=[], action)=>{
     Object.freeze(state);
     switch(action.type){
         case RECEIVE_REVIEW_ERRORS:
-                    debugger
 
             return Object.values(action.errors)
         case CLEAR_ERRORS:

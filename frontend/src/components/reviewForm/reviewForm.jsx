@@ -37,7 +37,6 @@ class ReviewForm extends React.Component {
 
   render() {
     const { rating } = this.state;
-    // debugger;
     return (
       <div className="review-form-container">
         <form onSubmit={this.handleSubmit} className="review-form-box">

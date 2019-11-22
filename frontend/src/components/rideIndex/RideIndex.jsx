@@ -8,7 +8,6 @@ class RideIndex extends React.Component {
   }
 
   render() {
-      // debugger;
 
     return (
       <ul className="ride-index-ul">
