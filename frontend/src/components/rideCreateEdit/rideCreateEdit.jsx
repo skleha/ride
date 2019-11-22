@@ -25,7 +25,7 @@ class RideCreateEdit extends React.Component {
   }
 
   handleSubmit(e) {
-    this.props.createRide(this.state);
+    console.log(this.state);
   }
 
   render() {
@@ -35,6 +35,7 @@ class RideCreateEdit extends React.Component {
       <div className="ride-create-edit-temp-container">
         <div className="ride-create-edit-form">
           <div className="ride-create-edit-data">
+            
             <div className="ride-create-edit-title">Create a Ride</div>
 
             <div className="ride-edit-create-label">Ride Name</div>
@@ -45,10 +46,19 @@ class RideCreateEdit extends React.Component {
               onChange={this.handleInput("title")}
             />
 
+            <div className="ride-edit-create-label">Start Address</div>
+            <input
+              className="ride-create-edit-input"
+              type="text"
+              placeholder="Name"
+              onChange={this.handleInput("start_address")}
+            />
+
             <div className="ride-edit-create-label">Ride Duration</div>
             <select
               className="ride-edit-create-select"
-              onChange={this.handleChange}>
+              onChange={this.handleChange}
+            >
               <option selected disabled>
                 Duration
               </option>
@@ -82,13 +92,9 @@ class RideCreateEdit extends React.Component {
             >
               Create Ride
             </div>
-          </div>
 
-          <img
-            src={sampleMap}
-            className="ride-create-edit-map"
-            alt="map-of-ride"
-          />
+
+          </div>
         </div>
       </div>
     );
