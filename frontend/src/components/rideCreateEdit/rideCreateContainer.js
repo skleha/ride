@@ -11,6 +11,7 @@ const mapStateToProps = state => ({
     author_id: "5cc45600ad11329216c4d886",
     description: "",
     start_address: "",
+    start_city: "",
   },
   user: "user data"
 });

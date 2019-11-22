@@ -35,7 +35,6 @@ class RideCreateEdit extends React.Component {
       <div className="ride-create-edit-temp-container">
         <div className="ride-create-edit-form">
           <div className="ride-create-edit-data">
-            
             <div className="ride-create-edit-title">Create a Ride</div>
 
             <div className="ride-edit-create-label">Ride Name</div>
@@ -50,7 +49,15 @@ class RideCreateEdit extends React.Component {
             <input
               className="ride-create-edit-input"
               type="text"
-              placeholder="Name"
+              placeholder="123 Main St."
+              onChange={this.handleInput("start_address")}
+            />
+
+            <div className="ride-edit-create-label">Start City</div>
+            <input
+              className="ride-create-edit-input"
+              type="text"
+              placeholder="Town, State"
               onChange={this.handleInput("start_address")}
             />
 
@@ -92,8 +99,6 @@ class RideCreateEdit extends React.Component {
             >
               Create Ride
             </div>
-
-
           </div>
         </div>
       </div>
