@@ -22,6 +22,7 @@ class RideIndexItem extends React.Component {
     this.giveFullDetail = this.giveFullDetail.bind(this);
     this.openRideShow = this.openRideShow.bind(this);
     this.closeRideShow = this.closeRideShow.bind(this);
+    this.closeReviewPost=this.closeReviewPost.bind(this);
   }
 
   toggleClass(e) {
@@ -60,12 +61,22 @@ class RideIndexItem extends React.Component {
   
   openRideShow(e) {
     this.giveFullDetail();
+    if(!this.state.fullDetail){
     this.toggleClass();
+    }
   }
 
   closeRideShow(e) {
+    e.stopPropagation();
     this.detailsReset();
     this.toggleClass();
+  }
+
+  closeReviewPost =()=>{
+    this.setState({
+      reviewPost: false,
+      reviewsShow:true
+    })
   }
 
 
@@ -114,7 +125,19 @@ class RideIndexItem extends React.Component {
   }
   let button1container;
   let button2container;
+  let button3container;
 
+
+
+    button3container=(
+       <div
+        className={`ride-index-item-button ${this.props.ride._id}`}
+        onClick={this.closeRideShow}
+      >
+        Collapse
+      </div>
+    )
+ 
 
   let basicBar = (
           <div className="ride-index-item-container">
@@ -165,7 +188,7 @@ class RideIndexItem extends React.Component {
 
   if (this.state.reviewPost === false) {
       createReview = "";
-      button2container=button2
+      button2container=button2;
   } else {
       createReview = (
         <ReviewForm
@@ -173,6 +196,7 @@ class RideIndexItem extends React.Component {
           postReview={this.props.postReview}
           rideId={this.props.ride._id}
           currentUserName={this.props.currentUserName}
+          closeReviewPost={this.closeReviewPost}
         />
       );
       button2container=null
@@ -183,8 +207,8 @@ class RideIndexItem extends React.Component {
     return (
       <li
         className="ride-index-item"
-        onMouseEnter={this.openRideShow}
-        onMouseLeave={this.closeRideShow}
+        onClick={this.openRideShow}
+        // onMouseLeave={this.closeRideShow}
       >
         
           {rideInfoBar}
@@ -195,6 +219,7 @@ class RideIndexItem extends React.Component {
         <div className={`button-tray ${this.props.ride._id}`}>
           {button1container}
           {button2container}
+          {button3container}
         </div>
       </li>
     );

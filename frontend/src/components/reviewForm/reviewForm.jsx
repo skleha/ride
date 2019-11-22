@@ -7,7 +7,7 @@ class ReviewForm extends React.Component {
     this.state = {
       userId: this.props.currentUserId,
       rideId: this.props.rideId,
-      rating: 0,
+      rating: 3,
       authorName: this.props.currentUserName,
       description: ""
     };
@@ -26,6 +26,7 @@ class ReviewForm extends React.Component {
     e.preventDefault();
     const review = Object.assign({}, this.state);
     this.props.postReview(review);
+    this.props.closeReviewPost();
   }
 
   componentWillUnmount() {}
