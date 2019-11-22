@@ -25,7 +25,7 @@ class Navbar extends React.Component {
     );
 
     let button2 = (
-      <h4 onClick={() => this.props.activateModal("loginUser", null)}>
+      <h4 xd>
         LOG IN
       </h4>
     );
@@ -37,7 +37,7 @@ class Navbar extends React.Component {
         button1 = <h4 onClick={this.onRedirect}>Log Out</h4>;
         button2 = <h4>Setting</h4>;
         button3 = (
-              <h4 >
+              <h4 onClick={() => this.props.activateModal("rideCreate", null)} >
                 Post
               </h4>
             );

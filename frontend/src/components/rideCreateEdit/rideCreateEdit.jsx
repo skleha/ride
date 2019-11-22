@@ -25,14 +25,15 @@ class RideCreateEdit extends React.Component {
   }
 
   handleSubmit(e) {
-    console.log(this.state);
+    let data= this.state
+    this.props.activateModal("2ndPostForm", data)
   }
 
   render() {
     const { rating } = this.state;
 
     return (
-      <div className="ride-create-edit-temp-container">
+      
         <div className="ride-create-edit-form">
           <div className="ride-create-edit-data">
             
@@ -96,7 +97,7 @@ class RideCreateEdit extends React.Component {
 
           </div>
         </div>
-      </div>
+      
     );
   }
 }
