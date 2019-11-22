@@ -6,8 +6,8 @@ const RideSchema = new Schema({
     type: String,
     required: true
   },
-  waypoints: {
-    type: Array,
+  map: {
+    type: Object,
     required: true,
   },
   author_id: {

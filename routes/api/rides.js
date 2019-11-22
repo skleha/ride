@@ -26,7 +26,7 @@ router.get('/:ride_id', (req, res) => {
 
 
 router.post('/', (req, res) => {
-  
+
   const { errors, isValid } = validateRideInput(req.body);
   
     if (!isValid) {
@@ -37,7 +37,7 @@ router.post('/', (req, res) => {
     title: req.body.title,
     author_id: req.body.author_id,
     author_rating: req.body.author_rating,
-    waypoints: req.body.waypoints,
+    map: req.body.map,
     description: req.body.description,
     duration: req.body.duration
   })
