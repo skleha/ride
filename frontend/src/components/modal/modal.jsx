@@ -3,7 +3,7 @@ import { closeModal } from "../../actions/modal_actions";
 import { connect } from "react-redux";
 import SignUpContainer from "../signupForm/signupForm_container";
 import LogInContainer from "../loginForm/loginForm_container"
-import PostReviewContainer from "../reviewForm/reviewForm_container"
+
 
 function Modal({ modal, content, closeModal }) {
   if (!modal) {
@@ -18,7 +18,7 @@ function Modal({ modal, content, closeModal }) {
         component = <LogInContainer />;
       break;
     case "postReview":
-      component = <PostReviewContainer/>;
+     
       break;
     case "postComment":
       //   component = <CommentPostContainer content={content} />;

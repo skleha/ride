@@ -30,8 +30,8 @@ class Navbar extends React.Component {
       </h4>
     );
     let button3 = (
-      <h4 onClick={() => this.props.activateModal("postReview", null)}>
-        Review
+      <h4 >
+        Post
       </h4>
     );
     let button4 = "";

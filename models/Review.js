@@ -4,17 +4,21 @@ const Schema = mongoose.Schema;
 const ReviewSchema = new Schema({
 
   userId: {
-      type:String
-    // type: Schema.Types.ObjectId,
-    // ref: "users"
-    // ,required: true
+      // type:String
+    type: Schema.Types.ObjectId,
+    ref: "users"
+    ,required: true
   },
 
   rideId: {
-      type:String
-    // type: Schema.Types.ObjectId,
-    // ref: "rides"
-    // ,required: true
+      // type:String
+    type: Schema.Types.ObjectId,
+    ref: "rides"
+    ,required: true
+  },
+
+  authorName:{
+    type: String
   },
 
   rating: {
