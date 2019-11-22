@@ -9,7 +9,7 @@
   box-sizing: border-box;
 }
 
-.ride-create-edit {
+.ride-create-edit-form {
   background-color: rgb(243, 242, 242);
   font-family: sans-serif;
   border: 1px solid lightgray;
@@ -85,9 +85,9 @@
   width: 100px;
   padding: 8px 5px 0px 15px;
   border-radius: 5px;
-  color: white
+  color: white;
+  cursor: pointer;
 }
-
 
 .ride-edit-create-select:focus {
 	border-color: #aaa;
