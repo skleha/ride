@@ -13,6 +13,7 @@ import './css/rideIndexItem.css'
 import './css/contentPage.css'
 import './css/rideCreateEdit.css'
 import './css/rideShow.css'
+import './css/review.css'
 
 import { Route, Switch} from "react-router-dom";
 

@@ -20,7 +20,7 @@ class RideIndex extends React.Component {
             currentUserId={this.props.currentUserId}
             postReview={this.props.postReview}
             fetchReviews={this.props.fetchReviews}
-            deleteReviews={this.props.deleteReviews}
+            deleteReview={this.props.deleteReview}
             currentUserName={this.props.currentUserName}
             reviews={this.props.reviews}
           />

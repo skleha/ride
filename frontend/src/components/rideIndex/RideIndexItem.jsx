@@ -112,8 +112,8 @@ class RideIndexItem extends React.Component {
       </div>
     );
   }
-
-
+  let button1container;
+  let button2container;
 
 
   let basicBar = (
@@ -147,11 +147,16 @@ class RideIndexItem extends React.Component {
       showReviews = (<ReviewShow 
         rideId={this.props.ride._id}  
         fetchReviews={this.props.fetchReviews}
-        deleteReviews={this.props.deleteReviews}
+        deleteReview={this.props.deleteReview}
         reviews={this.props.reviews}
+        currentUserId={this.props.currentUserId}
+
         />)
+      button1container=null
+      
   } else{
      showReviews = "";
+     button1container=button1
   }
 
 
@@ -160,6 +165,7 @@ class RideIndexItem extends React.Component {
 
   if (this.state.reviewPost === false) {
       createReview = "";
+      button2container=button2
   } else {
       createReview = (
         <ReviewForm
@@ -169,6 +175,7 @@ class RideIndexItem extends React.Component {
           currentUserName={this.props.currentUserName}
         />
       );
+      button2container=null
   }
   
 
@@ -186,8 +193,8 @@ class RideIndexItem extends React.Component {
         
       
         <div className={`button-tray ${this.props.ride._id}`}>
-          {button1}
-          {button2}
+          {button1container}
+          {button2container}
         </div>
       </li>
     );
