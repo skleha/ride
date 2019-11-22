@@ -1,7 +1,7 @@
 
 import { connect } from "react-redux";
 import { updateRide } from "../../actions/ride_actions";
-import RideCreateEdit from "./rideCreatEdit";
+import RideCreateEdit from "./rideCreateEdit";
 
 const mapStateToProps = state => ({
   
