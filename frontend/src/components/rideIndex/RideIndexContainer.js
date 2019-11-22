@@ -11,7 +11,8 @@ const mapStateToProps = state => ({
   rides: Object.values(state.rides),
   signedIn: state.session.isAuthenticated,
   currentUserId: state.session.user.id,
-  reviews: Object.values(state.reviews)
+  reviews: Object.values(state.reviews),
+  currentUserName:state.session.user.username
 });
 
 const mapDispatchToProps = dispatch => ({

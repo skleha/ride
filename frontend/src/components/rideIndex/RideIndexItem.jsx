@@ -2,6 +2,7 @@ import React from 'react';
 import sampleMap from '../../sample-map.jpg';
 import RideShow from "../rideShow/rideShow"
 import ReviewShow from "../reviewShow/reviewShow"
+import ReviewForm from "../reviewForm/reviewForm"
 
 class RideIndexItem extends React.Component {
 
@@ -17,8 +18,10 @@ class RideIndexItem extends React.Component {
 
     this.toggleClass = this.toggleClass.bind(this);   
     this.hanldeClick = this.handleClick.bind(this); 
-    this.detailsReset= this.detailsReset.bind(this)
-    this.giveFullDetail = this.giveFullDetail.bind(this)
+    this.detailsReset= this.detailsReset.bind(this);
+    this.giveFullDetail = this.giveFullDetail.bind(this);
+    this.openRideShow = this.openRideShow.bind(this);
+    this.closeRideShow = this.closeRideShow.bind(this);
   }
 
   toggleClass(e) {
@@ -55,6 +58,17 @@ class RideIndexItem extends React.Component {
     }
   }
   
+  openRideShow(e) {
+    this.giveFullDetail();
+    this.toggleClass();
+  }
+
+  closeRideShow(e) {
+    this.detailsReset();
+    this.toggleClass();
+  }
+
+
   giveFullDetail(){
     this.setState({fullDetail: true})
   }
@@ -144,10 +158,17 @@ class RideIndexItem extends React.Component {
   // create review
   let createReview = "";
 
-  if (this.state.reviewPost === true) {
-      createReview = <h1>WORKING</h1>;
-  } else {
+  if (this.state.reviewPost === false) {
       createReview = "";
+  } else {
+      createReview = (
+        <ReviewForm
+          currentUserId={this.props.currentUserId}
+          postReview={this.props.postReview}
+          rideId={this.props.ride._id}
+          currentUserName={this.props.currentUserName}
+        />
+      );
   }
   
 
@@ -155,10 +176,8 @@ class RideIndexItem extends React.Component {
     return (
       <li
         className="ride-index-item"
-        onMouseEnter={this.toggleClass}
-        onMouseEnter={this.giveFullDetail}
-        onMouseLeave={this.toggleClass}
-        onMouseLeave={this.detailsReset}
+        onMouseEnter={this.openRideShow}
+        onMouseLeave={this.closeRideShow}
       >
         
           {rideInfoBar}

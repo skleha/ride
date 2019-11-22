@@ -8,7 +8,8 @@ class RideIndex extends React.Component {
   }
 
   render() {
-    // debugger;
+      // debugger;
+
     return (
       <ul className="ride-index-ul">
         {this.props.rides.map((ride, idx) => (
@@ -21,6 +22,7 @@ class RideIndex extends React.Component {
             postReview={this.props.postReview}
             fetchReviews={this.props.fetchReviews}
             deleteReviews={this.props.deleteReviews}
+            currentUserName={this.props.currentUserName}
             reviews={this.props.reviews}
           />
         ))}

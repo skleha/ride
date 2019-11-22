@@ -13,9 +13,13 @@ class ReviewShow extends React.Component {
   render() {
     // debugger;
     return (
-      <ul className="ride-index-ul">
-        {this.props.reviews.map((ride, idx) => (
-         
+      <ul className="ReviewIndexBox">
+        {this.props.reviews.map((review, idx) => (
+        <li>
+            <div>
+                
+            </div>
+        </li>  
         ))}
       </ul>
     );
