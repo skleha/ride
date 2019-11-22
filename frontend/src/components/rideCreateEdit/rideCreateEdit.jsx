@@ -5,14 +5,7 @@ import StarRatingComponent from "react-star-rating-component";
 class RideCreateEdit extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: "",
-      duration: "",
-      author_rating: 0,
-      description: "",
-      waypoints: [{"lat": 37.495326, "lng": -122.368773}, {"lat": 37.258991, "lng": -122.122663 }]
-    };
-
+    this.state = this.props.newRide;
     this.handleChange = this.handleChange.bind(this);
   }
 

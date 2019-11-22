@@ -21,7 +21,7 @@ import SplashContainer from "./components/splash/splash_container";
 import NavbarContainer from "./components/navBar/navbar_container";
 import Modal from "./components/modal/modal";
 import contentPageContainer from "./components/contentPage/contentPage_container";
-import rideCreateEditContainer from "./components/rideCreateEdit/rideCreateEditContainer";
+import rideCreateContainer from "./components/rideCreateEdit/rideCreateContainer";
 
 
 class App extends React.Component {
@@ -61,7 +61,7 @@ class App extends React.Component {
           <Switch>
             <AuthRoute exact path="/" component={SplashContainer} />
             <Route path="/content" component={contentPageContainer} />
-            <Route path="/create" component={rideCreateEditContainer} />
+            <Route path="/create" component={rideCreateContainer} />
           </Switch>
         </div>
 
