@@ -3,7 +3,8 @@ import { closeModal } from "../../actions/modal_actions";
 import { connect } from "react-redux";
 import SignUpContainer from "../signupForm/signupForm_container";
 import LogInContainer from "../loginForm/loginForm_container"
-
+import RideCreateContainer from "../rideCreateEdit/rideCreateContainer";
+import NewRide from "../rideCreateEdit/rideCreateComp";
 
 function Modal({ modal, content, closeModal }) {
   if (!modal) {
@@ -17,12 +18,13 @@ function Modal({ modal, content, closeModal }) {
     case "loginUser":
         component = <LogInContainer />;
       break;
-    case "postReview":
-     
+    case "rideCreate":
+        component = <RideCreateContainer />;
       break;
-    case "postComment":
-      //   component = <CommentPostContainer content={content} />;
+    case "2ndPostForm":
+        component = <NewRide content={content} />;
       break;
+  
     // case 'signup':
     //   component = <SignupFormContainer />;
     //   break;
