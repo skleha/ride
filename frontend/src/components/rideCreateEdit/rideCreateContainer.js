@@ -10,13 +10,7 @@ const mapStateToProps = state => ({
     author_rating: 0,
     author_id: "5cc45600ad11329216c4d886",
     description: "",
-    start: "",
-    destination: "",
-    polyline: "",
-    waypoints: [
-      { lat: 37.495326, lng: -122.368773 },
-      { lat: 37.258991, lng: -122.122663 }
-    ]
+    start_address: "",
   },
   user: "user data"
 });
