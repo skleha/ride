@@ -58,7 +58,7 @@ class RideCreateEdit extends React.Component {
               className="ride-create-edit-input"
               type="text"
               placeholder="Town, State"
-              onChange={this.handleInput("start_address")}
+              onChange={this.handleInput("start_city")}
             />
 
             <div className="ride-edit-create-label">Ride Duration</div>
