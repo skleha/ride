@@ -37,6 +37,7 @@ router.post("/",(req, res) => {
                   userId: req.body.userId,
                   rideId: req.body.rideId,
                   rating: req.body.rating,
+                  authorName: req.body.authorName,
                   description: req.body.description  
                 })
                 newReview.save()
