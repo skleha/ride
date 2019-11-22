@@ -1,4 +1,5 @@
 import React from "react";
+import ReviewShowItem from "./reviewShowItem"
 
 class ReviewShow extends React.Component {
 
@@ -14,11 +15,12 @@ class ReviewShow extends React.Component {
     return (
       <ul className="ReviewIndexBox">
         {this.props.reviews.map((review, idx) => (
-        <li>
-            <div>
-                
-            </div>
-        </li>  
+          <ReviewShowItem 
+          currentUserId={this.props.currentUserId}
+          review={review}
+          deleteReview={this.props.deleteReview}
+           key={idx}
+          />  
         ))}
       </ul>
     );

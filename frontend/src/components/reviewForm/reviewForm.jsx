@@ -40,27 +40,29 @@ class ReviewForm extends React.Component {
     return (
       <div className="review-form-container">
         <form onSubmit={this.handleSubmit} className="review-form-box">
-          <label className="review-description-container">
-            <input
-              type="text"
-              value={this.state.description}
-              onChange={this.update("description")}
-              className="review-description-textbox"
-              placeholder="description"
-            />
-          </label>
+           <label className="review-description-container">
+                <input
+                type="text"
+                value={this.state.description}
+                onChange={this.update("description")}
+                className="review-description-textbox"
+                placeholder="Review Content"
+                />
+           </label>
+            <div className= "reviewFormLowerContainer">
 
-          <label className="emailFieldContainer signupFC">
-            <h2>Rating from state: {rating}</h2>
-            <StarRatingComponent
-              name="rating"
-              starCount={5}
-              value={rating}
-              onStarClick={this.onStarClick.bind(this)}
-            />
-          </label>
+                <label className="emailFieldContainer signupFC">
+                    <h2>Rating from state: {rating}</h2>
+                    <StarRatingComponent
+                    name="rating"
+                    starCount={5}
+                    value={rating}
+                    onStarClick={this.onStarClick.bind(this)}
+                    />
+                </label>
 
-          <input className="session-submit" type="submit" value="PostReview" />
+                <input className="review-submit" type="submit" value="PostReview" />
+            </div>
         </form>
       </div>
     );
