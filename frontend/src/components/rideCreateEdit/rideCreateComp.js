@@ -70,7 +70,7 @@ class NewMap extends React.Component {
                     zoom: this.state.zoom
                     // waypoints: this.state.waypoints
     
-                    })
+                    })}
                 )
     
                     // this.setState({
