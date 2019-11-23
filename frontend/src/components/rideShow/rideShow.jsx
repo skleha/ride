@@ -1,7 +1,7 @@
 
 import React from 'react';
 import sampleMap from '../../sample-map.jpg';
-
+import Map from './map'
 class RideShow extends React.Component {
 
   constructor(props){
@@ -13,7 +13,7 @@ class RideShow extends React.Component {
     return (
       // <div className="ride-show-temp-container">
         <div className="ride-show">
-          <img src={sampleMap} className="ride-show-map" alt="map-of-ride" />
+          <Map />
           <div className="ride-show-title">{this.props.ride.title}</div>
           <div className="ride-show-data-description">
 
