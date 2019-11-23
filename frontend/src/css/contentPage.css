@@ -1,15 +1,16 @@
 .ContentMain{
     position: relative;
     
-    top: 30%;
-    left: 5%;
-    text-align:center;
-    height:20%;
-    width: 45%;
+    /* top: 30%; */
+    /* left: 5%; */
+    /* text-align:center; */
+    /* height:20%; */
+    height: auto;
+    width: 100%;
     z-index: 2;
     text-emphasis-color: white;
-    
-    height: auto;
+    display: flex;
+    justify-content: center;
 }
 
 
