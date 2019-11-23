@@ -12,9 +12,6 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     z-index: 10;
-
-
-   
 }
 
 .NavBarMain>*{
@@ -76,7 +73,7 @@
 
 .RightNav{
     position: fixed;
-    margin-left:55%;
+    margin-left:66%;
     flex-basis:auto;
     display: flex;
     justify-content: flex-start;
