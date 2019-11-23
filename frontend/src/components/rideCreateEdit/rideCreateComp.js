@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import { createRide } from '../../util/ride_api_util'
+import { createRide } from '../../util/ride_api_util';
+
+
 
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js")
 const polyline = require('@mapbox/polyline')
@@ -8,6 +10,7 @@ const polyline = require('@mapbox/polyline')
 class NewMap extends React.Component {
     constructor(props) {
         super(props)
+        debugger
         this.state = {
             zoom: 12,
             start: [],
@@ -19,9 +22,10 @@ class NewMap extends React.Component {
             map: {},
             markers: [],
             start_marker: [],
-            address: this.props.content.address,
-            location: this.props.content.address,
-            center: []
+            address: this.props.content.start_address,
+            location: this.props.content.start_city,
+            center: [],
+            close: ""
 
 
         }
@@ -267,11 +271,14 @@ class NewMap extends React.Component {
 
 
     handleSubmit() {
+        
         let destination = this.state.waypoints.pop()
         debugger
         this.setState({
-            destination: destination
+            destination: destination,
+            close: "bingo"
         })
+
 
         let ride = {
             title: this.props.content.title,
@@ -279,10 +286,18 @@ class NewMap extends React.Component {
             author_id: this.props.content.author_id,
             author_rating: this.props.content.author_rating,
             duration: this.props.content.duration,
-            map: this.state.map
-        }
 
+            polyline: this.state.polyline,
+            start: this.state.start,
+            destination: destination,
+            waypoints: this.state.waypoints,
+            markers: this.state.markers
+        }
+        debugger
+        this.props.closeModal()
         createRide(ride)
+        
+
     }
 
 
@@ -312,7 +327,9 @@ class NewMap extends React.Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         debugger
-        if (nextState.map.length === this.state.map.length) {
+        if (nextState.close === "bingo") {
+            return false
+        }else if (nextState.map.length === this.state.map.length){
             return true
         } else {
             return false
@@ -353,6 +370,7 @@ class NewMap extends React.Component {
                     {display}
                 </div>
                 <button onClick={this.handleSubmit}>Create Ride!</button>
+
             </div>
 
         );
