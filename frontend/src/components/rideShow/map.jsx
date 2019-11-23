@@ -11,7 +11,7 @@ class Map extends React.Component {
       lng: this.props.start[0],
       zoom: 12,
       start: this.props.start,
-      destination:this.props.destination,
+      destination: this.props.destination.split("%2C%20").map( el => Number(el) ),
       polyboy: this.props.poly
     };
     
@@ -62,11 +62,10 @@ class Map extends React.Component {
             return bounds.extend(coord);
         }, new mapboxgl.LngLatBounds(coords[0], coords[0]))
         map.fitBounds(bounds, {
-          padding: 20
+          padding: 40
         });
 
       
-
         map.loadImage("https://i.imgur.com/MK4NUzI.png", (error, image) => {
                 if (error) throw error;
                 map.addImage("custom-marker", image)
@@ -83,7 +82,32 @@ class Map extends React.Component {
                                     properties: {},
                                     geometry: {
                                         type: "Point",
-                                        coordinates: [this.state.start]
+                                        coordinates: this.state.start
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    layout: {
+                        "icon-image": "custom-marker",
+                    }
+                })
+                map.addImage("custom-marker2", image)
+
+                map.addLayer({
+                    id: "destination",
+                    type: "symbol",
+                    source: {
+                        type: "geojson",
+                        data: {
+                            type: 'FeatureCollection',
+                            features: [
+                                {
+                                    type: 'Feature',
+                                    properties: {},
+                                    geometry: {
+                                        type: "Point",
+                                        coordinates: this.state.destination
                                     }
                                 }
                             ]
