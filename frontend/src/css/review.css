@@ -1,0 +1,45 @@
+.review-form-container{
+    position: relative;
+    background-color:lightblue;
+    box-sizing: border-box;
+    -webkit-box-shadow: 2px 3px 5px 1px #5E5E5E; 
+    box-shadow: 2px 3px 5px 1px #5E5E5E;
+    border-radius:5px;
+}
+
+
+.review-form-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.review-description-textbox{
+    width:75%;
+    height:50px;
+}
+
+.reviewFormLowerContainer{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.ReviewShowItemContainer{
+    position: relative;
+    background-color:lightblue;
+    box-sizing: border-box;
+    -webkit-box-shadow: 2px 3px 5px 1px #5E5E5E; 
+    box-shadow: 2px 3px 5px 1px #5E5E5E;
+    border-radius:5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.ReviewItemBottom{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

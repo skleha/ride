@@ -1,6 +1,8 @@
 import React from 'react';
 import sampleMap from '../../sample-map.jpg';
 import RideShow from "../rideShow/rideShow"
+import ReviewShow from "../reviewShow/reviewShow"
+import ReviewForm from "../reviewForm/reviewForm"
 
 class RideIndexItem extends React.Component {
 
@@ -20,6 +22,7 @@ class RideIndexItem extends React.Component {
     this.giveFullDetail = this.giveFullDetail.bind(this);
     this.openRideShow = this.openRideShow.bind(this);
     this.closeRideShow = this.closeRideShow.bind(this);
+    this.closeReviewPost=this.closeReviewPost.bind(this);
   }
 
   toggleClass(e) {
@@ -58,12 +61,22 @@ class RideIndexItem extends React.Component {
   
   openRideShow(e) {
     this.giveFullDetail();
+    if(!this.state.fullDetail){
     this.toggleClass();
+    }
   }
 
   closeRideShow(e) {
+    e.stopPropagation();
     this.detailsReset();
     this.toggleClass();
+  }
+
+  closeReviewPost =()=>{
+    this.setState({
+      reviewPost: false,
+      reviewsShow:true
+    })
   }
 
 
@@ -110,15 +123,21 @@ class RideIndexItem extends React.Component {
       </div>
     );
   }
-  let showReviews="";
-  let createReview="";
-  
-  if(this.state.reviewPost=== true){
+  let button1container;
+  let button2container;
+  let button3container;
 
-    createReview = <h1>WORKING</h1>; 
-  } else { createReview= ""}
-  
 
+
+    button3container=(
+       <div
+        className={`ride-index-item-button ${this.props.ride._id}`}
+        onClick={this.closeRideShow}
+      >
+        Collapse
+      </div>
+    )
+ 
 
   let basicBar = (
           <div className="ride-index-item-container">
@@ -142,20 +161,65 @@ class RideIndexItem extends React.Component {
       rideInfoBar = <RideShow ride={this.props.ride} />;
   }
 
+
+
+  // show reviews
+  let showReviews = "";
+
+  if (this.state.reviewsShow === true){
+      showReviews = (<ReviewShow 
+        rideId={this.props.ride._id}  
+        fetchReviews={this.props.fetchReviews}
+        deleteReview={this.props.deleteReview}
+        reviews={this.props.reviews}
+        currentUserId={this.props.currentUserId}
+
+        />)
+      button1container=null
+      
+  } else{
+     showReviews = "";
+     button1container=button1
+  }
+
+
+  // create review
+  let createReview = "";
+
+  if (this.state.reviewPost === false) {
+      createReview = "";
+      button2container=button2;
+  } else {
+      createReview = (
+        <ReviewForm
+          currentUserId={this.props.currentUserId}
+          postReview={this.props.postReview}
+          rideId={this.props.ride._id}
+          currentUserName={this.props.currentUserName}
+          closeReviewPost={this.closeReviewPost}
+        />
+      );
+      button2container=null
+  }
+  
+
+
     return (
       <li
         className="ride-index-item"
-        onMouseEnter={this.openRideShow}
-        onMouseLeave={this.closeRideShow}
+        onClick={this.openRideShow}
+        // onMouseLeave={this.closeRideShow}
       >
-        <div>
+        
           {rideInfoBar}
           {showReviews}
           {createReview}
-        </div>
+        
+      
         <div className={`button-tray ${this.props.ride._id}`}>
-          {button1}
-          {button2}
+          {button1container}
+          {button2container}
+          {button3container}
         </div>
       </li>
     );

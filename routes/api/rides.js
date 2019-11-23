@@ -26,7 +26,7 @@ router.get('/:ride_id', (req, res) => {
 
 
 router.post('/', (req, res) => {
-  
+
   const { errors, isValid } = validateRideInput(req.body);
   
     if (!isValid) {
@@ -35,11 +35,15 @@ router.post('/', (req, res) => {
   
   const newRide = new Ride({
     title: req.body.title,
+    description: req.body.description,
     author_id: req.body.author_id,
     author_rating: req.body.author_rating,
+    duration: req.body.duration,
+    polyline: req.body.polyline,
+    destination: req.body.destination,
     waypoints: req.body.waypoints,
-    description: req.body.description,
-    duration: req.body.duration
+    markers: req.body.waypoints,
+    start: req.body.start
   })
 
   newRide.save()

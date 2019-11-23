@@ -1,0 +1,87 @@
+
+.ride-create-edit-temp-container {
+  height: 100vh;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  padding: 80px;
+  box-sizing: border-box;
+}
+
+.ride-create-edit-form {
+  background-color: rgb(243, 242, 242);
+  font-family: sans-serif;
+  border: 1px solid lightgray;
+  -webkit-box-shadow: 2px 3px 5px 1px #5E5E5E; 
+  box-shadow: 2px 3px 5px 1px #5E5E5E;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-top: 50px;
+  height: 575px;
+  width: 450px;
+  padding: 15px;
+}
+
+.ride-create-edit-data {
+  width: 100%;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ride-create-edit-title {
+  margin: 15px 0px 22px;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.ride-edit-create-label {
+  font-size: 15px;
+  margin: 5px 3px 4px;
+}
+
+.ride-create-edit-input {
+  border: none;
+  font-size: 13px;
+  padding: 4px;
+  margin-bottom: 8px;
+}
+
+.ride-edit-create-select {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.ride-edit-create-stars {
+  margin-bottom: 8px;
+}
+
+
+.ride-create-edit-textarea {
+  font-size: 14px;
+  padding: 9px;
+  border-radius: 3px;
+  background-color: rgb(231, 228, 228);
+  line-height: 1.3;
+}
+
+.ride-edit-create-submit {
+  margin-top: 10px;
+  background-color: rgb(53, 112, 238);
+  height: 22px;
+  width: 100px;
+  padding: 8px 5px 0px 15px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.ride-edit-create-select:focus {
+	border-color: #aaa;
+	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+	box-shadow: 0 0 0 3px -moz-mac-focusring;
+	color: #222;
+  outline: none;
+}

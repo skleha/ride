@@ -29,17 +29,18 @@ class Navbar extends React.Component {
         LOG IN
       </h4>
     );
-    let button3 = (
-      <h4 onClick={() => this.props.activateModal("postReview", null)}>
-        Review
-      </h4>
-    );
+    let button3 = ""
     let button4 = "";
 
     switch (this.props.signedIn) {
       case true:
         button1 = <h4 onClick={this.onRedirect}>Log Out</h4>;
         button2 = <h4>Setting</h4>;
+        button3 = (
+              <h4 onClick={() => this.props.activateModal("rideCreate", null)} >
+                Post
+              </h4>
+            );
         animation = "";
         break;
     }
