@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import { createRide } from '../../util/ride_api_util'
+import { createRide } from '../../util/ride_api_util';
+import { Link } from 'react-router-dom';
 
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js")
 const polyline = require('@mapbox/polyline')
@@ -8,6 +9,7 @@ const polyline = require('@mapbox/polyline')
 class NewMap extends React.Component {
     constructor(props) {
         super(props)
+        debugger
         this.state = {
             zoom: 12,
             start: [],
@@ -19,8 +21,8 @@ class NewMap extends React.Component {
             map: {},
             markers: [],
             start_marker: [],
-            address: this.props.content.address,
-            location: this.props.content.address,
+            address: this.props.content.start_address,
+            location: this.props.content.start_city,
             center: []
 
 
@@ -279,7 +281,12 @@ class NewMap extends React.Component {
             author_id: this.props.content.author_id,
             author_rating: this.props.content.author_rating,
             duration: this.props.content.duration,
-            map: this.state.map
+
+            polyline: this.state.polyline,
+            start: this.state.start,
+            destination: this.state.destination,
+            waypoints: this.state.waypoints,
+            markers: this.state.markers
         }
 
         createRide(ride)
@@ -352,7 +359,9 @@ class NewMap extends React.Component {
                 <div>
                     {display}
                 </div>
-                <button onClick={this.handleSubmit}>Create Ride!</button>
+                <Link to={"/content"}>
+                    <button onClick={this.handleSubmit}>Create Ride!</button>
+                </Link>
             </div>
 
         );
