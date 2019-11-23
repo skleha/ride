@@ -32,7 +32,8 @@ class RideCreateEdit extends React.Component {
 
   render() {
     const { rating } = this.state;
-
+    debugger
+    
     return (
       
         <div className="ride-create-edit-form">
