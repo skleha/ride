@@ -6,22 +6,39 @@ const RideSchema = new Schema({
     type: String,
     required: true
   },
-  map: {
-    type: Object,
-    required: true,
+  description: {
+    type: String
   },
   author_id: {
     type: String
   },
-  description: {
-    type: String,
-  },
-  duration: {
-    type: String,
-  },
   author_rating: {
     type: Number
+  },
+  duration: {
+    type: String
+  },
+  polyline: {
+    type: Object,
+    required: true
+  },
+  destination: {
+    type: String,
+    required: true
+  },
+  waypoints: {
+    type: Array,
+    required: true
+  },
+  markers: {
+    type: Array,
+    required: true
+  },
+  start: {
+    type: Array,
+    required: true
   }
+
 });
 
 module.exports = Ride = mongoose.model("rides", RideSchema);

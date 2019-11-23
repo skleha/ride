@@ -1,4 +1,5 @@
 import * as APIUtil from "../util/ride_api_util";
+import {closeModal} from '../actions/modal_actions';
 
 export const RECEIVE_ALL_RIDES = "RECEIVE_ALL_RIDES";
 export const RECEIVE_RIDE = "RECEIVE_RIDE";
@@ -46,10 +47,17 @@ export const fetchRide = rideId => dispatch =>
 
 export const createRide = ride => dispatch => (
   APIUtil.createRide(ride)
-    .then(ride => {
-      dispatch(receiveRide(ride))
-    }, err => dispatch(receiveErrors(err.response.data)))
-);
+    .then(res => {
+      debugger
+      dispatch(receiveRide(res.ride))
+
+    })
+    .catch(err => {
+      dispatch(receiveErrors(err.response.data))
+    })
+    
+    
+)
 
 export const updateRide = ride => dispatch =>
   APIUtil.updateRide(ride).then(

@@ -14,3 +14,7 @@ export const closeModal = () => {
     type: CLOSE_MODAL
   };
 };
+
+export const closeBingo = () => dispatch => {
+  dispatch(closeModal())
+}
