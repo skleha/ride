@@ -27,6 +27,8 @@ router.get('/:ride_id', (req, res) => {
 
 router.post('/', (req, res) => {
 
+  debugger
+
   const { errors, isValid } = validateRideInput(req.body);
   
     if (!isValid) {
