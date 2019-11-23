@@ -1,8 +1,8 @@
 import React from 'react';
-import sampleMap from '../../sample-map.jpg';
 import RideShow from "../rideShow/rideShow"
 import ReviewShow from "../reviewShow/reviewShow"
 import ReviewForm from "../reviewForm/reviewForm"
+var polyline = require("@mapbox/polyline");
 
 class RideIndexItem extends React.Component {
 
@@ -17,7 +17,6 @@ class RideIndexItem extends React.Component {
 
     }
 
-    debugger
 
     this.toggleClass = this.toggleClass.bind(this);   
     this.hanldeClick = this.handleClick.bind(this); 
@@ -28,6 +27,22 @@ class RideIndexItem extends React.Component {
     this.closeReviewPost=this.closeReviewPost.bind(this);
   }
 
+  componentDidMount() {
+    let destination = this.props.ride.destination.split("%2C%20").map(el => Number(el));
+    let geojson = {
+      "type": "Feature",
+      "geometry": this.props.ride.polyline,
+      "properties": {}
+    }
+    let encoded = polyline.fromGeoJSON(geojson);
+
+    fetch(`https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-a+000(${this.props.ride.start[0]},${this.props.ride.start[1]}),pin-s-b+F00(${destination[0]},${destination[1]})/auto/300x300?access_token=pk.eyJ1IjoicHJvc2UwMDIxIiwiYSI6ImNrMzZoYWdidTAxcm8zaW82MW5jZmV6c2EifQ.PRbSpg500wqcoctnYFTIog`)
+      .then( res => {
+        debugger
+        this.setState({ sampleMap: res.url })
+      })
+  }
+  
   toggleClass(e) {
     const buttonTray = document.getElementsByClassName(`button-tray ${this.props.ride._id}`)[0];
     buttonTray.classList.toggle("is-tray-open");
@@ -141,8 +156,7 @@ class RideIndexItem extends React.Component {
       </div>
     )
  
-
-  let basicBar = (
+    let basicBar = (
           <div className="ride-index-item-container">
             <div className="ride-index-data">
               <div className="ride-index-item-title">{this.props.ride.title}</div>
@@ -152,7 +166,7 @@ class RideIndexItem extends React.Component {
                 Duration: {this.props.ride.duration}
               </div>
             </div>
-            <img src={sampleMap} className="ride-index-item-map" alt="map-of-ride" />
+            <img src={this.state.sampleMap} className="ride-index-item-map" alt="map-of-ride" />
           </div>
   );
 
