@@ -314,15 +314,16 @@ class NewMap extends React.Component {
 
 
         return (
-            <div>
-                <div className="ride-create-edit-map" id="map" ref={el => this.mapContainer = el} style={{height: "500px"}}></div>
-                <div>
-                    {display}
-                </div>
-                <button onClick={this.handleSubmit}>Create Ride!</button>
-
-            </div>
-
+          <div className="ride-create-edit-map-button-container">
+            <div
+              className="ride-create-edit-map"
+              id="map"
+              ref={el => (this.mapContainer = el)}
+              style={{ height: "550px", width: "700px" }}
+            ></div>
+            <div>{display}</div>
+            <button className="ride-create-edit-map-button" onClick={this.handleSubmit}>Create Ride!</button>
+          </div>
         );
     }
 }
