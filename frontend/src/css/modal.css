@@ -12,13 +12,16 @@
 .modal-child {
     position: absolute;
     top: 50%;
-    left: 40%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
-    height:50%;
+    width: 66%;
+    height:66%;
     /* background-color: linen; */
-    display:flexbox;
-    flex-direction: column;
+    /* display: flexbox; */
+    /* flex-direction: column; */
+    /* justify-content: space-around; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius:15px;
-    justify-content: space-around;
   }
