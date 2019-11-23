@@ -25,8 +25,7 @@ class RideCreateEdit extends React.Component {
   }
 
   handleSubmit(e) {
-    let data= this.state
-    
+    let data = this.state
     this.props.activateModal("2ndPostForm", data)
   }
 
@@ -43,7 +42,7 @@ class RideCreateEdit extends React.Component {
             <input
               className="ride-create-edit-input"
               type="text"
-              placeholder="Name"
+              placeholder="My Favorite Ride"
               onChange={this.handleInput("title")}
             />
 
@@ -89,7 +88,7 @@ class RideCreateEdit extends React.Component {
             <div className="ride-edit-create-label">Describe Your Ride</div>
             <textarea
               className="ride-create-edit-textarea"
-              placeholder="Describe your Ride"
+              placeholder="... more curves than a race track!"
               rows="7"
               cols="50"
               onChange={this.handleInput("description")}
@@ -99,7 +98,7 @@ class RideCreateEdit extends React.Component {
               className="ride-edit-create-submit"
               onClick={this.handleSubmit}
             >
-              Create Ride
+              Go To Map
             </div>
           </div>
         </div>

@@ -12,6 +12,7 @@ module.exports = function validateRideInput(data) {
     data.description = validText(data.description) ? data.description : '';
     data.author_id = validText(data.author_id) ? data.author_id : '';
     data.author_rating = validNumber(data.author_rating) ? data.author_rating : '';
+    data.author_name = validText(data.author_name) ? data.author_name : '';
     data.duration = validText(data.duration) ? data.duration : '';
     data.polyline = validObject(data.polyline) ? data.polyline : '';
     data.destination = validText(data.destination) ? data.destination : '';
@@ -34,6 +35,10 @@ module.exports = function validateRideInput(data) {
 
     if (data.author_rating === "") {
         errors.author_rating = "Author rating required";
+    }
+
+    if (Validator.isEmpty(data.author_name)) {
+    errors.author_rating = "Author name required";
     }
 
     if (Validator.isEmpty(data.duration)) {

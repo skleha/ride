@@ -7,7 +7,6 @@ import NewMap from './rideCreateComp'
 
 const mapDispatchToProps = dispatch => ({
     createRide: ride => dispatch(createRide(ride)),
-
     closeModal: () => dispatch(closeModal()),
 
 });

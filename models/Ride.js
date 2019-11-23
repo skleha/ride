@@ -15,6 +15,9 @@ const RideSchema = new Schema({
   author_rating: {
     type: Number
   },
+  author_name: {
+    type: String
+  },
   duration: {
     type: String
   },

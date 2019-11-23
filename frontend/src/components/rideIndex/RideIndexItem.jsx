@@ -13,10 +13,7 @@ class RideIndexItem extends React.Component {
       reviewPost: false,
       reviewsShow: false,
       fullDetail: false
-
-
     }
-
 
     this.toggleClass = this.toggleClass.bind(this);   
     this.hanldeClick = this.handleClick.bind(this); 

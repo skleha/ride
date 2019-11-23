@@ -32,12 +32,13 @@ router.post('/', (req, res) => {
     if (!isValid) {
       return res.status(404).json(errors);
   }
-  
+
   const newRide = new Ride({
     title: req.body.title,
     description: req.body.description,
     author_id: req.body.author_id,
     author_rating: req.body.author_rating,
+    author_name: req.body.author_name,
     duration: req.body.duration,
     polyline: req.body.polyline,
     destination: req.body.destination,

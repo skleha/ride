@@ -10,7 +10,7 @@ const polyline = require('@mapbox/polyline')
 class NewMap extends React.Component {
     constructor(props) {
         super(props)
-        debugger
+        
         this.state = {
             zoom: 12,
             start: [],
@@ -32,12 +32,7 @@ class NewMap extends React.Component {
 
         this.handleMarker = this.handleMarker.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-
-        
-
     }
-
-
 
 
     componentDidMount() {
@@ -65,8 +60,6 @@ class NewMap extends React.Component {
             .then((map) => {
 
                 console.log(this.state.map)
-
-                debugger
 
                 this.state.map.on("load", () => {
                     this.state.map.loadImage("https://i.imgur.com/MK4NUzI.png", (error, image) => {
@@ -105,7 +98,6 @@ class NewMap extends React.Component {
         
                 this.state.map.on('click', (e) => {
                     e.preventDefault();
-                    debugger
 
                     this.setState({
                         waypoints: [...this.state.waypoints, `${e.lngLat["lng"] + "%2C%20" + e.lngLat["lat"]}`],
@@ -162,7 +154,7 @@ class NewMap extends React.Component {
 
                 function assembleClickQueryURL(start, waypoints, destination) {
                     const coordinates = [start, destination]
-                    debugger
+                    
                     let wps = ""
                     for (let i = 0; i < waypoints.length; i++) {
                         wps = wps.concat(waypoints[i])
@@ -225,55 +217,13 @@ class NewMap extends React.Component {
             })
 
             })
-        
-
-
-
-
-   
-
-            
-
-
-
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-
-
-
-
                 
-
-
-
-        
     }
         
-
-
-
-
-
-
     handleSubmit() {
         
         let destination = this.state.waypoints.pop()
-        debugger
+        
         this.setState({
             destination: destination,
             close: "bingo"
@@ -285,6 +235,7 @@ class NewMap extends React.Component {
             description: this.props.content.description,
             author_id: this.props.content.author_id,
             author_rating: this.props.content.author_rating,
+            author_name: this.props.content.author_name,
             duration: this.props.content.duration,
 
             polyline: this.state.polyline,
@@ -293,7 +244,7 @@ class NewMap extends React.Component {
             waypoints: this.state.waypoints,
             markers: this.state.markers
         }
-        debugger
+        
         this.props.closeModal()
         createRide(ride)
         
@@ -326,7 +277,7 @@ class NewMap extends React.Component {
 
 
     shouldComponentUpdate(nextProps, nextState) {
-        debugger
+        
         if (nextState.close === "bingo") {
             return false
         }else if (nextState.map.length === this.state.map.length){
@@ -338,7 +289,6 @@ class NewMap extends React.Component {
 
 
     render() {
-        debugger
 
         let display;
         if (this.state.waypoints.length > 0) {
@@ -364,15 +314,16 @@ class NewMap extends React.Component {
 
 
         return (
-            <div>
-                <div className="ride-create-edit-map" id="map" ref={el => this.mapContainer = el} style={{height: "500px"}}></div>
-                <div>
-                    {display}
-                </div>
-                <button onClick={this.handleSubmit}>Create Ride!</button>
-
-            </div>
-
+          <div className="ride-create-edit-map-button-container">
+            <div
+              className="ride-create-edit-map"
+              id="map"
+              ref={el => (this.mapContainer = el)}
+              style={{ height: "550px", width: "700px" }}
+            ></div>
+            <div>{display}</div>
+            <button className="ride-create-edit-map-button" onClick={this.handleSubmit}>Create Ride!</button>
+          </div>
         );
     }
 }

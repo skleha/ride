@@ -47,21 +47,14 @@ export const fetchRide = rideId => dispatch =>
 
 export const createRide = ride => dispatch => (
   APIUtil.createRide(ride)
-    .then(res => {
-      debugger
-      dispatch(receiveRide(res.ride))
-
-    })
-    .catch(err => {
-      dispatch(receiveErrors(err.response.data))
-    })
-    
-    
-)
+    .then(ride => {
+      dispatch(receiveRide(ride));
+    }, err => dispatch(receiveErrors(err.response.data)))
+  );
 
 export const updateRide = ride => dispatch =>
-  APIUtil.updateRide(ride).then(
-    ride => {
+  APIUtil.updateRide(ride)
+    .then(ride => {
       dispatch(receiveRide(ride));
     }, err => dispatch(receiveErrors(err.response.data))
   );
