@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
     duration: "",
     author_rating: 0,
     author_id: state.session.user.id,
+    author_name: state.session.user.username,
     description: "",
     start_address: "",
     start_city: "",

@@ -25,15 +25,13 @@ class RideCreateEdit extends React.Component {
   }
 
   handleSubmit(e) {
-    let data= this.state
-    
+    let data = this.state
     this.props.activateModal("2ndPostForm", data)
   }
 
   render() {
     const { rating } = this.state;
-    debugger
-    
+
     return (
       
         <div className="ride-create-edit-form">
