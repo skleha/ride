@@ -11,7 +11,7 @@ class RideIndex extends React.Component {
 
     return (
       <ul className="ride-index-ul">
-        {this.props.rides.map((ride, idx) => (
+        {this.props.rides.reverse().map((ride, idx) => (
           <RideIndexItem
             ride={ride}
             key={idx}

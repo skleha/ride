@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { createRide } from '../../util/ride_api_util';
-import { Link } from 'react-router-dom';
+
+
 
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js")
 const polyline = require('@mapbox/polyline')
@@ -23,7 +24,8 @@ class NewMap extends React.Component {
             start_marker: [],
             address: this.props.content.start_address,
             location: this.props.content.start_city,
-            center: []
+            center: [],
+            close: ""
 
 
         }
@@ -269,11 +271,14 @@ class NewMap extends React.Component {
 
 
     handleSubmit() {
+        
         let destination = this.state.waypoints.pop()
         debugger
         this.setState({
-            destination: destination
+            destination: destination,
+            close: "bingo"
         })
+
 
         let ride = {
             title: this.props.content.title,
@@ -284,12 +289,15 @@ class NewMap extends React.Component {
 
             polyline: this.state.polyline,
             start: this.state.start,
-            destination: this.state.destination,
+            destination: destination,
             waypoints: this.state.waypoints,
             markers: this.state.markers
         }
-
+        debugger
+        this.props.closeModal()
         createRide(ride)
+        
+
     }
 
 
@@ -319,7 +327,9 @@ class NewMap extends React.Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         debugger
-        if (nextState.map.length === this.state.map.length) {
+        if (nextState.close === "bingo") {
+            return false
+        }else if (nextState.map.length === this.state.map.length){
             return true
         } else {
             return false
@@ -359,9 +369,8 @@ class NewMap extends React.Component {
                 <div>
                     {display}
                 </div>
-                <Link to={"/content"}>
-                    <button onClick={this.handleSubmit}>Create Ride!</button>
-                </Link>
+                <button onClick={this.handleSubmit}>Create Ride!</button>
+
             </div>
 
         );

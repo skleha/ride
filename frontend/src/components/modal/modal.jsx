@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import SignUpContainer from "../signupForm/signupForm_container";
 import LogInContainer from "../loginForm/loginForm_container"
 import RideCreateContainer from "../rideCreateEdit/rideCreateContainer";
-import NewRide from "../rideCreateEdit/rideCreateComp";
+import RideCreateMapContainer from "../rideCreateEdit/rideCreateMapContainer";
+
 
 function Modal({ modal, content, closeModal }) {
   if (!modal) {
@@ -22,7 +23,7 @@ function Modal({ modal, content, closeModal }) {
         component = <RideCreateContainer />;
       break;
     case "2ndPostForm":
-        component = <NewRide content={content} />;
+        component = <RideCreateMapContainer content={content}/>;
       break;
   
     // case 'signup':

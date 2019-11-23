@@ -8,7 +8,7 @@ import { setAuthToken } from './util/session_api_util';
 import { logout } from "./actions/session_actions";
 import { fetchRides, fetchRide, createRide, updateRide, deleteRide } from './actions/ride_actions';
 import {fetchReviews, deleteReview} from "./actions/review_actions";
-
+import {closeBingo} from './actions/modal_actions';
 document.addEventListener('DOMContentLoaded', () => {
     
     
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.fetchRide = fetchRide;
     window.createRide = createRide;
     window.updateRide = updateRide;
+    window.closeBingo = closeBingo
    
     // END OF WINDOW TESTING
 
