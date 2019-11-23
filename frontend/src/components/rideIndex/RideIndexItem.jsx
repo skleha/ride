@@ -35,7 +35,6 @@ class RideIndexItem extends React.Component {
 
     fetch(`https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-a+000(${this.props.ride.start[0]},${this.props.ride.start[1]}),pin-s-b+F00(${destination[0]},${destination[1]})/auto/300x300?access_token=pk.eyJ1IjoicHJvc2UwMDIxIiwiYSI6ImNrMzZoYWdidTAxcm8zaW82MW5jZmV6c2EifQ.PRbSpg500wqcoctnYFTIog`)
       .then( res => {
-        debugger
         this.setState({ sampleMap: res.url })
       })
   }
