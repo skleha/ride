@@ -9,18 +9,18 @@ class RideShow extends React.Component {
   }
 
   render() {
-
+    const { ride } = this.props
     return (
       // <div className="ride-show-temp-container">
         <div className="ride-show">
-          <Map />
+          <Map start={ride.start} destination={ride.destination} poly={ride.polyline}/>
           <div className="ride-show-title">{this.props.ride.title}</div>
           <div className="ride-show-data-description">
 
             <div className="ride-show-data">
               <div className="ride-show-datum">Distance: 22.2</div>
-              <div className="ride-show-datum">Duration: Partial Day</div>
-              <div className="ride-show-datum">Author Rating: 5.0</div>
+              <div className="ride-show-datum">Duration: {ride.duration}</div>
+              <div className="ride-show-datum">Author Rating: {ride.author_rating}</div>
               <div className="ride-show-datum">Overall Rating: 4.2</div>
             </div>
 
