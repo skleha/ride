@@ -12,7 +12,7 @@ const receiveRides = rides => ({
   rides
 });
 
-const receiveRide = ride => ({
+export const receiveRide = ride => ({
   type: RECEIVE_RIDE,
   ride
 });
@@ -22,7 +22,7 @@ const removeRide = rideId => ({
   rideId
 })
 
-const receiveErrors = errors => ({
+export const receiveErrors = errors => ({
   type: RECEIVE_RIDE_ERRORS,
   errors
 })

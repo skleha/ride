@@ -1,5 +1,6 @@
 
 import * as APIUtil from '../util/reviews_api_util'
+import { receiveRide, receiveErrors} from './ride_actions'
 
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 export const RECEIVE_RIDE_REVIEWS = "RECEIVE_RIDE_REVIEWS";
@@ -32,8 +33,8 @@ export const clearErrors = () =>({
 })
 
 export const postReview = review => dispatch => APIUtil.sendReview(review)
-    .then(review => dispatch(receiveReview(review)))
-    .catch(err => (dispatch(receiveReviewErrors(err.response.data))))
+    .then(ride=> dispatch(receiveRide(ride)))
+    .catch(err => (dispatch(receiveErrors(err.response.data))))
 
 export const fetchReviews = (rideId) => dispatch => APIUtil.fetchReviewsForRide(rideId)
     .then(reviews => dispatch(receiveRideReviews(reviews.data)))

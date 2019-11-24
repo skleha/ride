@@ -27,7 +27,10 @@ class ReviewForm extends React.Component {
     const review = Object.assign({}, this.state);
     this.props.postReview(review);
     this.props.closeReviewPost();
-    this.props.fetchReviews();
+    setTimeout(() => {
+      this.props.fetchReviews(this.props.rideId)
+    }, 100);
+    ;
   }
 
   componentWillUnmount() {}
