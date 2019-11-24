@@ -5,6 +5,7 @@ import SignUpContainer from "../signupForm/signupForm_container";
 import LogInContainer from "../loginForm/loginForm_container"
 import RideCreateContainer from "../rideCreateEdit/rideCreateContainer";
 import RideCreateMapContainer from "../rideCreateEdit/rideCreateMapContainer";
+import RideEditContainer from "../rideCreateEdit/rideEditContainer";
 
 
 function Modal({ modal, content, closeModal }) {
@@ -21,6 +22,9 @@ function Modal({ modal, content, closeModal }) {
       break;
     case "rideCreate":
         component = <RideCreateContainer />;
+      break;
+    case "rideEdit":
+        component = <RideEditContainer ride={content} formType={"Edit a Ride"}/>;
       break;
     case "2ndPostForm":
         component = <RideCreateMapContainer content={content}/>;

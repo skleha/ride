@@ -6,10 +6,10 @@ import StarRatingComponent from "react-star-rating-component";
 class RideCreateEdit extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.newRide;
-
+    this.state = this.props.newRide ? this.props.newRide : this.props.ride
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    debugger
   }
 
   handleInput(field) {
@@ -30,28 +30,30 @@ class RideCreateEdit extends React.Component {
   }
 
   render() {
-    const { rating } = this.state;
 
     return (
       
         <div className="ride-create-edit-form">
           <div className="ride-create-edit-data">
-            <div className="ride-create-edit-title">Create a Ride</div>
+            <div className="ride-create-edit-title">{this.props.formType}</div>
 
             <div className="ride-edit-create-label">Ride Name</div>
             <input
               className="ride-create-edit-input"
               type="text"
               placeholder="My Favorite Ride"
+              value={this.state.title}
               onChange={this.handleInput("title")}
             />
 
-            <div className="ride-edit-create-label">Start Address</div>
+            <div className="ride-edit-create-label">Full Start Address</div>
             <input
               className="ride-create-edit-input"
               type="text"
-              placeholder="123 Main St."
+              placeholder="123 Main Street"
               onChange={this.handleInput("start_address")}
+              value={this.state.start_address}
+              disabled={this.props.formType === 'Edit a Ride' ? "disabled" : ""}
             />
 
             <div className="ride-edit-create-label">Start City</div>
@@ -60,14 +62,17 @@ class RideCreateEdit extends React.Component {
               type="text"
               placeholder="Town, State"
               onChange={this.handleInput("start_city")}
+              value={this.state.start_city}
+            disabled={this.props.formType === 'Edit a Ride' ? "disabled" : ""}
             />
 
             <div className="ride-edit-create-label">Ride Duration</div>
             <select
               className="ride-edit-create-select"
               onChange={this.handleChange}
+              value={this.state.duration}
             >
-              <option selected disabled>
+              <option>
                 Duration
               </option>
               <option value="Partial Day">Partial Day</option>
@@ -80,7 +85,7 @@ class RideCreateEdit extends React.Component {
               <StarRatingComponent
                 name="rate1"
                 starCount={5}
-                value={rating}
+                value={this.state.author_rating}
                 onStarClick={this.onStarClick.bind(this)}
               />
             </div>
@@ -92,6 +97,7 @@ class RideCreateEdit extends React.Component {
               rows="7"
               cols="50"
               onChange={this.handleInput("description")}
+              value={this.state.description}
             ></textarea>
 
             <div

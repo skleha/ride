@@ -10,26 +10,33 @@ const polyline = require('@mapbox/polyline')
 class NewMap extends React.Component {
     constructor(props) {
         super(props)
-        
+        let strt = this.props.content.start ? this.props.content.start : [];
+        let dest = this.props.content.destination ? this.props.content.destination : [];
+        let wps = this.props.content.waypoints ? this.props.content.waypoints : [];
+        let poly = this.props.content.polyline ? this.props.content.polyline : "";
+        let marks = this.props.content.markers ? this.props.content.markers : [];
+        let dist = this.props.content.distance ? this.props.content.distance : "";
         this.state = {
             zoom: 12,
-            start: [],
-            destination: [],
+            start: strt,
+            destination: dest,
             // center: [this.props.content.user.location ? this.props.content.user.location : "San Francisco"],
-            waypoints: [],
-            polyline: "",
+            waypoints: wps,
+            polyline: poly,
             test: "",
             map: {},
-            markers: [],
+            markers: marks,
             start_marker: [],
             address: this.props.content.start_address,
             location: this.props.content.start_city,
             center: [],
             close: "",
-            distance: ""
+            distance: dist
 
 
         }
+        debugger
+
 
         this.handleMarker = this.handleMarker.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -244,6 +251,8 @@ class NewMap extends React.Component {
 
         this.props.closeModal()
         createRide(ride)
+            .then( () => this.props.fetchRides())
+
     }
 
 

@@ -15,7 +15,8 @@ const mapStateToProps = state => ({
     start_address: "",
     start_city: "",
   },
-  user: "user data"
+  user: "user data",
+  formType: "Create a Ride"
 });
 
 const mapDispatchToProps = dispatch => ({

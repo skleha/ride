@@ -2,6 +2,7 @@ import React from 'react';
 import RideShow from "../rideShow/rideShow"
 import ReviewShow from "../reviewShow/reviewShow"
 import ReviewForm from "../reviewForm/reviewForm"
+import RideShowContainer from '../rideShow/rideShowContainer';
 var polyline = require("@mapbox/polyline");
 
 class RideIndexItem extends React.Component {
@@ -131,7 +132,7 @@ class RideIndexItem extends React.Component {
     button2 = (
       <div
         className={`ride-index-item-button ${this.props.ride._id}`}
-        onClick={() => {}}
+        onClick={() => this.props.activateModal("rideEdit", this.props.ride, null)}
       >
         Edit Ride
       </div>
@@ -151,13 +152,14 @@ class RideIndexItem extends React.Component {
         Collapse
       </div>
     )
- 
+      let dist = this.props.ride.distance ? `${this.props.ride.distance} miles` : "none given"
+      let loc = this.props.ride.start_city ? this.props.ride.start_city : "check the map"
     let basicBar = (
           <div className="ride-index-item-container">
             <div className="ride-index-data">
               <div className="ride-index-item-title">{this.props.ride.title}</div>
-              <div className="ride-index-item-datum">San Francisco, CA</div>
-              <div className="ride-index-item-datum">Distance: 22.7 mi</div>
+              <div className="ride-index-item-datum">Location: {loc}</div>
+              <div className="ride-index-item-datum">Distance: {dist}</div>
               <div className="ride-index-item-datum">
                 Duration: {this.props.ride.duration}
               </div>
@@ -171,7 +173,7 @@ class RideIndexItem extends React.Component {
   if(this.state.fullDetail===false){
       rideInfoBar= basicBar
   } else{
-      rideInfoBar = <RideShow ride={this.props.ride} />;
+      rideInfoBar = <RideShowContainer ride={this.props.ride} />;
   }
 
 
