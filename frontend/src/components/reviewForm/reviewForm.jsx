@@ -7,9 +7,9 @@ class ReviewForm extends React.Component {
     this.state = {
       userId: this.props.currentUserId,
       rideId: this.props.rideId,
-      rating: 3,
+      rating: this.props.review.rating,
       authorName: this.props.currentUserName,
-      description: ""
+      description: this.props.review.description
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.onStarClick = this.onStarClick.bind

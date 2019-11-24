@@ -42,13 +42,17 @@ class RideIndexItem extends React.Component {
   
   toggleClass(e) {
     const buttonTray = document.getElementsByClassName(`button-tray ${this.props.ride._id}`)[0];
+    
     buttonTray.classList.toggle("is-tray-open");
-
+    
     const buttonCollection = document.getElementsByClassName(
       `ride-index-item-button ${this.props.ride._id}`
     );
+
     const buttons = Array.from(buttonCollection);
+   
     buttons.forEach(button => button.classList.toggle("is-tray-open"));
+    
   }
 
   detailsReset(){
@@ -85,6 +89,8 @@ class RideIndexItem extends React.Component {
     e.stopPropagation();
     this.detailsReset();
     this.toggleClass();
+
+  
   }
 
   closeReviewPost =()=>{
@@ -96,12 +102,29 @@ class RideIndexItem extends React.Component {
 
 
   giveFullDetail(){
-    this.setState({fullDetail: true})
+    this.props.fetchReviews(this.props.ride._id);
+    this.setState({fullDetail: true});
   }
 
   render() {
   //button options 
     let rideReviews = this.props.reviews.filter(review => review.rideId === this.props.ride._id)
+    //checking to see if the user is posting or editing reviews
+
+    let editedReview = rideReviews.filter((review => review.userId === this.props.currentUserId))
+    //review button
+    let yourReview =""
+    let pastDownReview = {}
+    if (editedReview.length===0){
+      yourReview= "New Review"
+      pastDownReview={
+        rating:3,
+        description: ""
+      }
+    } else {
+      yourReview= "Edit Review"
+      pastDownReview=editedReview[0]
+    }
     
 
   let button1 = (
@@ -116,7 +139,7 @@ class RideIndexItem extends React.Component {
     <div className={`ride-index-item-button ${this.props.ride._id}`}
       onClick = {()=>this.handleClick("postReview")}
     >  
-      Your Review
+      {yourReview}
     </div>
   );
 
@@ -203,7 +226,7 @@ class RideIndexItem extends React.Component {
      showReviews = "";
      button1container=button1
   }
-
+ 
 
   // create review
   let createReview = "";
@@ -220,7 +243,7 @@ class RideIndexItem extends React.Component {
           currentUserName={this.props.currentUserName}
           closeReviewPost={this.closeReviewPost}
           fetchReviews={this.props.fetchReviews}
-
+          review={pastDownReview}
         />
       );
       button2container=null
