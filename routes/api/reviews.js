@@ -26,12 +26,9 @@ router.post("/",(req, res) => {
 
     Review.findOne({userId : req.body.userId, rideId: req.body.rideId})
         .then(review => {
-            //to check and see if the same Ride/User review exists, if so replace the old review
             if (review) { 
                 Review.findByIdAndUpdate(review._id, reviewContent)
-                  .then(review => {
-                    res.json(review);
-                  })
+
                   .then(review => {
                     Review.find({ rideId: req.body.rideId })
                       .then(reviews => {
@@ -41,12 +38,11 @@ router.post("/",(req, res) => {
                           totalScore = totalScore + review.rating
                         })
                         const averageRatings = totalScore / count
-                       
-                        Ride.findByIdAndUpdate(
+                       Ride.findByIdAndUpdate(
                           req.body.rideId, { averageRating: averageRatings },
                           { new: true }
                         )
-                       
+                         .then(ride => res.json(ride))
                       })
                   })
                   .catch(err => res.status(400).json(err));
@@ -60,7 +56,6 @@ router.post("/",(req, res) => {
                   description: req.body.description  
                 })
                 newReview.save()
-                  .then(review => res.json(review))
                   .then(review => {
                     Review.find({ rideId: req.body.rideId })
                       .then(reviews => {
@@ -70,12 +65,12 @@ router.post("/",(req, res) => {
                           totalScore = totalScore + review.rating
                         })
                         const averageRatings = totalScore / count;
-                      
+                    
                         Ride.findByIdAndUpdate(
                           req.body.rideId, { averageRating: averageRatings },
                           { new: true }
                         )
-                  
+                        .then(ride=>res.json(ride))
                       })
                   })
                     .catch(err => res.status(400).json(err))
