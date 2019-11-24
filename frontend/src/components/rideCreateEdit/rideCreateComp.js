@@ -230,7 +230,7 @@ class NewMap extends React.Component {
             author_rating: this.props.content.author_rating,
             author_name: this.props.content.author_name,
             duration: this.props.content.duration,
-            distance: (this.state.distance / 1609.3).toFixed(1),
+            distance: parseFloat((this.state.distance / 1609.3).toFixed(1)),
             // Assuming distance is given in meters
             // 1609.34 is conversion from meters to miles
             polyline: this.state.polyline,
@@ -239,10 +239,9 @@ class NewMap extends React.Component {
             waypoints: this.state.waypoints,
             markers: this.state.markers
         }
-        
+
         this.props.closeModal()
         createRide(ride)
-        
 
     }
 
