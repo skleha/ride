@@ -14,6 +14,7 @@ module.exports = function validateRideInput(data) {
     data.author_rating = validNumber(data.author_rating) ? data.author_rating : '';
     data.author_name = validText(data.author_name) ? data.author_name : '';
     data.duration = validText(data.duration) ? data.duration : '';
+    data.distance = validNumber(data.distance) ? data.distance : '';
     data.polyline = validObject(data.polyline) ? data.polyline : '';
     data.destination = validText(data.destination) ? data.destination : '';
     data.waypoints = validArray(data.waypoints) ? data.waypoints : '';
@@ -45,8 +46,12 @@ module.exports = function validateRideInput(data) {
         errors.duration = "Duration field is required";
     }
 
+    if (data.distance === "") {
+        errors.distance = "Distance is required";
+    }
+
     if (data.polyline === "") {
-    errors.map = "Polyline is required";
+        errors.polyline = "Polyline is required";
     }
 
     if (Validator.isEmpty(data.destination)) {

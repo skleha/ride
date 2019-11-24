@@ -179,13 +179,15 @@ class RideIndexItem extends React.Component {
 
   // show reviews
   let showReviews = "";
+  let rideReviews = this.props.reviews.filter(review => review.rideId === this.props.ride._id)
+
 
   if (this.state.reviewsShow === true){
       showReviews = (<ReviewShow 
         rideId={this.props.ride._id}  
         fetchReviews={this.props.fetchReviews}
         deleteReview={this.props.deleteReview}
-        reviews={this.props.reviews}
+        reviews={rideReviews}
         currentUserId={this.props.currentUserId}
 
         />)

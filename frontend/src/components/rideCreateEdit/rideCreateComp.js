@@ -24,7 +24,8 @@ class NewMap extends React.Component {
             address: this.props.content.address,
             location: this.props.conent.location,
             center: [],
-            close: ""
+            close: "",
+            distance: ""
 
 
         }
@@ -57,8 +58,6 @@ class NewMap extends React.Component {
                 })
             })
             .then((map) => {
-
-                console.log(this.state.map)
 
                 this.state.map.on("load", () => {
                     this.state.map.loadImage("https://i.imgur.com/MK4NUzI.png", (error, image) => {
@@ -157,7 +156,6 @@ class NewMap extends React.Component {
                     let wps = ""
                     for (let i = 0; i < waypoints.length; i++) {
                         wps = wps.concat(waypoints[i])
-                        console.log(wps)
                         if (waypoints[i] === undefined) {
                             continue
                         } else if (i < (waypoints.length - 1)) {
@@ -168,17 +166,12 @@ class NewMap extends React.Component {
                 }
 
                 let destination = this.state.destination
-                console.log(destination)
                 let start = this.state.start
-                console.log(start)
                 let waypoints = this.state.waypoints
-                console.log(waypoints)
-
-
 
                 axios.get(assembleClickQueryURL(start, waypoints, destination))
                     .then((response) => {
-                        console.log(response)
+                        this.setState({distance: response.data.routes[0].distance })
                         let polyline2 = polyline.toGeoJSON(`${response.data.routes[0].geometry}`)
                         this.setState({
                             polyline: polyline2
@@ -236,17 +229,18 @@ class NewMap extends React.Component {
             author_rating: this.props.content.author_rating,
             author_name: this.props.content.author_name,
             duration: this.props.content.duration,
-
+            distance: parseFloat((this.state.distance / 1609.3).toFixed(1)),
+            // Assuming distance is given in meters
+            // 1609.34 is conversion from meters to miles
             polyline: this.state.polyline,
             start: this.state.start,
             destination: destination,
             waypoints: this.state.waypoints,
             markers: this.state.markers
         }
-        
+
         this.props.closeModal()
         createRide(ride)
-        
 
     }
 

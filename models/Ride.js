@@ -21,6 +21,9 @@ const RideSchema = new Schema({
   duration: {
     type: String
   },
+  distance: {
+    type: Number
+  },
   polyline: {
     type: Object,
     required: true
