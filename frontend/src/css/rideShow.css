@@ -18,10 +18,12 @@
   box-sizing: border-box;
   height: 600px;
   width: 100%;
+  padding: 20px 0px;
   /* padding: 15px; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 }
 
 .ride-show-map {
@@ -32,16 +34,16 @@
 }
 
 .ride-show-title {
-  margin: 15px 0px 22px;
   font-size: 18px;
 }
 
 .ride-show-data-description {
-  width: 89%;
+  width: 75%;
   display: flex;
 }
 
 .ride-show-data {
+  font-size: 16px;
   width: 30%;
   margin-right: 20px;
 }
