@@ -13,16 +13,21 @@ class RideIndexItem extends React.Component {
       buttonShow: false,
       reviewPost: false,
       reviewsShow: false,
-      fullDetail: false
+      fullDetail: false,
+      button1Show: "",
+      button2Show: "",
+      button3Show: "",
+      buttonTrayShow: ""
     }
 
-    this.toggleClass = this.toggleClass.bind(this);   
     this.hanldeClick = this.handleClick.bind(this); 
     this.detailsReset= this.detailsReset.bind(this);
     this.giveFullDetail = this.giveFullDetail.bind(this);
     this.openRideShow = this.openRideShow.bind(this);
     this.closeRideShow = this.closeRideShow.bind(this);
     this.closeReviewPost=this.closeReviewPost.bind(this);
+    this.closeAllButtons = this.closeAllButtons.bind(this);
+    this.openAllButons = this.openAllButons.bind(this);
   }
 
   componentDidMount() {
@@ -39,21 +44,25 @@ class RideIndexItem extends React.Component {
         this.setState({ sampleMap: res.url })
       })
   }
-  
-  toggleClass(e) {
-    const buttonTray = document.getElementsByClassName(`button-tray ${this.props.ride._id}`)[0];
-    
-    buttonTray.classList.toggle("is-tray-open");
-    
-    const buttonCollection = document.getElementsByClassName(
-      `ride-index-item-button ${this.props.ride._id}`
-    );
 
-    const buttons = Array.from(buttonCollection);
-   
-    buttons.forEach(button => button.classList.toggle("is-tray-open"));
-    
+  closeAllButtons(){
+    this.setState({
+      button1Show: "",
+      button2Show: "",
+      button3Show: "",
+      buttonTrayShow: ""})
   }
+  
+  openAllButons(){
+    this.setState({
+      button1Show: "is-tray-open",
+      button2Show: "is-tray-open",
+      button3Show: "is-tray-open",
+      buttonTrayShow: "is-tray-open"
+    })
+  }
+
+
 
   detailsReset(){
     this.setState({
@@ -80,17 +89,13 @@ class RideIndexItem extends React.Component {
   
   openRideShow(e) {
     this.giveFullDetail();
-    if(!this.state.fullDetail){
-    this.toggleClass();
-    }
+    this.openAllButons();
   }
 
   closeRideShow(e) {
     e.stopPropagation();
     this.detailsReset();
-    this.toggleClass();
-
-  
+    this.closeAllButtons()
   }
 
   closeReviewPost =()=>{
@@ -128,7 +133,7 @@ class RideIndexItem extends React.Component {
     
 
   let button1 = (
-    <div className={`ride-index-item-button ${this.props.ride._id}`}
+    <div className={`ride-index-item-button ${this.state.button1Show}`}
       onClick={() => this.handleClick("showReviews")}
     >
       Show Reviews
@@ -136,7 +141,7 @@ class RideIndexItem extends React.Component {
   );
 
   let button2 = (
-    <div className={`ride-index-item-button ${this.props.ride._id}`}
+    <div className={`ride-index-item-button ${this.state.button2Show}`}
       onClick = {()=>this.handleClick("postReview")}
     >  
       {yourReview}
@@ -146,7 +151,7 @@ class RideIndexItem extends React.Component {
   if (this.props.signedIn=== false){
     button2 = (
       <div
-        className={`ride-index-item-button ${this.props.ride._id}`}
+        className={`ride-index-item-button ${this.state.button2Show}`}
         onClick={() => this.props.activateModal('loginUser', null)}
       >
         Login First!
@@ -157,7 +162,7 @@ class RideIndexItem extends React.Component {
   if (this.props.currentUserId=== this.props.ride.author_id){
     button2 = (
       <div
-        className={`ride-index-item-button ${this.props.ride._id}`}
+        className={`ride-index-item-button ${this.state.button2Show}`}
         onClick={() => this.props.activateModal("rideEdit", this.props.ride, null)}
       >
         Edit Ride
@@ -172,7 +177,7 @@ class RideIndexItem extends React.Component {
 
     button3container=(
        <div
-        className={`ride-index-item-button ${this.props.ride._id}`}
+        className={`ride-index-item-button ${this.state.button3Show}`}
         onClick={this.closeRideShow}
       >
         Collapse
@@ -255,7 +260,6 @@ class RideIndexItem extends React.Component {
       <li
         className="ride-index-item"
         onClick={this.openRideShow}
-        // onMouseLeave={this.closeRideShow}
       >
         
           {rideInfoBar}
@@ -263,7 +267,7 @@ class RideIndexItem extends React.Component {
           {createReview}
         
       
-        <div className={`button-tray ${this.props.ride._id}`}>
+        <div className={`button-tray ${this.state.buttonTrayShow}`}>
           {button1container}
           {button2container}
           {button3container}
