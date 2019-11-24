@@ -10,7 +10,6 @@ const polyline = require('@mapbox/polyline')
 class NewMap extends React.Component {
     constructor(props) {
         super(props)
-        
         this.state = {
             zoom: 12,
             start: [],
@@ -22,8 +21,8 @@ class NewMap extends React.Component {
             map: {},
             markers: [],
             start_marker: [],
-            address: this.props.content.start_address,
-            location: this.props.content.start_city,
+            address: this.props.content.address,
+            location: this.props.conent.location,
             center: [],
             close: ""
 
