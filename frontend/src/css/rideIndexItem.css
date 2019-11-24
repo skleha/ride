@@ -40,6 +40,7 @@
 
 .button-tray.is-tray-open {
     top: 600px;
+    margin: 0px 0px 50px;
     transition: height 1s;
 }
 
