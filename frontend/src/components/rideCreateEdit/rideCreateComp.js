@@ -237,6 +237,8 @@ class NewMap extends React.Component {
             author_rating: this.props.content.author_rating,
             author_name: this.props.content.author_name,
             duration: this.props.content.duration,
+            start_address: this.props.content.start_address,
+            start_city: this.props.content.start_city,
             distance: parseFloat((this.state.distance / 1609.3).toFixed(1)),
             // Assuming distance is given in meters
             // 1609.34 is conversion from meters to miles
@@ -249,11 +251,7 @@ class NewMap extends React.Component {
 
         this.props.closeModal()
         createRide(ride)
-
     }
-
-
-
 
 
     handleMarker(e) {
@@ -330,4 +328,3 @@ class NewMap extends React.Component {
 }
 
 export default NewMap;
-

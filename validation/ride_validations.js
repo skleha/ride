@@ -5,7 +5,7 @@ const validArray = require("./valid-array");
 const validObject = require("./valid-object");
 
 module.exports = function validateRideInput(data) {
-  
+
     let errors = {};
 
     data.title = validText(data.title) ? data.title : '';
@@ -14,6 +14,8 @@ module.exports = function validateRideInput(data) {
     data.author_rating = validNumber(data.author_rating) ? data.author_rating : '';
     data.author_name = validText(data.author_name) ? data.author_name : '';
     data.duration = validText(data.duration) ? data.duration : '';
+    data.start_address = validText(data.start_address) ? data.start_address : '';
+    data.start_city = validText(data.start_city) ? data.start_city : '';
     data.distance = validNumber(data.distance) ? data.distance : '';
     data.polyline = validObject(data.polyline) ? data.polyline : '';
     data.destination = validText(data.destination) ? data.destination : '';
@@ -39,11 +41,19 @@ module.exports = function validateRideInput(data) {
     }
 
     if (Validator.isEmpty(data.author_name)) {
-    errors.author_rating = "Author name required";
+        errors.author_rating = "Author name required";
     }
 
     if (Validator.isEmpty(data.duration)) {
         errors.duration = "Duration field is required";
+    }
+
+    if (Validator.isEmpty(data.start_address)) {
+        errors.start_address = "Start address field is required"
+    }
+
+    if (Validator.isEmpty(data.start_city)) {
+        errors.start_city = "Start city field is required"
     }
 
     if (data.distance === "") {
