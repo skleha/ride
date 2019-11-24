@@ -21,6 +21,12 @@ const RideSchema = new Schema({
   duration: {
     type: String
   },
+  start_address: {
+    type: String
+  },
+  start_city: {
+    type: String
+  },
   distance: {
     type: Number
   },
