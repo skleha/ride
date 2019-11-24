@@ -157,12 +157,15 @@ class RideIndexItem extends React.Component {
     )
       let dist = this.props.ride.distance ? `${this.props.ride.distance} miles` : "none given"
       let loc = this.props.ride.start_city ? this.props.ride.start_city : "check the map"
-    let basicBar = (
+    let userRatings = this.props.ride.averageRating ? this.props.ride.averageRating  : "None Yet"
+    
+      let basicBar = (
           <div className="ride-index-item-container">
             <div className="ride-index-data">
               <div className="ride-index-item-title">{this.props.ride.title}</div>
               <div className="ride-index-item-datum">Location: {loc}</div>
               <div className="ride-index-item-datum">Distance: {dist}</div>
+              <div className="ride-index-item-datum">Average Rating: {userRatings}</div>
               <div className="ride-index-item-datum">
                 Duration: {this.props.ride.duration}
               </div>
@@ -176,7 +179,7 @@ class RideIndexItem extends React.Component {
   if(this.state.fullDetail===false){
       rideInfoBar= basicBar
   } else{
-      rideInfoBar = <RideShowContainer ride={this.props.ride} />;
+    rideInfoBar = <RideShowContainer ride={this.props.ride} userRatings={userRatings} />;
   }
 
 

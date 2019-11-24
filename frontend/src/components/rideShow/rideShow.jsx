@@ -22,7 +22,7 @@ class RideShow extends React.Component {
               <div className="ride-show-datum">Distance: {dist}</div>
               <div className="ride-show-datum">Duration: {ride.duration}</div>
               <div className="ride-show-datum">Author Rating: {ride.author_rating}</div>
-              <div className="ride-show-datum">Overall Rating: 4.2</div>
+            <div className="ride-show-datum">Average User Rating: {this.props.userRatings}</div>
             </div>
 
             <div className="ride-show-description">{this.props.ride.description}</div>
