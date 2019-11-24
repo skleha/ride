@@ -5,8 +5,6 @@ const validArray = require("./valid-array");
 const validObject = require("./valid-object");
 
 module.exports = function validateRideInput(data) {
-    
-    debugger
 
     let errors = {};
 

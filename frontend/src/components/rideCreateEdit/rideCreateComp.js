@@ -242,15 +242,9 @@ class NewMap extends React.Component {
             markers: this.state.markers
         }
 
-        debugger
-
         this.props.closeModal()
         createRide(ride)
-
     }
-
-
-
 
 
     handleMarker(e) {
@@ -327,4 +321,3 @@ class NewMap extends React.Component {
 }
 
 export default NewMap;
-
