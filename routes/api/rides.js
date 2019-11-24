@@ -40,6 +40,7 @@ router.post('/', (req, res) => {
     author_rating: req.body.author_rating,
     author_name: req.body.author_name,
     duration: req.body.duration,
+    distance: req.body.distance,
     polyline: req.body.polyline,
     destination: req.body.destination,
     waypoints: req.body.waypoints,
