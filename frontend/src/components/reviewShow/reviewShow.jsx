@@ -10,7 +10,10 @@ class ReviewShow extends React.Component {
   componentDidMount() {
       this.props.fetchReviews(this.props.rideId)
   }
-
+  componentDidUpdate(prevProps, prevState) {
+    // debugger;
+    // this.props.fetchReviews(this.props.rideId)
+  }
   render() {
     return (
       <ul className="ReviewIndexBox">
