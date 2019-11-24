@@ -10,7 +10,6 @@ function ReviewShowItem(props){
         <StarRatingComponent 
           name="rate2" 
           editing={false}
-        //   renderStarIcon={() => <span>𐃏</span>}
           starCount={5}
           value={props.review.rating}
         />

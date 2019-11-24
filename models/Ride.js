@@ -49,6 +49,11 @@ const RideSchema = new Schema({
   start: {
     type: Array,
     required: true
+  },
+
+  averageRating: {
+    type: Number,
+    default: 0
   }
 
 });

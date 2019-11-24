@@ -101,6 +101,9 @@ class RideIndexItem extends React.Component {
 
   render() {
   //button options 
+    let rideReviews = this.props.reviews.filter(review => review.rideId === this.props.ride._id)
+    
+
   let button1 = (
     <div className={`ride-index-item-button ${this.props.ride._id}`}
       onClick={() => this.handleClick("showReviews")}
@@ -113,7 +116,7 @@ class RideIndexItem extends React.Component {
     <div className={`ride-index-item-button ${this.props.ride._id}`}
       onClick = {()=>this.handleClick("postReview")}
     >  
-      Post Review
+      Your Review
     </div>
   );
 
@@ -180,8 +183,7 @@ class RideIndexItem extends React.Component {
 
   // show reviews
   let showReviews = "";
-  let rideReviews = this.props.reviews.filter(review => review.rideId === this.props.ride._id)
-
+ 
 
   if (this.state.reviewsShow === true){
       showReviews = (<ReviewShow 
@@ -214,6 +216,8 @@ class RideIndexItem extends React.Component {
           rideId={this.props.ride._id}
           currentUserName={this.props.currentUserName}
           closeReviewPost={this.closeReviewPost}
+          fetchReviews={this.props.fetchReviews}
+
         />
       );
       button2container=null

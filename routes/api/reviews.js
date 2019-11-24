@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Review = require("../../models/Review");
+const Ride = require("../../models/Ride")
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const passport = require("passport");
@@ -21,6 +22,7 @@ router.post("/",(req, res) => {
     if (!isValid) {
       return res.status(400).json(errors);
     }
+    
 
     Review.findOne({userId : req.body.userId, rideId: req.body.rideId})
         .then(review => {
@@ -29,6 +31,23 @@ router.post("/",(req, res) => {
                 Review.findByIdAndUpdate(review._id, reviewContent)
                   .then(review => {
                     res.json(review);
+                  })
+                  .then(review => {
+                    Review.find({ rideId: req.body.rideId })
+                      .then(reviews => {
+                        const count = reviews.length;
+                        let totalScore = 0;
+                        reviews.forEach(review => {
+                          totalScore = totalScore + review.rating
+                        })
+                        const averageRatings = totalScore / count
+                       
+                        Ride.findByIdAndUpdate(
+                          req.body.rideId, { averageRating: averageRatings },
+                          { new: true }
+                        )
+                       
+                      })
                   })
                   .catch(err => res.status(400).json(err));
             } else {
@@ -41,9 +60,28 @@ router.post("/",(req, res) => {
                   description: req.body.description  
                 })
                 newReview.save()
-                    .then(review => res.json(review)).catch(err => res.status(400).json(err))
+                  .then(review => res.json(review))
+                  .then(review => {
+                    Review.find({ rideId: req.body.rideId })
+                      .then(reviews => {
+                        const count = reviews.length;
+                        let totalScore = 0;
+                        reviews.forEach(review => {
+                          totalScore = totalScore + review.rating
+                        })
+                        const averageRatings = totalScore / count;
+                      
+                        Ride.findByIdAndUpdate(
+                          req.body.rideId, { averageRating: averageRatings },
+                          { new: true }
+                        )
+                  
+                      })
+                  })
+                    .catch(err => res.status(400).json(err))
             }
         })
+        
   }
 );
 
