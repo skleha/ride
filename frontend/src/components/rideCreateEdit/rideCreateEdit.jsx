@@ -46,11 +46,11 @@ class RideCreateEdit extends React.Component {
               onChange={this.handleInput("title")}
             />
 
-            <div className="ride-edit-create-label">Start Address</div>
+            <div className="ride-edit-create-label">Full Start Address</div>
             <input
               className="ride-create-edit-input"
               type="text"
-              placeholder="123 Main St."
+              placeholder="123 Main Street"
               onChange={this.handleInput("start_address")}
               value={this.state.start_address}
               disabled={this.props.formType === 'Edit a Ride' ? "disabled" : ""}

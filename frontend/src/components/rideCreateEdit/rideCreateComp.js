@@ -251,6 +251,8 @@ class NewMap extends React.Component {
 
         this.props.closeModal()
         createRide(ride)
+            .then( () => this.props.fetchRides())
+
     }
 
 

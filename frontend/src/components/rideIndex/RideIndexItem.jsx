@@ -132,7 +132,7 @@ class RideIndexItem extends React.Component {
     button2 = (
       <div
         className={`ride-index-item-button ${this.props.ride._id}`}
-        onClick={() => {}}
+        onClick={() => this.props.activateModal("rideEdit", this.props.ride, null)}
       >
         Edit Ride
       </div>
@@ -153,11 +153,12 @@ class RideIndexItem extends React.Component {
       </div>
     )
       let dist = this.props.ride.distance ? `${this.props.ride.distance} miles` : "none given"
+      let loc = this.props.ride.start_city ? this.props.ride.start_city : "check the map"
     let basicBar = (
           <div className="ride-index-item-container">
             <div className="ride-index-data">
               <div className="ride-index-item-title">{this.props.ride.title}</div>
-              <div className="ride-index-item-datum">San Francisco, CA</div>
+              <div className="ride-index-item-datum">Location: {loc}</div>
               <div className="ride-index-item-datum">Distance: {dist}</div>
               <div className="ride-index-item-datum">
                 Duration: {this.props.ride.duration}

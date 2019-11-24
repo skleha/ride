@@ -27,7 +27,6 @@ class RideShow extends React.Component {
 
             <div className="ride-show-description">{this.props.ride.description}</div>
           </div>
-        <button onClick={() => this.props.activateModal("rideEdit", ride, null)}>Edit</button>
         </div>
       // </div>
     )
