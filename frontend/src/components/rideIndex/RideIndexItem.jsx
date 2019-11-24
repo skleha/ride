@@ -152,13 +152,13 @@ class RideIndexItem extends React.Component {
         Collapse
       </div>
     )
- 
+      let dist = this.props.ride.distance ? `${this.props.ride.distance} miles` : "none given"
     let basicBar = (
           <div className="ride-index-item-container">
             <div className="ride-index-data">
               <div className="ride-index-item-title">{this.props.ride.title}</div>
               <div className="ride-index-item-datum">San Francisco, CA</div>
-              <div className="ride-index-item-datum">Distance: 22.7 mi</div>
+              <div className="ride-index-item-datum">Distance: {dist}</div>
               <div className="ride-index-item-datum">
                 Duration: {this.props.ride.duration}
               </div>

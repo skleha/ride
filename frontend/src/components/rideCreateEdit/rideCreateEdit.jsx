@@ -9,6 +9,7 @@ class RideCreateEdit extends React.Component {
     this.state = this.props.newRide ? this.props.newRide : this.props.ride
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    debugger
   }
 
   handleInput(field) {
@@ -51,6 +52,8 @@ class RideCreateEdit extends React.Component {
               type="text"
               placeholder="123 Main St."
               onChange={this.handleInput("start_address")}
+              value={this.state.start_address}
+              disabled={this.props.formType === 'Edit a Ride' ? "disabled" : ""}
             />
 
             <div className="ride-edit-create-label">Start City</div>
@@ -59,6 +62,8 @@ class RideCreateEdit extends React.Component {
               type="text"
               placeholder="Town, State"
               onChange={this.handleInput("start_city")}
+              value={this.state.start_city}
+            disabled={this.props.formType === 'Edit a Ride' ? "disabled" : ""}
             />
 
             <div className="ride-edit-create-label">Ride Duration</div>
