@@ -1,6 +1,7 @@
 
 .ride-create-container {
   display: flex;
+  font-family: sans-serif;
 }
 
 .ride-create-map {
@@ -14,8 +15,7 @@
   border-radius: 0px 5px 5px 5px;
 }
 
-.ride-create-map-ul {
-  background-color: #AC906C;
+.ride-create-waypoints-and-button > ul {
   padding: 10px;
 }
 
@@ -27,11 +27,11 @@
   margin-bottom: 5px;
 }
 
-.ride-create-map-waypoint {
-  font-family: sans-serif;
+.ride-create-map-li:last-child {
+  margin-bottom: 0px;
 }
 
-.ride-create-map-remove-button {
+.ride-create-map-li > button {
   border-radius: 5px;
 }
 
@@ -43,6 +43,7 @@
   color: white;
   cursor: pointer;
   display: block;
+  margin-top: 5px;
   margin-left: auto;
   margin-right: auto;
 }
