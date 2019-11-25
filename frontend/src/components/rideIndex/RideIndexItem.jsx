@@ -3,7 +3,9 @@ import RideShow from "../rideShow/rideShow"
 import ReviewShow from "../reviewShow/reviewShow"
 import ReviewForm from "../reviewForm/reviewForm"
 import RideShowContainer from '../rideShow/rideShowContainer';
+import StarRatingComponent from 'react-star-rating-component'
 var polyline = require("@mapbox/polyline");
+
 
 class RideIndexItem extends React.Component {
 
@@ -203,9 +205,23 @@ class RideIndexItem extends React.Component {
                     <div className="ride-right-index-item">
                         
                         <div className="ride-index-item-datum"> Ride by: {this.props.ride.author_name}</div>
-                        <div className="ride-index-item-datum">Original Rider's Rating: {this.props.ride.author_rating}</div>
-                        <div className="ride-index-item-datum">Average Rating: {userRatings}</div>
-                  </div>
+                        <div className="ride-index-item-datum">Original Rider's Rating: <StarRatingComponent
+                                                                                  name="rate2"
+                                                                                  editing={false}
+                                                                                  starCount={5}
+                                                                                  value={this.props.ride.author_rating}
+                                                                                  starColor={"#e80f0f"}
+                        /></div>
+                        <div className="ride-index-item-datum">Average Rating: 
+                            <StarRatingComponent
+                                      name="rate2"
+                                      editing={false}
+                                      starCount={5}
+                                      value={userRatings}
+                                      starColor={"#e80f0f"}
+                                />
+                              {}</div>
+                         </div>
                </div>
               </div>
             <img src={this.state.sampleMap} className="ride-index-item-map" alt="map-of-ride" />
@@ -226,7 +242,7 @@ class RideIndexItem extends React.Component {
   let showReviews = "";
  
 
-  if (this.state.reviewsShow === true){
+    if (this.state.reviewsShow === true ){
       showReviews = (<ReviewShow 
         rideId={this.props.ride._id}  
         fetchReviews={this.props.fetchReviews}
@@ -237,7 +253,7 @@ class RideIndexItem extends React.Component {
         />)
       button1container=null
       
-  } else{
+    } else if( rideReviews.length > 0){
      showReviews = "";
      button1container=button1
   }

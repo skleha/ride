@@ -12,6 +12,7 @@ function ReviewShowItem(props){
           editing={false}
           starCount={5}
           value={props.review.rating}
+        starColor={"#e80f0f"}
         />
       </div>
 
@@ -29,7 +30,7 @@ function ReviewShowItem(props){
 
     if(props.review.userId === props.currentUserId ){
         deleteButton= (
-            <button onClick={()=>props.deleteReview(props.review._id)}>
+            <button className="form-button" onClick={()=>props.deleteReview(props.review._id)}>
                 Delete Review
             </button>
         )

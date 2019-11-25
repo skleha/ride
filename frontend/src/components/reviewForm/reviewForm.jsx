@@ -62,11 +62,12 @@ class ReviewForm extends React.Component {
                     name="rating"
                     starCount={5}
                     value={rating}
+                     starColor={"#e80f0f"}
                     onStarClick={this.onStarClick.bind(this)}
                     />
                 </label>
 
-                <input className="review-submit" type="submit" value="PostReview" />
+            <input className="review-submit form-button" type="submit" value="PostReview" />
             </div>
         </form>
       </div>
