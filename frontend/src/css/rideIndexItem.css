@@ -88,9 +88,16 @@
 }
 
 .ride-index-item-button.is-tray-open {
-    font-size: 14px;
-    height: 30px;
+    font-size: 18px;
+    width: 200px;
+    height: 35px;
     padding: 7px;
     transition: height 1s, padding .7s, font-size 1s;
 }
 
+
+.form-button{
+    background-color: rgba(184, 7, 69, 0.865);
+    border-radius: 8px;
+    color:white;
+}
