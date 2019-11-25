@@ -1,5 +1,6 @@
 .ContentMain{
     position: relative;
+    /* background: rgba(45, 3, 3, 0.9); */
     
     /* top: 30%; */
     /* left: 5%; */
@@ -16,4 +17,9 @@
 
 .ride-index-ul{
     background-color: none;
+}
+
+html {
+    background: tan
+    /* background: rgba(45, 3, 3, 0.9) */
 }

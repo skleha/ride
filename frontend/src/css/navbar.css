@@ -1,23 +1,38 @@
 .NavBarMain {
     position: fixed;
+    /* height:100%;
+    width: 160px; */
+
     height:60px;
     width: 100%;
 
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,12,1) 12%, rgba(113,6,7,1) 25%, rgba(101,50,50,1) 46%, rgba(27,2,2,1) 77%, rgba(122,0,0,1) 97%);
+   
+    background: rgba(121,9,12,1);
     display: flex;
     align-items: stretch;
     align-items: baseline;
-    flex-direction: row;
+    flex-direction: column;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     z-index: 10;
 }
 
+.noBackgroundImage .NavBarMain{
+    flex-direction: row;
+    align-items:center;
+    height:100%;
+    width: 160px;
+}
+
 .NavBarMain>*{
     top:1%;
 }
-
+.noBackgroundImage .NavBarMain>*{
+    /* position:static; */
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 
 .MainNavDashboard{
     border-bottom: rgba(241, 240, 236, .7);;
@@ -73,7 +88,7 @@
 
 .RightNav{
     position: fixed;
-    margin-left:66%;
+    margin-left:60%;
     flex-basis:auto;
     display: flex;
     justify-content: flex-start;
@@ -83,6 +98,13 @@
     align-items: center;
     text-decoration: none;
     z-index: 11;
+}
+
+.noBackgroundImage .RightNav{
+    position: fixed;
+    flex-direction: column-reverse;
+    margin-left:15px;
+    top:65%;
 }
 
 
@@ -172,3 +194,12 @@
 }
 
 
+.RightNav>*>* {
+    min-width: 100px;
+
+}
+
+
+.noBackgroundImage .LightingButtonContainer{
+    bottom: 100px;
+}

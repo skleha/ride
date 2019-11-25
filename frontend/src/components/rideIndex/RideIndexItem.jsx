@@ -189,15 +189,25 @@ class RideIndexItem extends React.Component {
     
       let basicBar = (
           <div className="ride-index-item-container">
-            <div className="ride-index-data">
-              <div className="ride-index-item-title">{this.props.ride.title}</div>
-              <div className="ride-index-item-datum">Location: {loc}</div>
-              <div className="ride-index-item-datum">Distance: {dist}</div>
-              <div className="ride-index-item-datum">Average Rating: {userRatings}</div>
-              <div className="ride-index-item-datum">
-                Duration: {this.props.ride.duration}
+       
+             <div className="ride-index-data">
+                <div className="ride-index-item-title">{this.props.ride.title}</div>
+                <div className="ride-index-info-wraper">
+                    <div className="ride-index-stuff">  
+                        <div className="ride-index-item-datum">Location: {loc}</div>
+                        <div className="ride-index-item-datum">Distance: {dist}</div>
+                        <div className="ride-index-item-datum">
+                          Duration: {this.props.ride.duration}
+                        </div>
+                    </div>
+                    <div className="ride-right-index-item">
+                        
+                        <div className="ride-index-item-datum"> Ride by: {this.props.ride.author_name}</div>
+                        <div className="ride-index-item-datum">Original Rider's Rating: {this.props.ride.author_rating}</div>
+                        <div className="ride-index-item-datum">Average Rating: {userRatings}</div>
+                  </div>
+               </div>
               </div>
-            </div>
             <img src={this.state.sampleMap} className="ride-index-item-map" alt="map-of-ride" />
           </div>
   );

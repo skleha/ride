@@ -9,7 +9,7 @@
 }
 
 .ride-show {
-  background-color:#ADD8E6;
+  background-color:rgba(0, 0, 0, 0.6);
   font-family: sans-serif;
   border: 1px solid lightgray;
   -webkit-box-shadow: 2px 3px 5px 1px #5E5E5E; 
@@ -43,7 +43,7 @@
 }
 
 .ride-show-data {
-  font-size: 16px;
+  font-size: 18px;
   width: 30%;
   margin-right: 20px;
 }
@@ -55,9 +55,9 @@
 .ride-show-description {
   padding: 9px;
   border-radius: 10px;
-  font-size: 14px;
+  font-size: 16px;
   width: 70%;
-  background-color: lightgray;
+  background-color: #606061;
   line-height: 1.3;
 }
 
