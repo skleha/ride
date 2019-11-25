@@ -17,7 +17,6 @@
 .ride-create-map-ul {
   background-color: #AC906C;
   padding: 10px;
-  
 }
 
 .ride-create-map-li {
@@ -25,10 +24,6 @@
   justify-content: space-around;
   align-items: center;
   font-size: 14px;
-  margin-bottom: 5px;
-}
-
-.ride-create-map-li:last-child {
   margin-bottom: 5px;
 }
 
@@ -40,11 +35,6 @@
   border-radius: 5px;
 }
 
-
-.ride-create-remove {
-
-}
-
 .ride-create-button {
   background-color: rgb(53, 112, 238);
   height: 27px;
@@ -53,7 +43,6 @@
   color: white;
   cursor: pointer;
   display: block;
-  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
 }

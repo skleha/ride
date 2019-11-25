@@ -388,25 +388,20 @@ class NewMap extends React.Component {
         let display;
         if (this.state.waypoints.length > 0) {
             display = (
-                <div>
-                    <ul className="ride-create-map-ul">
-                        {this.state.waypoints.map((wp) => (
+                <ul className="ride-create-map-ul">
+                    {this.state.waypoints.map((wp) => (
 
-                            <li className="ride-create-map-li">
-                                <div className="ride-create-map-waypoint">Waypoint: {this.state.waypoints.indexOf(wp) + 1}</div>
-                                <button className="ride-create-map-remove-button" value={`${this.state.waypoints.indexOf(wp)}`} onClick={this.handleButtonDelete}>Remove</button>
-                            </li>
+                        <li className="ride-create-map-li">
+                            <div className="ride-create-map-waypoint">Waypoint: {this.state.waypoints.indexOf(wp) + 1}</div>
+                            <button className="ride-create-map-remove-button" value={`${this.state.waypoints.indexOf(wp)}`} onClick={this.handleButtonDelete}>Remove</button>
+                        </li>
 
-                        ))}
-                    </ul>
-                    {/* <button onClick={this.handleMarker}>Delete</button> */}
-                </div>
+                    ))}
+                </ul>
             )
         } else {
             display = null
         }
-
-
 
         return (
           <div className="ride-create-container">
