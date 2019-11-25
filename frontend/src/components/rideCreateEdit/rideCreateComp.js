@@ -35,7 +35,6 @@ class NewMap extends React.Component {
 
 
         }
-        debugger
 
 
         this.handleMarker = this.handleMarker.bind(this)

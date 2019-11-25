@@ -53,7 +53,7 @@ class App extends React.Component {
     
     
     return (
-      <div className="MAIN">
+      <div className={`MAIN ${setting}`}>
         <Modal />
         <header className="main-header">
           <NavbarContainer />
