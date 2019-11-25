@@ -158,13 +158,13 @@ class NewMap extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        debugger
+        
 
         if (prevState.waypoints.length !== this.state.waypoints.length) {
 
             function assembleClickQueryURL(start, waypoints, destination) {
                 const coordinates = [start, destination]
-                debugger
+                
                 let wps = ""
                 for (let i = 0; i < waypoints.length; i++) {
                     wps = wps.concat(waypoints[i])
@@ -389,12 +389,12 @@ class NewMap extends React.Component {
         if (this.state.waypoints.length > 0) {
             display = (
                 <div>
-                    <ul>
+                    <ul className="ride-create-map-ul">
                         {this.state.waypoints.map((wp) => (
 
-                            <li>
-                                <p>Waypoint: {this.state.waypoints.indexOf(wp) + 1}</p>
-                                <button value={`${this.state.waypoints.indexOf(wp)}`} onClick={this.handleButtonDelete}>Remove Waypoint</button>
+                            <li className="ride-create-map-li">
+                                <div className="ride-create-map-waypoint">Waypoint: {this.state.waypoints.indexOf(wp) + 1}</div>
+                                <button className="ride-create-map-remove-button" value={`${this.state.waypoints.indexOf(wp)}`} onClick={this.handleButtonDelete}>Remove</button>
                             </li>
 
                         ))}
@@ -409,15 +409,25 @@ class NewMap extends React.Component {
 
 
         return (
-          <div className="ride-create-edit-map-button-container">
+          <div className="ride-create-container">
+            
             <div
-              className="ride-create-edit-map"
+              className="ride-create-map"
               id="map"
               ref={el => (this.mapContainer = el)}
-              style={{ height: "550px", width: "725px" }}
             ></div>
-            <div>{display}</div>
-            <button className="ride-create-edit-map-button" onClick={this.handleSubmit}>Create Ride!</button>
+
+            <div className="ride-create-waypoints-and-button">
+            
+              {display}
+            
+              <button
+                className="ride-create-button"
+                onClick={this.handleSubmit}>
+                Create Ride!
+              </button>
+
+            </div>
           </div>
         );
     }

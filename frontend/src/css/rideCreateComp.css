@@ -1,14 +1,59 @@
 
-.ride-create-edit-map-button-container {
+.ride-create-container {
+  display: flex;
 }
 
+.ride-create-map {
+  height: 550px;
+  width: 725px;
+}
 
-.ride-create-edit-map {
+.ride-create-waypoints-and-button {
+  background-color: #AC906C;
+  width: 195px;
+  border-radius: 0px 5px 5px 5px;
+}
+
+.ride-create-map-ul {
+  background-color: #AC906C;
+  padding: 10px;
   
 }
 
-.mapboxgl-canvas {
+.ride-create-map-li {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 5px;
 }
 
-.ride-create-edit-map-button {
+.ride-create-map-li:last-child {
+  margin-bottom: 5px;
+}
+
+.ride-create-map-waypoint {
+  font-family: sans-serif;
+}
+
+.ride-create-map-remove-button {
+  border-radius: 5px;
+}
+
+
+.ride-create-remove {
+
+}
+
+.ride-create-button {
+  background-color: rgb(53, 112, 238);
+  height: 27px;
+  width: 140px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
