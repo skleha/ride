@@ -9,7 +9,6 @@ class RideCreateEdit extends React.Component {
     this.state = this.props.newRide ? this.props.newRide : this.props.ride
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    debugger
   }
 
   handleInput(field) {

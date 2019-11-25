@@ -14,6 +14,7 @@ import './css/contentPage.css'
 import './css/rideCreateEdit.css'
 import './css/rideShow.css'
 import './css/review.css'
+import './css/rideCreateComp.css'
 
 import { Route, Switch} from "react-router-dom";
 
