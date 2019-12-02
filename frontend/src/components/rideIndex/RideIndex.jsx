@@ -11,7 +11,7 @@ class RideIndex extends React.Component {
   render() {
 
     return (
-      <div>
+      <div className="ride-index">
         <SearchBarContainer />
         <ul className="ride-index-ul">
           {this.props.rides.reverse().map((ride, idx) => (

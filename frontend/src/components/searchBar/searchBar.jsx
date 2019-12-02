@@ -28,6 +28,9 @@ class SearchBar extends React.Component {
       });
     }
     
+    // ride_actions are expecting a pojo with a data key
+    // And a ride array
+    
     const normalizedRides = { data: filteredRides }
     this.props.rideSearch(normalizedRides);
   }
