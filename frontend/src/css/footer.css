@@ -1,19 +1,16 @@
 .main-footer{
-
   position: fixed;
   height: 20px;
   bottom: 0px;
   width: 100%;
   border-top-color: 3px solid blue;
- background:  rgba(121,9,12,1);
+  background:  rgba(121,9,12,1);
   z-index:2;
   text-emphasis-color: white;
-
 }
 
-
  .noBackgroundImage .main-footer{
-  left:90%; 
-  height:100%;
-    width: 160px;
+  right: 0%; 
+  height: 100%;
+  width: 160px;
 }

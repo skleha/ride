@@ -1,13 +1,12 @@
 
 .ride-index-item {
     font-family: sans-serif;
-    padding: 5px 0 0 0;
-    margin: 30px 0;
+    margin: 20px 0px;
 }
+
 
 .ride-index-item-container {
     background-color: rgb(172, 144, 108);
-    /* background-color: lightblue; */
     padding: 15px;
     display: flex;
     flex-direction:row;
@@ -42,7 +41,6 @@
     font-size: 18px;
     margin: 5px 10px;
     color: rgb(66, 65, 65);
-
 }
  .ride-index-info-wraper{
      margin-top: 50px;
