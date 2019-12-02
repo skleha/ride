@@ -73,5 +73,8 @@ export const deleteRide = rideId => dispatch =>
     }, err => dispatch(receiveErrors(err.response.data))
 );
 
-export const errorsGone = () => dispatch => dispatch(clearErrors());
+export const rideSearch = searchResult => dispatch => (
+    dispatch(receiveRides(searchResult))
+);
 
+export const errorsGone = () => dispatch => dispatch(clearErrors());
