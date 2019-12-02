@@ -3,7 +3,7 @@ import { RECEIVE_ALL_RIDES, RECEIVE_RIDE, REMOVE_RIDE } from '../actions/ride_ac
 
 export default function(state = {}, action) {
   Object.freeze(state);
-  let newState = Object.assign({}, state);
+  let newState = {};
 
   switch (action.type) {
 

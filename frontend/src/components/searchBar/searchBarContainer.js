@@ -1,11 +1,11 @@
 
 import { connect } from "react-redux";
-import SearchBar from "./SearchBar";
-import { rideSearch } from "../actions/ride_actions";
-import { fetchRides } from "../actions/ride_actions";
+import SearchBar from "./searchBar";
+import { rideSearch } from "../../actions/ride_actions";
+import { fetchRides } from "../../actions/ride_actions";
 
 const mapStateToProps = state => ({
-  rides: Object.values(state.entities.rides)
+  rides: Object.values(state.rides)
 });
 
 const mapDispatchtoProps = dispatch => ({

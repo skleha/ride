@@ -3,16 +3,12 @@ import React from "react";
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { initialRides: [] };
     this.filterFunc = this.filterFunc.bind(this);
   }
 
   componentDidMount() {
-    // previously called fetch rides in Ride Index, but doing it here
-    // so that the state of this component has something in it.
-    // if not here, the state here will be empty.
-
-    this.props
-      .fetchRides()
+    this.props.fetchRides()
       .then(() => this.setState({ initialRides: this.props.rides }));
   }
 
@@ -31,13 +27,9 @@ class SearchBar extends React.Component {
         );
       });
     }
-
-    // const normalizedRides = filteredRides.reduce((acc, ele) => {
-    //   acc[ele.id] = ele;
-    //   return acc;
-    // }, {});
-
-    this.props.rideSearch(filteredRides);
+    
+    const normalizedRides = { data: filteredRides }
+    this.props.rideSearch(normalizedRides);
   }
 
   render() {
