@@ -1,11 +1,4 @@
-const path = require("path");
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("frontend/build"));
-  app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-  });
-}
 
 import React from "react";
 import './App.css'
@@ -33,6 +26,15 @@ import NavbarContainer from "./components/navBar/navbar_container";
 import Modal from "./components/modal/modal";
 import contentPageContainer from "./components/contentPage/contentPage_container";
 import rideCreateContainer from "./components/rideCreateEdit/rideCreateContainer";
+
+// const path = require("path");
+
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("frontend/build"));
+//   app.get("/", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+//   });
+// }
 
 
 class App extends React.Component {
