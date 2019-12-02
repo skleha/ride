@@ -1,7 +1,6 @@
 .ContentMain{
     position: relative;
     /* background: rgba(45, 3, 3, 0.9); */
-    
     /* top: 30%; */
     /* left: 5%; */
     /* text-align:center; */
@@ -12,11 +11,6 @@
     text-emphasis-color: white;
     display: flex;
     justify-content: center;
-}
-
-
-.ride-index-ul{
-    background-color: none;
 }
 
 html {
