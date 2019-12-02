@@ -20,6 +20,9 @@
 
     
 };
+.login-form-box{
+    bottom: 40%;
+}
 
 .login-form {
     text-align:center;
@@ -40,13 +43,14 @@
     justify-content: space-evenly;
     align-content: center;
     align-items: center;
+    margin-bottom: 15px;
 
 }
 
 .login-input{
     margin:10px;
     height:37px;
-    width: 100%;
+    width: 300px;
     opacity: .8;
     border-radius: 7px;
     text-align: center;
