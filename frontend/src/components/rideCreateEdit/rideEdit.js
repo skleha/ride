@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import { updateRide } from '../../util/ride_api_util';
+import { updateRide, fetchRides } from '../../util/ride_api_util';
+
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js")
 const polyline = require('@mapbox/polyline')
 
@@ -41,7 +42,6 @@ class RideEdit extends React.Component {
         this.state.map = map
         this.state.start_marker = this.props.content.start
         this.state.markers = this.props.content.markers
-        // .concat([this.props.content.destination.split("%2C%20")])
 
         let marks = []
 
@@ -56,26 +56,14 @@ class RideEdit extends React.Component {
         this.setState({
             markers: marks
         })
-        debugger
 
         let res = []
         for (let j = 0; j < this.state.markers.length; j++) {
                 res.push(this.state.markers[j])
             
         }
-        console.log(res)
-        console.log(this.state.markers)
-
-
-
-        // this.setState({
-        //     waypoints: res,
-        // })
-
-
 
         map.on("load", () => {
-            debugger
             map.loadImage("https://i.imgur.com/MK4NUzI.png", (error, image) => {
                 if (error) throw error;
 
@@ -145,7 +133,6 @@ class RideEdit extends React.Component {
             let wps = ""
             for (let i = 0; i < waypoints.length; i++) {
                 wps = wps.concat(waypoints[i])
-                console.log(wps)
                 if (waypoints[i] === undefined) {
                     continue
                 } else if (i < (waypoints.length - 1)) {
@@ -159,8 +146,6 @@ class RideEdit extends React.Component {
         let destination = this.props.content.destination
         let start = this.state.start_marker
         let waypoints = this.state.waypoints
-        console.log(waypoints)
-        console.log(this.props.content.markers)
 
 
         axios.get(assembleClickQueryURL(start, waypoints, destination))
@@ -187,7 +172,6 @@ class RideEdit extends React.Component {
                     }
                 }
                 this.state.map.addLayer({
-                    // id: "route" + `${this.state.waypoints.length}`,
                     id: "routestart",
                     type: "line",
                     source: {
@@ -218,7 +202,6 @@ class RideEdit extends React.Component {
                         this.state.map.removeSource("routestart")
                     }
 
-                    debugger
                     this.setState({
                         waypoints: [...this.state.waypoints, `${e.lngLat["lng"] + "%2C%20" + e.lngLat["lat"]}`],
                         destination: [e.lngLat["lng"], e.lngLat["lat"]],
@@ -263,8 +246,6 @@ class RideEdit extends React.Component {
 
                         })
                     })
-
-
                 })
             })
 
@@ -280,7 +261,6 @@ class RideEdit extends React.Component {
                 let wps = ""
                 for (let i = 0; i < waypoints.length; i++) {
                     wps = wps.concat(waypoints[i])
-                    console.log(wps)
                     if (waypoints[i] === undefined) {
                         continue
                     } else if (i < (waypoints.length - 1)) {
@@ -289,11 +269,9 @@ class RideEdit extends React.Component {
                 }
                 return (`https://api.mapbox.com/directions/v5/mapbox/driving/${coordinates[0]}%2C%20${coordinates[1]}%3B${wps}.json?access_token=pk.eyJ1IjoiamJvbmFhIiwiYSI6ImNrMzZnaWdsdjAxaGozbm1wM254bnR5cGoifQ.zUuEvUSaf5GdH1zFqimOVw`)
             }
-            debugger
             let destination = this.state.destination
             let start = this.props.content.start
             let waypoints = this.state.waypoints
-            console.log(this.state.markers)
             this.state.markers.forEach((el) => {
 
                 this.state.map.loadImage("https://i.imgur.com/MK4NUzI.png", (error, image) => {
@@ -399,8 +377,6 @@ class RideEdit extends React.Component {
         }
 
         let marker = []
-        debugger
-        console.log(this.state.markers)
         for (let j = 0; j < this.state.markers.length; j++) {
             if (j !== idx - 1) {
                 marker.push(this.state.markers[j])
@@ -410,23 +386,8 @@ class RideEdit extends React.Component {
                 this.state.map.removeLayer("markers" + `${j}`)
                 this.state.map.removeSource("markers" + `${j}`)
             }
-            // this.state.map.removeLayer("markers" + `${j + 1}`)
-
-
-            // if (this.state.map.getLayer("marker" + `${j + 1}`)){
-            //     this.state.map.removeLayer("marker" + `${j + 1}`)
-            // }
-
-
-
-
-
-            //test VV
-            // this.state.map.removeLayer("marker"+`${j + 1}`)
         }
         this.state.map.removeLayer("markers" + `${idx}`)
-
-        console.log(marker)
 
 
         let returned = []
@@ -461,7 +422,6 @@ class RideEdit extends React.Component {
         this.setState({
             destination: destination
         })
-        debugger
 
         let returnedMarks = []
 
@@ -487,10 +447,12 @@ class RideEdit extends React.Component {
             waypoints: this.state.waypoints,
             markers: this.state.markers
         }
-        console.log(ride)
+
 
         this.props.closeModal()
         updateRide(ride)
+            .then(() => fetchRides())
+            .then(window.location.reload(true))
     }
 
 

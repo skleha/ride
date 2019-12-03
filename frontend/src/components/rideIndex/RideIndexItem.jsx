@@ -113,6 +113,7 @@ class RideIndexItem extends React.Component {
     this.setState({fullDetail: true});
   }
 
+
   render() {
   //button options 
     let rideReviews = this.props.reviews.filter(review => review.rideId === this.props.ride._id)
