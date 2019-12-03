@@ -25,7 +25,7 @@ class RideCreateEdit extends React.Component {
 
   handleSubmit(e) {
     let data = this.state
-    this.props.activateModal("2ndPostForm", data)
+    this.props.formType === "Edit a Ride" ? this.props.activateModal("2ndEditPostForm", data) : this.props.activateModal("2ndPostForm", data)
   }
 
   render() {
