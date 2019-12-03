@@ -40,7 +40,8 @@ class RideEdit extends React.Component {
 
         this.state.map = map
         this.state.start_marker = this.props.content.start
-        this.state.markers = this.props.content.markers.concat([this.props.content.destination.split("%2C%20")])
+        this.state.markers = this.props.content.markers
+        // .concat([this.props.content.destination.split("%2C%20")])
 
         let marks = []
 
@@ -288,7 +289,7 @@ class RideEdit extends React.Component {
                 }
                 return (`https://api.mapbox.com/directions/v5/mapbox/driving/${coordinates[0]}%2C%20${coordinates[1]}%3B${wps}.json?access_token=pk.eyJ1IjoiamJvbmFhIiwiYSI6ImNrMzZnaWdsdjAxaGozbm1wM254bnR5cGoifQ.zUuEvUSaf5GdH1zFqimOVw`)
             }
-
+            debugger
             let destination = this.state.destination
             let start = this.props.content.start
             let waypoints = this.state.waypoints
@@ -406,8 +407,8 @@ class RideEdit extends React.Component {
             }
 
             if (this.state.map.getSource("markers" + `${j}`)) {
-                this.state.map.removeSource("markers" + `${j}`)
                 this.state.map.removeLayer("markers" + `${j}`)
+                this.state.map.removeSource("markers" + `${j}`)
             }
             // this.state.map.removeLayer("markers" + `${j + 1}`)
 
