@@ -3,10 +3,6 @@ import ReviewShowItem from "./reviewShowItem"
 
 class ReviewShow extends React.Component {
 
-  constructor(props){
-    super(props)
-  }
-
   componentDidMount() {
       this.props.fetchReviews(this.props.rideId)
   }

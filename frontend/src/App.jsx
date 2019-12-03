@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import './App.css'
 
@@ -19,36 +17,19 @@ import './css/review.css'
 import './css/rideCreateComp.css'
 
 import { Route, Switch} from "react-router-dom";
-
-import { AuthRoute, ProtectedRoute } from "./util/route_util";
+import { AuthRoute } from "./util/route_util";
 import SplashContainer from "./components/splash/splash_container";
 import NavbarContainer from "./components/navBar/navbar_container";
 import Modal from "./components/modal/modal";
 import contentPageContainer from "./components/contentPage/contentPage_container";
 import rideCreateContainer from "./components/rideCreateEdit/rideCreateContainer";
 
-// const path = require("path");
-
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("frontend/build"));
-//   app.get("/", (req, res) => {
-//     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-//   });
-// }
-
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+  
   render() {
-    
-
     let varbackgroundImage;
     let setting;
-
-   
     
       varbackgroundImage = {
         backgroundImage:

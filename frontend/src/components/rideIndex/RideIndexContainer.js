@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import rideIndex from "./RideIndex";
 import { fetchRides } from "../../actions/ride_actions";
-import { openModal, closeModal } from "../../actions/modal_actions";
+import { openModal } from "../../actions/modal_actions";
 import {postReview, fetchReviews, deleteReview} from "../../actions/review_actions"
 
 
@@ -21,7 +21,6 @@ const mapDispatchToProps = dispatch => ({
   postReview: (review) => dispatch(postReview(review)),
   fetchReviews: (rideId)=> dispatch(fetchReviews(rideId)),
   deleteReview: (reviewId) => dispatch(deleteReview(reviewId))
-  // closeModal: () => dispatch(closeModal()),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(rideIndex));

@@ -2,11 +2,8 @@ import React from "react";
 
 
 class Splash extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
-  onEnter= () =>{
+  onEnter = () => {
       this.props.history.push("/content");
 
   }

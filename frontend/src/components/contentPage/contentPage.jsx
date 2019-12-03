@@ -3,9 +3,6 @@ import RideIndexContainer from "../rideIndex/RideIndexContainer";
 
 
 class contentPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
         this.props.closeModal()

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -12,9 +12,6 @@ class Navbar extends React.Component {
   };
 
   render() {
-    // const location = this.props.location.pathname;
-    let pathWay = "";
-    let buttonDisplay = "";
     let bottomBorder = "";
     let animation = "bouncy";
 

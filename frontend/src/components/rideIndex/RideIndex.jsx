@@ -5,7 +5,8 @@ import SearchBarContainer from '../searchBar/searchBarContainer'
 class RideIndex extends React.Component {
 
   componentDidMount() {
-    this.props.fetchRides();
+    // was fetching rides here, but moved this action to search bar
+    // this.props.fetchRides();
   }
 
   render() {
