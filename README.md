@@ -6,53 +6,90 @@
 ## Description
 Ride is a web application targeting the motorcycling enthusiast community.  The common theme between all motorcyclists is the "Ride", that stretch of ride that has the right amount of curves, the best views, the fast straightaways, and, of course, the burger joint to finish it all.  Ride, the web app, allows a user to record a ride on a map and peruse all saved rides.  Have a great idea for a ride? Use the "post" a ride feature to share it with your moto-brothers.  Don't know where to go this next Saturday?  Stop by Ride, and find your next adventure.  Have a comment on an existing ride?  Leave the community your nugget of wisdom in a ride review.  Our aim is to enhance the enjoyment of two wheeled riding everywhere!
 <br></br>
-Ride is a full stack, single page application.  In its construction, we've used __MongoDB__ accessed through __Mongoose__ and __Express__. __React__ and __Redux__ complete the application on the frontend.
+Ride is a full stack, single page application.  In its construction, we've used __MongoDB__ accessed through __Mongoose__ and __Express__. __React__ and __Redux__ complete the application on the frontend.  Other technologies include __BCrypt__ for password hashing and the __MapboxGL API__ for all map related functionality.
 
 
 ## Key Features
   * Secure frontend to backend user authentication using json webtoken.
-  * All rides are displayed after login, in an easy-to-view format.
+  * All rides are displayed after login, in an easy-to-view, ride tile format.
   * Visitors and users alike may peruse the rides on the website.
   * A search bar allows for search on ride titles, e.g "san francisco" turns up all rides with "San Francisco" in the title, case insensitive.
   * Users can create, read, update and delete rides; users can create, read and update reviews.
+  * Users can rate rides and average ratings for a ride are displayed on each ride tile.
   
 ## Select Screenshots
-The note tile contains a title, body, any labels assigned to the note, and two action icons.  The two action icons include a tag, which will allow for label assignment and/or creation, and a trashcan, which will delete the note.<br></br>
-<img src="https://sk-github-screenshots.s3-us-west-1.amazonaws.com/Screen+Shot+2019-11-15+at+10.31.09+AM.png" /><br></br>
-The "virtual wall" of notes.<br></br>
-<img src="https://sk-github-screenshots.s3-us-west-1.amazonaws.com/Screen+Shot+2019-11-15+at+11.25.36+AM.png" /><br></br>
-Searching for notes that contain the "camping" text string (case-insensitive search):<br></br>
-<img src="https://sk-github-screenshots.s3-us-west-1.amazonaws.com/Screen+Shot+2019-11-15+at+11.28.58+AM.png" /><br></br>
+Our users are greeted by images of Joaquin Phoenix's legendary ride in the critically acclaimed movie "The Master".<br></br>
+<img src="https://sk-github-screenshots.s3-us-west-1.amazonaws.com/ride_splash.png" /><br></br>
+The main page of the app is an index of all the rides.<br></br>
+<img src="https://sk-github-screenshots.s3-us-west-1.amazonaws.com/ride_index.png" /><br></br>
+The image below shows a user searching for rides that contain the "skyline" text string (case-insensitive search).  You haven't ridden the Bay Area if you haven't done Skyline Blvd<br></br>
+<img src="https://sk-github-screenshots.s3-us-west-1.amazonaws.com/ride_search.png" /><br></br>
+Creating a ride is simple, and the app guides you through the process.  First, fill out the text data:<br></br>
+<img src="https://sk-github-screenshots.s3-us-west-1.amazonaws.com/ride_create.png" /><br></br>
+And then click on the map to create waypoints.<br></br>
+<img src="https://sk-github-screenshots.s3-us-west-1.amazonaws.com/ride_create2.png" /><br></br>
+There's much more to the app, so be sure to visit and take the demo account for a test ride!
 
 ## Select Code Snippets
-The following is the quick snippet showing the code to 'show' a note.  This code stores the note id in a slice of state and opens a modal.
+User authentication does not store the user's password, but rather a password digest:
 ```
-showNote(e) {
-    this.props.receiveCurrentNoteId(this.props.note.id);
-    this.props.openModal('editNoteForm');
+bcrypt.genSalt(10, (err, salt) => {
+                    bcrypt.hash(newUser.password, salt, (err, hash) => {
+                        if (err) throw err;
+                        newUser.password = hash;
+                        newUser.save()
+                            .then(user => {
+                                const payload = {
+                                    id: user.id,
+                                    email: user.email,
+                                    username: user.username,
+                                    location: user.location
+                                }
+```
+Ride data is stored a mongoDB backend, routed there using Express, through a set of friendly validations:
+```
+router.post('/', (req, res) => {
+
+  const { errors, isValid } = validateRideInput(req.body);
+  
+    if (!isValid) {
+      return res.status(404).json(errors);
+  }
+
+
+```
+The single page app makes use of a React and Redux front end, with a number of components, including the searchbar:
+```
+  render() {
+    return (
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Search"
+          onChange={this.filterFunc}
+        />
+    );
   }
 ```
-The modal, and its contents, are displayed in a keyframes animation:
+We've taken care in the styling of the website, to give it a clean, intuitive and seamless feel.  Styling of the ride create / update buttons was a concern.  We wanted the app to have smooth transitions to new functionality, as evident in this CSS transition:
 ```
-@keyframes modalAppear { 
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+.button-tray {
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    height: 0px;
+    transition: height .5s;
+    z-index: 1;
 }
-```
-The user clicks on a button with text of "close" to close and save the note.
-```
-    <button
-        className="note-update-button"
-         onClick={this.handleSubmit}>
-         Close
-    </button>
 ```
 
 ## Key Technologies
-  * PostGreSQL
-  * Ruby on Rails
-  * React-Redux
+  * React
+  * Redux
+  * Express
+  * Mongoose
+  * MongoDb
+  * MapboxGL
 
 ## Future Implementations
-The development roadmap for keeper includes some form of media attachment to a note.  Users will be able to attach a photo, describe it, and view it, along with text, on the virtual wall of notes.  Additionally, I plan to add collaboration, where a user can give another user read/write access to a note.  In this way, a note can be shared between two users and modified by either user.
-
+The development roadmap for Ride includes some form of photo attachment to a ride.  Outside of the text fields and the actual map of the ride, a user might want to post a picture of a critical juncture or turn in the route, or a beautiful vista which really distinguishes the ride.
