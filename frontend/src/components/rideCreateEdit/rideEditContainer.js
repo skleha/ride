@@ -1,7 +1,10 @@
 
 import { connect } from "react-redux";
+
 import { createRide, deleteRide,fetchRides } from "../../actions/ride_actions";
 import RideCreateEdit from "./rideCreateEdit";
+
+
 import { openModal, closeModal } from "../../actions/modal_actions";
 
 
@@ -13,4 +16,4 @@ const mapDispatchToProps = dispatch => ({
     fetchRides: () => dispatch(fetchRides())
 });
 
-export default connect(null, mapDispatchToProps)(RideCreateEdit);
+export default connect(null, mapDispatchToProps)(RideEdit);

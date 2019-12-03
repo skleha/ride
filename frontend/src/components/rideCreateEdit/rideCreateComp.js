@@ -283,6 +283,7 @@ class NewMap extends React.Component {
     handleSubmit() {
         
         let destination = this.state.waypoints.pop()
+        this.state.markers.pop()
         
         this.setState({
             destination: destination,
