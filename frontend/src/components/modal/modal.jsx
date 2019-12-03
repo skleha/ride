@@ -30,9 +30,9 @@ function Modal({ modal, content, closeModal }) {
         component = <RideCreateMapContainer content={content}/>;
       break;
     case "2ndEditPostForm":
-      component = <RideEditTestContainer content={content} closeModal={closeModal} />;
+      component = <RideEditContainer content={content} closeModal={closeModal} />;
       break
-  
+
     // case 'signup':
     //   component = <SignupFormContainer />;
     //   break;
