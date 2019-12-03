@@ -502,41 +502,45 @@ class RideEdit extends React.Component {
     }
 
     render() {
-        debugger
+        
         let display;
         if (this.state.waypoints.length > 0) {
             display = (
-                <div>
                     <ul>
                         {this.state.waypoints.map((wp) => (
 
-                            <li>
+                            <li className="ride-create-map-li">
                                 <p>Waypoint: {this.state.waypoints.indexOf(wp) + 1}</p>
-                                <button value={`${this.state.waypoints.indexOf(wp)}`} onClick={this.handleButtonDelete}>Remove Waypoint</button>
+                                <button value={`${this.state.waypoints.indexOf(wp)}`} onClick={this.handleButtonDelete}>Remove</button>
                             </li>
 
                         ))}
                     </ul>
-                    {/* <button onClick={this.handleMarker}>Delete</button> */}
-                </div>
             )
         } else {
             display = null
         }
 
-
-
         return (
-            <div className="ride-create-edit-map-button-container">
-                <div
-                    className="ride-create-edit-map"
-                    id="map"
-                    ref={el => (this.mapContainer = el)}
-                    style={{ height: "550px", width: "725px" }}
-                ></div>
-                <div>{display}</div>
-                <button className="ride-create-edit-map-button" onClick={this.handleSubmit}>Update Ride!</button>
+          <div className="ride-create-container">
+            <div
+              className="ride-create-map"
+              id="map"
+              ref={el => (this.mapContainer = el)}
+            ></div>
+
+            <div className="ride-create-waypoints-and-button">
+              
+              {display}
+
+              <button
+                className="ride-create-button"
+                onClick={this.handleSubmit}>
+                Update Ride!
+              </button>
+
             </div>
+          </div>
         );
     }
 

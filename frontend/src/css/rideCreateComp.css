@@ -12,7 +12,7 @@
 .ride-create-waypoints-and-button {
   background-color: #AC906C;
   width: 195px;
-  border-radius: 0px 5px 5px 5px;
+  border-radius: 0px 5px 5px 0px;
 }
 
 .ride-create-waypoints-and-button > ul {
