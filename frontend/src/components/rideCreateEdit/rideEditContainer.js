@@ -1,7 +1,10 @@
 
 import { connect } from "react-redux";
-import { createRide } from "../../actions/ride_actions";
-import RideEdit from "./rideEdit";
+
+import { createRide, deleteRide,fetchRides } from "../../actions/ride_actions";
+import RideCreateEdit from "./rideCreateEdit";
+
+
 import { openModal, closeModal } from "../../actions/modal_actions";
 
 
@@ -9,7 +12,8 @@ const mapDispatchToProps = dispatch => ({
     createRide: ride => dispatch(createRide(ride)),
     activateModal: (action, id) => dispatch(openModal(action, id)),
     closeModal: () => dispatch(closeModal()),
-
+    deleteRide: (rideId) => dispatch(deleteRide(rideId)),
+    fetchRides: () => dispatch(fetchRides())
 });
 
 export default connect(null, mapDispatchToProps)(RideEdit);
