@@ -6,6 +6,7 @@ import LogInContainer from "../loginForm/loginForm_container"
 import RideCreateContainer from "../rideCreateEdit/rideCreateContainer";
 import RideCreateMapContainer from "../rideCreateEdit/rideCreateMapContainer";
 import RideEditContainer from "../rideCreateEdit/rideEditContainer";
+import RideEdit from '../rideCreateEdit/rideEdit'
 
 
 function Modal({ modal, content, closeModal }) {
@@ -30,7 +31,7 @@ function Modal({ modal, content, closeModal }) {
         component = <RideCreateMapContainer content={content}/>;
       break;
     case "2ndEditPostForm":
-      component = <RideEditContainer content={content} closeModal={closeModal} />;
+      component = <RideEdit content={content} closeModal={closeModal} />;
       break
 
     // case 'signup':

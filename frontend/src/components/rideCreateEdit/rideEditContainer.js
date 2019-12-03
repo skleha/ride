@@ -16,4 +16,4 @@ const mapDispatchToProps = dispatch => ({
     fetchRides: () => dispatch(fetchRides())
 });
 
-export default connect(null, mapDispatchToProps)(RideEdit);
+export default connect(null, mapDispatchToProps)(RideCreateEdit);

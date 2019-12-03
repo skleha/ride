@@ -156,7 +156,7 @@ class RideIndexItem extends React.Component {
         className={`ride-index-item-button ${this.state.button2Show}`}
         onClick={() => this.props.activateModal('loginUser', null)}
       >
-        Login First!
+        Login First
       </div>
     );
   }
@@ -165,7 +165,7 @@ class RideIndexItem extends React.Component {
     button2 = (
       <div
         className={`ride-index-item-button ${this.state.button2Show}`}
-        onClick={() => this.props.activateModal("2ndEditPostForm", this.props.ride, null)}
+        onClick={() => this.props.activateModal("rideEdit", this.props.ride, null)}
       >
         Edit Ride
       </div>
