@@ -1,12 +1,7 @@
-
 import React from 'react';
-import sampleMap from '../../sample-map.jpg';
 import Map from './map'
-class RideShow extends React.Component {
 
-  constructor(props){
-    super(props);
-  }
+class RideShow extends React.Component {
 
   render() {
     const { ride } = this.props

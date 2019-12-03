@@ -1,6 +1,4 @@
 import * as APIUtil from "../util/ride_api_util";
-import {closeModal} from '../actions/modal_actions';
-
 export const RECEIVE_ALL_RIDES = "RECEIVE_ALL_RIDES";
 export const RECEIVE_RIDE = "RECEIVE_RIDE";
 export const REMOVE_RIDE = "REMOVE_RIDE";

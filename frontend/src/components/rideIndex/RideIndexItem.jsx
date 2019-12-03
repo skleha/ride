@@ -1,10 +1,8 @@
 import React from 'react';
-import RideShow from "../rideShow/rideShow"
 import ReviewShow from "../reviewShow/reviewShow"
 import ReviewForm from "../reviewForm/reviewForm"
 import RideShowContainer from '../rideShow/rideShowContainer';
 import StarRatingComponent from 'react-star-rating-component'
-var polyline = require("@mapbox/polyline");
 
 
 class RideIndexItem extends React.Component {
@@ -34,13 +32,7 @@ class RideIndexItem extends React.Component {
 
   componentDidMount() {
     let destination = this.props.ride.destination.split("%2C%20").map(el => Number(el));
-    let geojson = {
-      "type": "Feature",
-      "geometry": this.props.ride.polyline,
-      "properties": {}
-    }
-    let encoded = polyline.fromGeoJSON(geojson);
-
+    
     fetch(`https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-a+000(${this.props.ride.start[0]},${this.props.ride.start[1]}),pin-s-b+F00(${destination[0]},${destination[1]})/auto/300x300?access_token=pk.eyJ1IjoicHJvc2UwMDIxIiwiYSI6ImNrMzZoYWdidTAxcm8zaW82MW5jZmV6c2EifQ.PRbSpg500wqcoctnYFTIog`)
       .then( res => {
         this.setState({ sampleMap: res.url })

@@ -1,7 +1,5 @@
-import axios from "axios";
 import React from "react";
 var mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
-var polyline = require("@mapbox/polyline");
 
 class Map extends React.Component {
   constructor(props) {

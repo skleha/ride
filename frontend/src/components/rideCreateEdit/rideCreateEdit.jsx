@@ -1,5 +1,4 @@
 import React from "react";
-import sampleMap from "../../sample-map.jpg";
 import StarRatingComponent from "react-star-rating-component";
 
 

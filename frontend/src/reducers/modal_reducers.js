@@ -5,7 +5,7 @@ export default function modalReducer(
   action
 ) {
   Object.freeze(state);
-  let newState = Object.assign({}, state);
+  // let newState = Object.assign({}, state);
   // let newState=({...state})
   switch (action.type) {
     case OPEN_MODAL:
