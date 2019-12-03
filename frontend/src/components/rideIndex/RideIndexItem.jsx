@@ -156,7 +156,7 @@ class RideIndexItem extends React.Component {
         className={`ride-index-item-button ${this.state.button2Show}`}
         onClick={() => this.props.activateModal('loginUser', null)}
       >
-        Login First!
+        Login First
       </div>
     );
   }
