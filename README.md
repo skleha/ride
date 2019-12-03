@@ -8,6 +8,13 @@ Ride is a web application targeting the motorcycling enthusiast community.  The 
 <br></br>
 Ride is a full stack, single page application.  In its construction, we've used __MongoDB__, __Mongoose__ and __Express__ on the backend. __React__ and __Redux__ complete the application on the frontend.  Other technologies include __BCrypt__ for password hashing and the __MapboxGL API__ for all map related functionality.
 
+## Key Technologies
+  * React
+  * Redux
+  * Express
+  * Mongoose
+  * MongoDb
+  * MapboxGL
 
 ## Key Features
   * Secure frontend to backend user authentication using json webtoken.
@@ -82,14 +89,6 @@ We've taken care in the styling of the website, to give it a clean, intuitive an
     z-index: 1;
 }
 ```
-
-## Key Technologies
-  * React
-  * Redux
-  * Express
-  * Mongoose
-  * MongoDb
-  * MapboxGL
 
 ## Future Implementations
 The development roadmap for Ride includes some form of photo attachment to a ride.  Outside of the text fields and the actual map of the ride, a user might want to post a picture of a critical juncture or turn in the route, or a beautiful vista which really distinguishes the ride.
