@@ -32,7 +32,7 @@ class RideCreateEdit extends React.Component {
     if (this.props.formType ===  "Edit a Ride"){
       deleteButton=(
         < div
-      className = "ride-edit-create-submit die-button"
+          className= "ride-edit-create-submit die-button Clickable"
           onClick={()=>this.props.deleteRide(this.props.ride._id)
           .then(()=>this.props.closeModal())
         .then(() => this.props.fetchRides())
@@ -115,7 +115,7 @@ class RideCreateEdit extends React.Component {
             ></textarea>
             <div className= "ride-buttons-delet">
                 <div
-                  className="ride-edit-create-submit"
+              className="ride-edit-create-submit Clickable"
                   onClick={this.handleSubmit}
                 >
                   Go To Map

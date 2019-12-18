@@ -30,7 +30,7 @@ function ReviewShowItem(props){
 
     if(props.review.userId === props.currentUserId ){
         deleteButton= (
-            <button className="form-button" onClick={()=>props.deleteReview(props.review._id)}>
+            <button className="form-button Clickable" onClick={()=>props.deleteReview(props.review._id)}>
                 Delete Review
             </button>
         )

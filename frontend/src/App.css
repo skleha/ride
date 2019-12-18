@@ -452,3 +452,7 @@ textarea {
     position:relative;
     width:60px;
 }
+
+.Clickable:hover{
+    cursor: pointer;
+}
