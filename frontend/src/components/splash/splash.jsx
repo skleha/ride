@@ -14,7 +14,7 @@ class Splash extends React.Component {
         <div className="SplashMainPage">
           <div className="MainSplashWords "></div>
 
-          <div className="SplashLinkCT" onClick={this.onEnter}>
+          <div className="SplashLinkCT Clickable" onClick={this.onEnter}>
             <button className="btn draw-border">Ride On</button>
           </div>
         </div>

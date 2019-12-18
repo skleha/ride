@@ -83,7 +83,7 @@ class loginForm extends React.Component {
   render() {
     return (
       <div className="login-form-container signup-form-container">
-        <div className="DemoUserLogin" onClick={this.handleDemo}>
+        <div className="DemoUserLogin Clickable"  onClick={this.handleDemo}>
           <button>Demo User Login</button>
         </div>
         

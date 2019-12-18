@@ -21,17 +21,17 @@ class Navbar extends React.Component {
     let animation = "bouncy";
 
     let button1 = (
-      <h4 onClick={() => this.props.activateModal("signupUser", null)}>
+      <h4 className="Clickable" onClick={() => this.props.activateModal("signupUser", null)}>
         SIGN UP
       </h4>
     );
 
     let button2 = (
-      <h4 onClick={() => this.props.activateModal("loginUser", null)}>
+      <h4 className="Clickable" onClick={() => this.props.activateModal("loginUser", null)}>
         LOG IN
       </h4>
     );
-    let button3 = (<h4 onClick={this.aboutUs}>US</h4>);
+    let button3 = (<h4 className="Clickable" onClick={this.aboutUs}>US</h4>);
     let button4 = "";
 
     switch (this.props.signedIn) {
@@ -67,7 +67,8 @@ class Navbar extends React.Component {
           <div className={`MenuButtonContainer ${animation ? "bouncy" : ""}`}>
             {button2}
           </div>
-          <div className="LightingButtonContainer">{button3}</div>
+          <div className={`MenuButtonContainer ${animation ? "bouncy" : ""}`}>{button3}
+          </div>
           <div className="HomeButtonCotainer">{button4}</div>
         </div>
       </div>

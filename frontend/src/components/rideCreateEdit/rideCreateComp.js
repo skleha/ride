@@ -392,7 +392,7 @@ class NewMap extends React.Component {
                 <ul>
                     {this.state.waypoints.map((wp) => (
 
-                        <li className="ride-create-map-li">
+                        <li className="ride-create-map-li Clickable">
                             <p>Waypoint: {this.state.waypoints.indexOf(wp) + 1}</p>
                             <button value={`${this.state.waypoints.indexOf(wp)}`} onClick={this.handleButtonDelete}>Remove</button>
                         </li>

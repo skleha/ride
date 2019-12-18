@@ -128,7 +128,7 @@ class RideIndexItem extends React.Component {
     
 
   let button1 = (
-    <div className={`ride-index-item-button ${this.state.button1Show}`}
+    <div className={`ride-index-item-button ${this.state.button1Show} Clickable`}
       onClick={() => this.handleClick("showReviews")}
     >
       Show Reviews
@@ -136,7 +136,7 @@ class RideIndexItem extends React.Component {
   );
 
   let button2 = (
-    <div className={`ride-index-item-button ${this.state.button2Show}`}
+    <div className={`ride-index-item-button ${this.state.button2Show} Clickable`}
       onClick = {()=>this.handleClick("postReview")}
     >  
       {yourReview}
@@ -146,7 +146,7 @@ class RideIndexItem extends React.Component {
   if (this.props.signedIn=== false){
     button2 = (
       <div
-        className={`ride-index-item-button ${this.state.button2Show}`}
+        className={`ride-index-item-button ${this.state.button2Show} Clickable`}
         onClick={() => this.props.activateModal('loginUser', null)}
       >
         Login First
@@ -157,7 +157,7 @@ class RideIndexItem extends React.Component {
   if (this.props.currentUserId=== this.props.ride.author_id){
     button2 = (
       <div
-        className={`ride-index-item-button ${this.state.button2Show}`}
+        className={`ride-index-item-button ${this.state.button2Show} Clickable`}
         onClick={() => this.props.activateModal("rideEdit", this.props.ride, null)}
       >
         Edit Ride
@@ -172,7 +172,7 @@ class RideIndexItem extends React.Component {
 
     button3container=(
        <div
-        className={`ride-index-item-button ${this.state.button3Show}`}
+        className={`ride-index-item-button ${this.state.button3Show} Clickable`}
         onClick={this.closeRideShow}
       >
         Collapse
@@ -277,7 +277,7 @@ class RideIndexItem extends React.Component {
 
     return (
       <li
-        className="ride-index-item"
+        className="ride-index-item Clickable"
         onClick={this.openRideShow}
       >
         
