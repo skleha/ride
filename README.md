@@ -6,6 +6,8 @@
 ## Description
 Ride is a web application targeting the motorcycling enthusiast community.  The common theme between all motorcyclists is the "Ride", that stretch of road that has the right amount of curves, the best views, the fast straightaways, and, of course, the burger joint to finish it all.  Ride, the web app, allows a user to record a ride on a map and peruse all saved rides.  Have a great idea for a ride? Use the "post" a ride feature to share it with your moto-brothers and sisters.  Don't know where to go this next Saturday?  Stop by Ride and find your next adventure.  Have a comment on an existing ride?  Leave the community your nugget of wisdom in a ride review.  Our aim is to enhance the enjoyment of two wheeled riding everywhere.
 <br></br>
+![demo](https://media.giphy.com/media/WsWrsfak5tUB52O1B4/giphy.gif)<br>
+<br>
 Ride is a full stack, single page application.  In its construction, we've used __MongoDB__, __Mongoose__ and __Express__ on the backend. __React__ and __Redux__ complete the application on the frontend.  Other technologies include __BCrypt__ for password hashing and the __MapboxGL API__ for all map related functionality.
 
 ## Key Technologies
