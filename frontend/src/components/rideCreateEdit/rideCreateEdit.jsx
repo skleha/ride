@@ -24,8 +24,7 @@ class RideCreateEdit extends React.Component {
 
   handleSubmit(e) {
     let data = this.state
-    debugger
-    if(this.state.start_city === ""){
+    if (this.state.start_city === "") {
       data.start_city = "San Francisco"
     }
     this.props.formType === "Edit a Ride" ? this.props.activateModal("2ndEditPostForm", data) : this.props.activateModal("2ndPostForm", data)
