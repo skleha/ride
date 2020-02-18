@@ -382,9 +382,9 @@ class RideEdit extends React.Component {
                 marker.push(this.state.markers[j])
             }
 
-            if (this.state.map.getSource("markers" + `${j}`)) {
-                this.state.map.removeLayer("markers" + `${j}`)
-                this.state.map.removeSource("markers" + `${j}`)
+            if (this.state.map.getSource(`markers${j}`)) {
+                this.state.map.removeLayer(`markers${j}`)
+                this.state.map.removeSource(`markers${j}`)
             }
         }
         this.state.map.removeLayer("markers" + `${idx}`)
