@@ -48,6 +48,8 @@ class RideCreateEdit extends React.Component {
 
     }
 
+    
+
     return (
       
         <div className="ride-create-edit-form">

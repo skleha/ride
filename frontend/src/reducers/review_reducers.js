@@ -1,5 +1,5 @@
 import { RECEIVE_REVIEW, RECEIVE_RIDE_REVIEWS, REMOVE_REVIEW } from '../actions/review_actions';
-
+//j
 const ReviewReducer = ( state ={}, action)=>{
     Object.freeze(state);
     let newState = Object.assign({},state)
